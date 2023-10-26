@@ -6,9 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>spring</title>
+<title>AP.4</title>
 
-<jsp:include page="/WEB-INF/views/layout/staticHeader.jsp"/>
 
 </head>
 <body>
@@ -20,7 +19,7 @@
 <main>
 	<div class="container body-container">
 	    <div class="inner-page mx-auto">
-			메인 화면 입니다.
+			<br><br><br><br><br><br>메인화면 입니다.<br><br><br><br><br><br>
 	    </div>
 	</div>
 </main>
@@ -29,5 +28,5 @@
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </footer>
 
-<jsp:include page="/WEB-INF/views/layout/staticFooter.jsp"/></body>
+
 </html>
