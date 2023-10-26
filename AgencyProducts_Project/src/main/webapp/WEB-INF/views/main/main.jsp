@@ -19,7 +19,7 @@
 <main>
 	<div class="container body-container">
 	    <div class="inner-page mx-auto">
-			<br><br><br><br><br><br>메인화면 입니다.<br><br><br><br><br><br>
+			<br><br><br><br><br><br>메인화면 입니다.<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	    </div>
 	</div>
 </main>

@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    color: #222;
+    color: #333;
 }
 
 ol, ul {
@@ -41,15 +41,17 @@ header .header .left_header {
 
 header .header .left_header .logo {
     padding-top: 8px;
+    margin-right: 20px;
 }
-header .header .left_header .navi { 
+
+header .header .left_header .navi {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.header .navi li:first-child a {
-    padding-left: 20px;
+header .header .left_header .navi li {
+    width: 130px;
 }
 
 .header .navi li a {
@@ -57,8 +59,26 @@ header .header .left_header .navi {
     color: #fff;
     font-size: 18px;
     font-weight: 700;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+header .header .left_header .navi .sub_menu {
+    position: absolute;
+    z-index: 200;
+    top: 120px;
+    background-color: #fff;
+}
+
+header .header .left_header .navi .sub_menu li a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #999;
+    text-align: center;
+}
+
+header .header .left_header .navi .sub_menu li:hover a  {
+    color: #333;
 }
 
 .header .right_header .icons {
@@ -74,6 +94,7 @@ header .header .left_header .navi {
 .header .right_header .icons li a {
     display: block;
 }
+
 
 
 
