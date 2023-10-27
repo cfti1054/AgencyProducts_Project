@@ -63,19 +63,19 @@
 					<c:choose>
 						<c:when test="${empty sessionScope.member}">
 							<!--로그인 전-->
-		                    <li><a href="${pageContext.request.contextPath}/form/login.do"><i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;"></i></a></li>
-		                    <li><a href="#"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i></a></li>
+		                    <li><a href="${pageContext.request.contextPath}/form/login.do" title="로그인"><i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;"></i></a></li>
+		                    <li><a href="#" title="회원가입"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i></a></li>
 						</c:when>
 						<c:when test="${sessionScope.member.userId == 'admin'}">
 							<!--관리자 모드-->
-		                    <li><a href="#"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a></li>
+		                    <li><a href="${pageContext.request.contextPath}/form/logout.do" title="로그아웃"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a></li>
 		                    <li><a href="#"><i class="fa-solid fa-gear" style="color: #ffffff;"></i></a></li>
 					
 						</c:when>
 						
 						<c:otherwise>
 							<!--로그인 후-->
-		                    <li><a href="#"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a></li>
+		                    <li><a href="${pageContext.request.contextPath}/form/logout.do" title="로그아웃"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a></li>
 		                    <li><a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></li>
 						</c:otherwise>
 					</c:choose>
