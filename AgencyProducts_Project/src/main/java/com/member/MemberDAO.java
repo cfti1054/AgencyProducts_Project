@@ -12,6 +12,7 @@ public class MemberDAO {
 	private Connection conn = DBConn.getConnection();
 	
 	public MemberDTO loginMember(String userId, String userPwd) {
+		// 로그인
 		MemberDTO dto = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -20,7 +21,7 @@ public class MemberDAO {
 		try {
 			sql = " SELECT user_id, user_name, user_pwd"
 					+ " FROM user1"
-					+ " WHERE user_id = ? and user_pwd = ? ";
+					+ " WHERE enabled = 1 and user_id = ? and user_pwd = ? ";
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -47,59 +48,39 @@ public class MemberDAO {
 	}	
 
 	public void insertMember(MemberDTO dto) throws SQLException {
+		// 회원가입
 		PreparedStatement pstmt = null;
 		String sql;
 		
 		try {
 			conn.setAutoCommit(false);
 			
-			sql = "INSERT INTO member1(userId, userPwd, userName, enabled, register_date, modify_date) VALUES (?, ?, ?, 1, SYSDATE, SYSDATE)";
+			sql = "INSERT INTO user1(user_id, user_name, user_pwd, enabled) VALUES (?, ?, ?, 1)";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, dto.getUser_id());
-			pstmt.setString(2, dto.getUser_pwd());
-			pstmt.setString(3, dto.getUser_name());
+			pstmt.setString(2, dto.getUser_name());
+			pstmt.setString(3, dto.getUser_pwd());
 			
 			pstmt.executeUpdate();
 			
 			pstmt.close();
 			pstmt = null;
 			
-			sql = "INSERT INTO member2(userId, birth, email, tel, zip, addr1, addr2) VALUES (?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, ?, ?, ?)";
+			sql = "INSERT INTO user2(user_id, birth, zip, addr1, addr2, tel, email, reg_date)"
+					+ " VALUES (?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, ?, ?, ?, SYSDATE)";
 			pstmt=conn.prepareStatement(sql);
 			
 			pstmt.setString(1, dto.getUser_id());
 			pstmt.setString(2, dto.getBirth());
-			pstmt.setString(3, dto.getEmail());
-			pstmt.setString(4, dto.getTel());
-			pstmt.setString(5, dto.getZip());
-			pstmt.setString(6, dto.getAddr1());
-			pstmt.setString(7, dto.getAddr2());
+			pstmt.setString(3, dto.getZip());
+			pstmt.setString(4, dto.getAddr1());
+			pstmt.setString(5, dto.getAddr2());
+			pstmt.setString(6, dto.getTel());
+			pstmt.setString(7, dto.getEmail());
 			
 			pstmt.executeUpdate();
 			
-			/*
-		    sql = "INSERT ALL "
-		    	+ " INTO member1(userId, userPwd, userName, enabled, register_date, modify_date) VALUES(?, ?, ?, 1, SYSDATE, SYSDATE) "
-		    	+ " INTO member2(userId, birth, email, tel, zip, addr1, addr2) VALUES (?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, ?, ?, ?) "
-		    	+ " SELECT * FROM dual";
-		    
-		    pstmt = conn.prepareStatement(sql);
-		    
-			pstmt.setString(1, dto.getUserId());
-			pstmt.setString(2, dto.getUserPwd());
-			pstmt.setString(3, dto.getUserName());            
-		    
-			pstmt.setString(4, dto.getUserId());
-			pstmt.setString(5, dto.getBirth());
-			pstmt.setString(6, dto.getEmail());
-			pstmt.setString(7, dto.getTel());
-			pstmt.setString(8, dto.getZip());
-			pstmt.setString(9, dto.getAddr1());
-			pstmt.setString(10, dto.getAddr2());
-			
-			pstmt.executeUpdate();
-		*/			
 			conn.commit();
 
 		} catch (SQLException e) {

@@ -111,7 +111,7 @@ public class MemberServlet extends MyServlet {
 		req.setAttribute("title", "회원 가입");
 		req.setAttribute("mode", "member");
 
-		forward(req, resp, "/WEB-INF/views/member/member.jsp");
+		forward(req, resp, "/WEB-INF/views/form/member.jsp");
 	}
 
 	protected void memberSubmit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -130,6 +130,8 @@ public class MemberServlet extends MyServlet {
 			dto.setUser_id(req.getParameter("user_id"));
 			dto.setUser_pwd(req.getParameter("user_pwd"));
 			dto.setUser_name(req.getParameter("user_name"));
+			
+			dto.setBirth(req.getParameter("birth"));
 
 			String email1 = req.getParameter("email1");
 			String email2 = req.getParameter("email2");
@@ -166,7 +168,7 @@ public class MemberServlet extends MyServlet {
 		req.setAttribute("mode", "member");
 		req.setAttribute("message", message);
 		
-		forward(req, resp, "/WEB-INF/views/member/member.jsp");
+		forward(req, resp, "/WEB-INF/views/form/member.jsp");
 	}
 
 	protected void pwdForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
