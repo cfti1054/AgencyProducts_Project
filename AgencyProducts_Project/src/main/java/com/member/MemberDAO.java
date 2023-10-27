@@ -20,7 +20,7 @@ public class MemberDAO {
 		try {
 			sql = " SELECT user_id, user_name, user_pwd"
 					+ " FROM user1"
-					+ " WHERE enabled = 1 and user_id = ? and user_pwd = ? ";
+					+ " WHERE user_id = ? and user_pwd = ? ";
 			
 			pstmt = conn.prepareStatement(sql);
 			
