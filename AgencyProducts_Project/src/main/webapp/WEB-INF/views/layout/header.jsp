@@ -32,7 +32,7 @@
                         </li>
                         <li><a href="#">GOODS</a>
                             <ul class="sub_menu">
-                                <li><a href="#">굿즈</a></li>
+                                <li><a href="${pageContext.request.contextPath}/goods/goods.do">굿즈</a></li>
                             </ul>
                         </li>
                         <li><a href="#">CATEGORY</a>
@@ -64,7 +64,7 @@
 						<c:when test="${empty sessionScope.member}">
 							<!--로그인 전-->
 		                    <li><a href="${pageContext.request.contextPath}/form/login.do" title="로그인"><i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;"></i></a></li>
-		                    <li><a href="${pageContext.request.contextPath}/form/member.do" title="회원가입"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i></a></li>
+		                    <li><a href="#" title="회원가입"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i></a></li>
 						</c:when>
 						<c:when test="${sessionScope.member.userId == 'admin'}">
 							<!--관리자 모드-->
