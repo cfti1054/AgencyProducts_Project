@@ -18,9 +18,9 @@ public class MemberDAO {
 		String sql;
 		
 		try {
-			sql = " SELECT userId, userName, userPwd, register_date, modify_date "
-					+ " FROM member1"
-					+ " WHERE userId = ? AND userPwd = ? AND enabled = 1";
+			sql = " SELECT user_id, user_name, user_pwd"
+					+ " FROM user1"
+					+ " WHERE enabled = 1 and user_id = ? and user_pwd = ? ";
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -32,11 +32,9 @@ public class MemberDAO {
 			if(rs.next()) {
 				dto = new MemberDTO();
 				
-				dto.setUserId(rs.getString("userId"));
-				dto.setUserPwd(rs.getString("userPwd"));
-				dto.setUserName(rs.getString("userName"));
-				dto.setRegister_date(rs.getString("register_date"));
-				dto.setModify_date(rs.getString("modify_date"));
+				dto.setUser_id(rs.getString("user_id"));
+				dto.setUser_pwd(rs.getString("user_pwd"));
+				dto.setUser_name(rs.getString("user_name"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -58,9 +56,9 @@ public class MemberDAO {
 			sql = "INSERT INTO member1(userId, userPwd, userName, enabled, register_date, modify_date) VALUES (?, ?, ?, 1, SYSDATE, SYSDATE)";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, dto.getUserId());
-			pstmt.setString(2, dto.getUserPwd());
-			pstmt.setString(3, dto.getUserName());
+			pstmt.setString(1, dto.getUser_id());
+			pstmt.setString(2, dto.getUser_pwd());
+			pstmt.setString(3, dto.getUser_name());
 			
 			pstmt.executeUpdate();
 			
@@ -70,7 +68,7 @@ public class MemberDAO {
 			sql = "INSERT INTO member2(userId, birth, email, tel, zip, addr1, addr2) VALUES (?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, ?, ?, ?)";
 			pstmt=conn.prepareStatement(sql);
 			
-			pstmt.setString(1, dto.getUserId());
+			pstmt.setString(1, dto.getUser_id());
 			pstmt.setString(2, dto.getBirth());
 			pstmt.setString(3, dto.getEmail());
 			pstmt.setString(4, dto.getTel());
@@ -145,12 +143,11 @@ public class MemberDAO {
 			if(rs.next()) {
 				dto = new MemberDTO();
 				
-				dto.setUserId(rs.getString("userId"));
-				dto.setUserPwd(rs.getString("userPwd"));
-				dto.setUserName(rs.getString("userName"));
+				dto.setUser_id(rs.getString("user_id"));
+				dto.setUser_pwd(rs.getString("user_pwd"));
+				dto.setUser_name(rs.getString("user_name"));
 				dto.setEnabled(rs.getInt("enabled"));
-				dto.setRegister_date(rs.getString("register_date"));
-				dto.setModify_date(rs.getString("modify_date"));
+				dto.setReg_date(rs.getString("reg_date"));
 				dto.setBirth(rs.getString("birth"));
 				dto.setTel(rs.getString("tel"));
 				if(dto.getTel() != null) {
@@ -191,8 +188,8 @@ public class MemberDAO {
 			sql = "UPDATE member1 SET userPwd=?, modify_date=SYSDATE  WHERE userId=?";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, dto.getUserPwd());
-			pstmt.setString(2, dto.getUserId());
+			pstmt.setString(1, dto.getUser_pwd());
+			pstmt.setString(2, dto.getUser_id());
 			
 			pstmt.executeUpdate();
 			
@@ -208,7 +205,7 @@ public class MemberDAO {
 			pstmt.setString(4, dto.getZip());
 			pstmt.setString(5, dto.getAddr1());
 			pstmt.setString(6, dto.getAddr2());
-			pstmt.setString(7, dto.getUserId());
+			pstmt.setString(7, dto.getUser_id());
 			
 			pstmt.executeUpdate();
 

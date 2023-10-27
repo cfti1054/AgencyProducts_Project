@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.util.MyServlet;
 
-@WebServlet("/member/*")
+@WebServlet("/form/*")
 public class MemberServlet extends MyServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -45,7 +45,7 @@ public class MemberServlet extends MyServlet {
 
 	protected void loginForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 로그인 폼
-		String path = "/WEB-INF/views/member/login.jsp";
+		String path = "/WEB-INF/views/form/login.jsp";
 		forward(req, resp, path);
 	}
 
@@ -62,10 +62,10 @@ public class MemberServlet extends MyServlet {
 			return;
 		}
 
-		String userId = req.getParameter("userId");
-		String userPwd = req.getParameter("userPwd");
+		String user_id = req.getParameter("user_id");
+		String user_pwd = req.getParameter("user_pwd");
 
-		MemberDTO dto = dao.loginMember(userId, userPwd);
+		MemberDTO dto = dao.loginMember(user_id, user_pwd);
 		if (dto != null) {
 			// 로그인 성공 : 로그인정보를 서버에 저장
 			// 세션의 유지시간을 20분설정(기본 30분)
@@ -73,8 +73,8 @@ public class MemberServlet extends MyServlet {
 
 			// 세션에 저장할 내용
 			SessionInfo info = new SessionInfo();
-			info.setUserId(dto.getUserId());
-			info.setUserName(dto.getUserName());
+			info.setUserId(dto.getUser_id());
+			info.setUserName(dto.getUser_name());
 
 			// 세션에 member이라는 이름으로 저장
 			session.setAttribute("member", info);
@@ -88,7 +88,7 @@ public class MemberServlet extends MyServlet {
 		String msg = "아이디 또는 패스워드가 일치하지 않습니다.";
 		req.setAttribute("message", msg);
 
-		forward(req, resp, "/WEB-INF/views/member/login.jsp");
+		forward(req, resp, "/WEB-INF/views/form/login.jsp");
 	}
 
 	protected void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -127,9 +127,9 @@ public class MemberServlet extends MyServlet {
 		String message = "";
 		try {
 			MemberDTO dto = new MemberDTO();
-			dto.setUserId(req.getParameter("userId"));
-			dto.setUserPwd(req.getParameter("userPwd"));
-			dto.setUserName(req.getParameter("userName"));
+			dto.setUser_id(req.getParameter("user_id"));
+			dto.setUser_pwd(req.getParameter("user_pwd"));
+			dto.setUser_name(req.getParameter("user_name"));
 
 			String email1 = req.getParameter("email1");
 			String email2 = req.getParameter("email2");
@@ -214,9 +214,9 @@ public class MemberServlet extends MyServlet {
 				return;
 			}
 
-			String userPwd = req.getParameter("userPwd");
+			String userPwd = req.getParameter("user_pwd");
 			String mode = req.getParameter("mode");
-			if (!dto.getUserPwd().equals(userPwd)) {
+			if (!dto.getUser_pwd().equals(userPwd)) {
 				if (mode.equals("update")) {
 					req.setAttribute("title", "회원 정보 수정");
 				}
@@ -272,9 +272,9 @@ public class MemberServlet extends MyServlet {
 
 			MemberDTO dto = new MemberDTO();
 
-			dto.setUserId(req.getParameter("userId"));
-			dto.setUserPwd(req.getParameter("userPwd"));
-			dto.setUserName(req.getParameter("userName"));
+			dto.setUser_id(req.getParameter("user_id"));
+			dto.setUser_pwd(req.getParameter("user_pwd"));
+			dto.setUser_name(req.getParameter("user_name"));
 
 			String email1 = req.getParameter("email1");
 			String email2 = req.getParameter("email2");
