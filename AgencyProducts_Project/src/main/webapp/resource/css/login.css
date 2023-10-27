@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+body {
+    margin: 0;
+    color: #b9b3b3;
+    font: 600 16px/18px 'Open Sans', sans-serif;
+}
+
+*,
+:after,
+:before {
+    box-sizing: border-box;
+}
+
+.clearfix:after,
+.clearfix:before {
+    content: '';
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    max-width: 525px;
+    min-height: 670px;
+    position: relative;
+    border-radius: 40px 80px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 400px 0 rgba(0, 0, 0, 0.439);
+}
+
+.body-container {
+    width: 100%;
+    height: 100%;
+    position: center;
+    padding: 90px 70px 50px 70px;
+    border-radius: 40px 80px;
+    background: rgba(25, 25, 27, 0.9);
+}
+
+.body-title {
+    border-bottom: 2px solid #ccc;
+}
+
+.body-title h3 i {
+    color: #fff;
+    font-size: 22px;
+    margin-right: 15px;
+    padding-bottom: 5px;
+    margin: 0 15px 10px 0;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+}
+
+.body-main {
+    min-height: 345px;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.members-form {
+    margin-bottom: 15px;
+}
+
+.members-form label {
+    color: #b5b5b5;
+    font-size: 12px;
+}
+
+.members-form input[type="text"],
+.members-form input[type="password"],
+.button {
+    width: 100%;
+    color: #fff;
+    display: block;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+
+}
+
+.members-form .text-center {
+    text-align: center;
+    color: #aaa;
+    margin-top: 30px;
+}
+
+.members-message p {
+    color: #fff;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #1161ee;
+}
+
+.login-img {
+    width: 200px;
+}
+
+.button {
+    margin-top: 40px;
+    background-color: #ccc;
+    color: rgba(0, 0, 0, 0.657);
+}
+
+.login-png {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.login-png img {
+    margin-top: 20px;
+    max-width: 35px;
+}
