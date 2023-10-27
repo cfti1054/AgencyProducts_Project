@@ -64,7 +64,7 @@ function sendLogin() {
 						<button type="button" class="btn btn-primary" onclick="sendLogin();">Login</button>
 					</div>
 					<p class="text-center">
-						<a href="${pageContext.request.contextPath}/member/member.do">회원가입</a> <span>|</span>
+						<a href="${pageContext.request.contextPath}/">회원가입</a> <span>|</span>
 						<a href="${pageContext.request.contextPath}/">아이디 찾기</a> <span>|</span>
 						<a href="${pageContext.request.contextPath}/">패스워드 찾기</a>
 					</p>
@@ -79,7 +79,7 @@ function sendLogin() {
 	</div>
 	<br><br><br><br><br><br><br><br><br><br><br>
 </main>
-
+</body>
 <footer>
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 </footer>

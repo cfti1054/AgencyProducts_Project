@@ -21,19 +21,64 @@
                 </li>
                 <li>
                     <ul class="navi">
-                        <li><a href="#">COMPANY</a></li>
-                        <li><a href="#">GOODS</a></li>
-                        <li><a href="#">CATEGORY</a></li>
-                        <li><a href="#">NOTICE</a></li>
-                        <li><a href="#">CUSTOMER</a></li>
+                        <li><a href="#">COMPANY</a>
+                            <ul class="sub_menu">
+                                <li><a href="#">회사소개</a></li>
+                                <li><a href="#">대표인사말</a></li>
+                                <li><a href="#">사업현황</a></li>
+                                <li><a href="#">오시는길</a></li>
+                                <li><a href="#">공고</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">GOODS</a>
+                            <ul class="sub_menu">
+                                <li><a href="#">굿즈</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">CATEGORY</a>
+                            <ul class="sub_menu">
+                                <li><a href="#">배우</a></li>
+                                <li><a href="#">가수</a></li>
+                                <li><a href="#">모델</a></li>
+                                <li><a href="#">엔터테이너</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">NOTICE</a>
+                            <ul class="sub_menu">
+                                <li><a href="#">소식</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">CUSTOMER</a>
+                            <ul class="sub_menu">
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">1:1문의</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>
 
             <div class="right_header">
                 <ul class="icons">
-                    <li><a href="${pageContext.request.contextPath}/form/login.do"><i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;"></i></a></li>
-                    <li><a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></li>
+					<c:choose>
+						<c:when test="${empty sessionScope.member}">
+							<!--로그인 전-->
+		                    <li><a href="${pageContext.request.contextPath}/form/login.do"><i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;"></i></a></li>
+		                    <li><a href="#"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i></a></li>
+						</c:when>
+						<c:when test="${sessionScope.member.userId == 'admin'}">
+							<!--관리자 모드-->
+		                    <li><a href="#"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a></li>
+		                    <li><a href="#"><i class="fa-solid fa-gear" style="color: #ffffff;"></i></a></li>
+					
+						</c:when>
+						
+						<c:otherwise>
+							<!--로그인 후-->
+		                    <li><a href="#"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a></li>
+		                    <li><a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></li>
+						</c:otherwise>
+					</c:choose>
                 </ul>
             </div>
         </div>
