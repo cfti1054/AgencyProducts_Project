@@ -4,6 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/member.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 
 <script type="text/javascript">
 function memberOk() {
@@ -111,165 +117,150 @@ function changeEmail() {
 </header>
 	
 <main>
-<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<div class="container body-container">
 	    <div class="body-title">
-			<h2><i class="fas fa-user"></i> ${title} </h2>
+			<h3><i>${title}</i></h3>
 	    </div>
 	    
 	    <div class="body-main mx-auto">
-			<form name="memberForm" method="post">
-			<table class="table table-border table-form">
-				<tr>
-					<td>아&nbsp;이&nbsp;디</td>
-					<td>
-						<p>
-							<input type="text" name="user_id" id="user_id" maxlength="10" class="form-control" value="${dto.user_id}" 
-								style="width: 50%;" 
-								${mode=="update" ? "readonly ":""}>
-						</p>
-						<c:if test="${mode=='member'}">
-							<p class="help-block">아이디는 5~10자 이내이며, 첫글자는 영문자로 시작해야 합니다.</p>
-						</c:if>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>패스워드</td>
-					<td>
-						<p>
-							<input type="password" name="user_pwd" class="form-control" maxlength="10" style="width: 50%;" autocomplete="off">
-						</p>
-						<p class="help-block">패스워드는 5~10자 이내이며, 하나 이상의 숫자나 특수문자가 포함되어야 합니다.</p>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>패스워드 확인</td>
-					<td>
-						<p>
-							<input type="password" name="user_pwd2" class="form-control" maxlength="10" style="width: 50%;" autocomplete="off">
-						</p>
-						<p class="help-block">패스워드를 한번 더 입력해주세요.</p>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>이&nbsp;&nbsp;&nbsp;&nbsp;름</td>
-					<td>
-						<input type="text" name="user_name" maxlength="10" class="form-control" value="${dto.user_name}" style="width: 50%;" ${mode=="update" ? "readonly ":""}>
-					</td>
-				</tr>
-			
-				<tr>
-					<td>생년월일</td>
-					<td>
-						<input type="date" name="birth" class="form-control" value="${dto.birth}" style="width: 50%;">
-					</td>
-				</tr>
-			
-				<tr>
-					<td>이 메 일</td>
-					<td>
-						  <select name="selectEmail" class="form-select" onchange="changeEmail();">
+			<form class="members-form" name="memberForm" method="post">
+				<div class="row">
+					<label for="user-userId">Your ID</label>
+					<input type="text" name="user_id" id="user-userId" maxlength="10" class="form-control" style="width: 49%;" value="${dto.user_id}" 
+								${mode=="update" ? "readonly ":""} placeholder="아이디">
+				</div>
+				
+
+				<div class="row parent">
+					<div class="mapping">
+						<label for="user-password">Your Password</label>
+						<input type="password" name="user-pwd" id="user-password" class="form-control" maxlength="10"  autocomplete="off" placeholder="비밀번호">
+					
+					</div>
+					<div class="mapping">
+						<label for="user-password2">Confirm Your Password</label>
+						<input type="password" name="user-pwd2" id="user-password2" class="form-control" maxlength="10" autocomplete="off" placeholder="비밀번호 확인">
+					</div>
+				</div>
+
+				<div class="row">
+					<label for="name">Your Name</label>
+					<input type="text" name="user-name" id="name" maxlength="10" class="form-control" value="${dto.user_name}" style="width: 49%;" ${mode=="update" ? "readonly ":""} placeholder="이름">
+				</div>
+				
+				<div class="row">
+					<label for="user-Birth">Your Birth</label>
+					<input type="date" name="birth" id="user-Birth" class="form-control" value="${dto.birth}" style="width: 49%;" placeholder="생년월일">
+				</div>
+				
+				<div>
+					<div class="row">
+						<label for="selectEmail">Email</label>
+						<div class="rap">
+							<select name="selectEmail" class="form-select" onchange="changeEmail();">
 								<option value="">선 택</option>
-								<option value="naver.com"   ${dto.email2=="naver.com" ? "selected" : ""}>네이버 메일</option>
-								<option value="hanmail.net" ${dto.email2=="hanmail.net" ? "selected" : ""}>한 메일</option>
-								<option value="gmail.com"   ${dto.email2=="gmail.com" ? "selected" : ""}>지 메일</option>
-								<option value="hotmail.com" ${dto.email2=="hotmail.com" ? "selected" : ""}>핫 메일</option>
+								<option value="naver.com"   ${dto.email2=="naver.com" ? "selected" : ""}>naver.com</option>
+								<option value="hanmail.net" ${dto.email2=="hanmail.net" ? "selected" : ""}>hanmail.net</option>
+								<option value="gmail.com"   ${dto.email2=="gmail.com" ? "selected" : ""}>gmail.com</option>
+								<option value="daum.net" ${dto.email2=="daum.net" ? "selected" : ""}>daum.net</option>
+								<option value="yahoo.com" ${dto.email2=="yahoo.com" ? "selected" : ""}>yahoo.com</option>
+								<option value="nate.com" ${dto.email2=="nate.com" ? "selected" : ""}>nate.com</option>
+								<option value="icloud.com" ${dto.email2=="icloud.com" ? "selected" : ""}>icloud.com</option>
 								<option value="direct">직접입력</option>
-						  </select>
-						  <input type="text" name="email1" maxlength="30" class="form-control" value="${dto.email1}" style="width: 33%;"> @ 
-						  <input type="text" name="email2" maxlength="30" class="form-control" value="${dto.email2}" style="width: 33%;" readonly>
-					</td>
-				</tr>
+							</select>
+
+							<input type="text" name="email1" maxlength="30" class="form-control" value="${dto.email1}" >
+							<p class="join">@</p>
+							<input type="text" name="email2" maxlength="30" class="form-control" value="${dto.email2}" readonly>
+						</div>
+					</div>
+				</div>
 				
-				<tr>
-					<td>전화번호</td>
-					<td>
-						  <select name="tel1" class="form-select">
-								<option value="">선 택</option>
-								<option value="010" ${dto.tel1=="010" ? "selected" : ""}>010</option>
-								<option value="02"  ${dto.tel1=="02"  ? "selected" : ""}>02</option>
-								<option value="031" ${dto.tel1=="031" ? "selected" : ""}>031</option>
-								<option value="032" ${dto.tel1=="032" ? "selected" : ""}>032</option>
-								<option value="033" ${dto.tel1=="033" ? "selected" : ""}>033</option>
-								<option value="041" ${dto.tel1=="041" ? "selected" : ""}>041</option>
-								<option value="042" ${dto.tel1=="042" ? "selected" : ""}>042</option>
-								<option value="043" ${dto.tel1=="043" ? "selected" : ""}>043</option>
-								<option value="044" ${dto.tel1=="044" ? "selected" : ""}>044</option>
-								<option value="051" ${dto.tel1=="051" ? "selected" : ""}>051</option>
-								<option value="052" ${dto.tel1=="052" ? "selected" : ""}>052</option>
-								<option value="053" ${dto.tel1=="053" ? "selected" : ""}>053</option>
-								<option value="054" ${dto.tel1=="054" ? "selected" : ""}>054</option>
-								<option value="055" ${dto.tel1=="055" ? "selected" : ""}>055</option>
-								<option value="061" ${dto.tel1=="061" ? "selected" : ""}>061</option>
-								<option value="062" ${dto.tel1=="062" ? "selected" : ""}>062</option>
-								<option value="063" ${dto.tel1=="063" ? "selected" : ""}>063</option>
-								<option value="064" ${dto.tel1=="064" ? "selected" : ""}>064</option>
-								<option value="070" ${dto.tel1=="070" ? "selected" : ""}>070</option>
-						  </select>
-						  <input type="text" name="tel2" maxlength="4" class="form-control" value="${dto.tel2}" style="width: 33%;"> -
-						  <input type="text" name="tel3" maxlength="4" class="form-control" value="${dto.tel3}" style="width: 33%;">
-					</td>
-				</tr>
-			
-				<tr>
-					<td>우편번호</td>
-					<td>
-						<input type="text" name="zip" id="zip" maxlength="7" class="form-control" value="${dto.zip}" readonly style="width: 50%;">
+				<div class="row">
+					<label for="user-tel">Phone Number</label>
+					<div class="rap-num">
+						<select name="tel1" class="form-number" id="user-tel">
+							<option value="">선 택</option>
+							<option value="010" ${dto.tel1=="010" ? "selected" : ""}>010</option>
+							<option value="02"  ${dto.tel1=="02"  ? "selected" : ""}>02</option>
+							<option value="031" ${dto.tel1=="031" ? "selected" : ""}>031</option>
+							<option value="032" ${dto.tel1=="032" ? "selected" : ""}>032</option>
+							<option value="033" ${dto.tel1=="033" ? "selected" : ""}>033</option>
+							<option value="041" ${dto.tel1=="041" ? "selected" : ""}>041</option>
+							<option value="042" ${dto.tel1=="042" ? "selected" : ""}>042</option>
+							<option value="043" ${dto.tel1=="043" ? "selected" : ""}>043</option>
+							<option value="044" ${dto.tel1=="044" ? "selected" : ""}>044</option>
+							<option value="051" ${dto.tel1=="051" ? "selected" : ""}>051</option>
+							<option value="052" ${dto.tel1=="052" ? "selected" : ""}>052</option>
+							<option value="053" ${dto.tel1=="053" ? "selected" : ""}>053</option>
+							<option value="054" ${dto.tel1=="054" ? "selected" : ""}>054</option>
+							<option value="055" ${dto.tel1=="055" ? "selected" : ""}>055</option>
+							<option value="061" ${dto.tel1=="061" ? "selected" : ""}>061</option>
+							<option value="062" ${dto.tel1=="062" ? "selected" : ""}>062</option>
+							<option value="063" ${dto.tel1=="063" ? "selected" : ""}>063</option>
+							<option value="064" ${dto.tel1=="064" ? "selected" : ""}>064</option>
+							<option value="070" ${dto.tel1=="070" ? "selected" : ""}>070</option>
+						</select>
+						<p class="join">-</p>
+						<input type="text" name="tel2" maxlength="4" class="form-control" value="${dto.tel2}" style="width: 33%;">
+						<p class="join">-</p>
+						<input type="text" name="tel3" maxlength="4" class="form-control" value="${dto.tel3}" style="width: 33%;">
+					</div>
+				</div>
+
+
+				<div class="row">
+					<label for="user-zip">Zip</label>
+					<div class="parent" style="width: 50%;">
+						<input type="text" name="zip" id="user-zip" maxlength="7" class="form-zip" value="${dto.zip}" readonly style="width: 60%;" placeholder="우편번호">
 						<button type="button" class="btn" onclick="daumPostcode();">우편번호검색</button>
-					</td>
-				</tr>
-				
-				<tr>
-					<td valign="top">주&nbsp;&nbsp;&nbsp;&nbsp;소</td>
-					<td>
-						<p>
-							<input type="text" name="addr1" id="addr1" maxlength="50" class="form-control" value="${dto.addr1}" readonly style="width: 96%;">
-						</p>
+					</div>
+					
+					<div class="row">
+						<label for="user-address">Address</label>
+						
+						<input type="text" name="addr1" id="user-address" maxlength="50" class="form-control" value="${dto.addr1}" readonly style="width: 100%;"placeholder="주소">
 						<p class="block">
-							<input type="text" name="addr2" id="addr2" maxlength="50" class="form-control" value="${dto.addr2}" style="width: 96%;">
+							<input type="text" name="addr2" maxlength="50" class="form-control address-2" value="${dto.addr2}" style="width: 100%;"placeholder="상세 주소">
 						</p>
-					</td>
-				</tr>
-				
-			</table>
+					</div>
+				</div>
 			
-			<table class="table">
-				<c:if test="${mode=='member'}">
+			
+				<table class="table">
+					<c:if test="${mode=='member'}">
+						<tr>
+							<td align="center">
+								<span>
+									<input type="checkbox" name="terms" value="1" checked onchange="form.btnOk.disabled = !checked">
+									약관에 동의하시겠습니까 ?
+								</span>
+								<span><a href="">약관보기</a></span>
+							</td>
+						</tr>
+					</c:if>
+							
 					<tr>
 						<td align="center">
-							<span>
-								<input type="checkbox" name="terms" value="1" checked onchange="form.btnOk.disabled = !checked">
-								약관에 동의하시겠습니까 ?
-							</span>
-							<span><a href="">약관보기</a></span>
+							<button type="button" class="btn" name="btnOk" onclick="memberOk();"> ${mode=="member"?"회원가입":"정보수정"} </button>
+							<button type="reset" class="btn"> 다시입력 </button>
+							<button type="button" class="btn" 
+								onclick="javascript:location.href='${pageContext.request.contextPath}/';"> ${mode=="member"?"가입취소":"수정취소"} </button>
 						</td>
 					</tr>
-				</c:if>
-						
-				<tr>
-					<td align="center">
-					    <button type="button" class="btn" name="btnOk" onclick="memberOk();"> ${mode=="member"?"회원가입":"정보수정"} </button>
-					    <button type="reset" class="btn"> 다시입력 </button>
-					    <button type="button" class="btn" 
-					    	onclick="javascript:location.href='${pageContext.request.contextPath}/';"> ${mode=="member"?"가입취소":"수정취소"} </button>
-					</td>
-				</tr>
-				
-				<tr>
-					<td align="center">
-						<span class="msg-box">${message}</span>
-					</td>
-				</tr>
-			</table>
+					
+					<tr>
+						<td align="center">
+							<span class="msg-box">${message}</span>
+						</td>
+					</tr>
+				</table>
 			</form>
 	    </div>
 	</div>
-	<br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 </main>
-
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
     function daumPostcode() {
