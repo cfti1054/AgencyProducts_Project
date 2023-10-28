@@ -166,7 +166,7 @@ function changeEmail() {
 					<td>
 						<input type="date" name="birth" class="form-control" value="${dto.birth}" style="width: 50%;">
 					</td>
-				</tr> 
+				</tr>
 			
 				<tr>
 					<td>이 메 일</td>

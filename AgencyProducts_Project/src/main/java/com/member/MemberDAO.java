@@ -17,7 +17,7 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql;
-		 
+		
 		try {
 			sql = " SELECT user_id, user_name, user_pwd"
 					+ " FROM user1"

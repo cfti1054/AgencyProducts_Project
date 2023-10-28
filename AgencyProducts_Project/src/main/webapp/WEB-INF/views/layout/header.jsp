@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
-    <header> 
+    <header>
         <div class="header">
             <ul class="left_header">
                 <li class="logo">
@@ -23,16 +23,16 @@
                     <ul class="navi">
                         <li><a href="#">COMPANY</a>
                             <ul class="sub_menu">
-                                <li><a href="#">회사소개</a></li>
-                                <li><a href="#">대표인사말</a></li>
-                                <li><a href="#">사업현황</a></li>
-                                <li><a href="#">오시는길</a></li>
-                                <li><a href="#">공고</a></li>
+                                <li><a href="${pageContext.request.contextPath}/company/about.do">회사소개</a></li>
+                                <li><a href="${pageContext.request.contextPath}/company/greeting.do">대표인사말</a></li>
+                                <li><a href="${pageContext.request.contextPath}/company/business.do">사업현황</a></li>
+                                <li><a href="${pageContext.request.contextPath}/company/map.do">오시는길</a></li>
+                                <li><a href="${pageContext.request.contextPath}/company/notice.do">공고</a></li>
                             </ul>
                         </li>
                         <li><a href="#">GOODS</a>
                             <ul class="sub_menu">
-                                <li><a href="${pageContext.request.contextPath}/goods/goods.do">굿즈</a></li>
+                                <li><a href="#">굿즈</a></li>
                             </ul>
                         </li>
                         <li><a href="#">CATEGORY</a>
@@ -64,7 +64,7 @@
 						<c:when test="${empty sessionScope.member}">
 							<!--로그인 전-->
 		                    <li><a href="${pageContext.request.contextPath}/form/login.do" title="로그인"><i class="fa-solid fa-arrow-right-to-bracket" style="color: #ffffff;"></i></a></li>
-		                    <li><a href="#" title="회원가입"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i></a></li>
+		                    <li><a href="${pageContext.request.contextPath}/form/member.do" title="회원가입"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i></a></li>
 						</c:when>
 						<c:when test="${sessionScope.member.userId == 'admin'}">
 							<!--관리자 모드-->
