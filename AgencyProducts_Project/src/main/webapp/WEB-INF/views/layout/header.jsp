@@ -32,7 +32,7 @@
                         </li>
                         <li><a href="#">GOODS</a>
                             <ul class="sub_menu">
-                                <li><a href="#">굿즈</a></li>
+                                <li><a href="${pageContext.request.contextPath}/goods/goods.do">굿즈</a></li>
                             </ul>
                         </li>
                         <li><a href="#">CATEGORY</a>
