@@ -5,7 +5,7 @@ public class MemberDTO {
 	private String user_name;
 	private String user_pwd;
 	private String reg_date;
-	private String birth;
+	private String birth; 
 	private String zip;
 	private String tel1;
 	private String tel2;

@@ -96,7 +96,7 @@ public class MemberServlet extends MyServlet {
 		HttpSession session = req.getSession();
 		String cp = req.getContextPath();
 
-		// 세션에 저장된 정보를 지운다.
+		// 세션에 저장된 정보를 지운다. 
 		session.removeAttribute("member");
 
 		// 세션에 저장된 모든 정보를 지우고 세션을 초기화 한다.

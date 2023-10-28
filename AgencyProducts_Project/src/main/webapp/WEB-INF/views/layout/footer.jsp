@@ -12,7 +12,7 @@
 </head>
 <body>
     <footer>
-        <div class="layout">
+        <div class="layout"> 
             <div class="inner">
                 <div class="footer_top">
                     <ul>
