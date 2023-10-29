@@ -50,12 +50,27 @@ function memberOk() {
         return;
     }
     
+    str = f.email1.value.trim();
+    if( !str ) {
+        alert("이메일을 입력하세요. ");
+        f.email1.focus();
+        return;
+    }
+
+    str = f.email2.value.trim();
+    if( !str ) {
+        alert("이메일을 입력하세요. ");
+        f.email2.focus();
+        return;
+    }
+    
     str = f.tel1.value;
     if( !str ) {
         alert("전화번호를 입력하세요. ");
         f.tel1.focus();
         return;
     }
+    
 
     str = f.tel2.value;
     if( !/^\d{3,4}$/.test(str) ) {
@@ -71,19 +86,6 @@ function memberOk() {
         return;
     }
     
-    str = f.email1.value.trim();
-    if( !str ) {
-        alert("이메일을 입력하세요. ");
-        f.email1.focus();
-        return;
-    }
-
-    str = f.email2.value.trim();
-    if( !str ) {
-        alert("이메일을 입력하세요. ");
-        f.email2.focus();
-        return;
-    }
 
    	f.action = "${pageContext.request.contextPath}/form/${mode}_ok.do";
     f.submit();
@@ -221,18 +223,18 @@ function changeEmail() {
 
 
 				<div class="row">
-					<label for="user-zip">Zip</label>
+					<label for="zip">Zip</label>
 					<div class="parent" style="width: 50%;">
-						<input type="text" name="zip" id="user-zip" maxlength="7" class="form-zip" value="${dto.zip}" readonly style="width: 60%;" placeholder="우편번호">
+						<input type="text" name="zip" id="zip" maxlength="7" class="form-zip" value="${dto.zip}" readonly style="width: 60%;" placeholder="우편번호">
 						<button type="button" class="btn" onclick="daumPostcode();">우편번호검색</button>
 					</div>
 					
 					<div class="row">
-						<label for="user-address">Address</label>
+						<label for="addr1">Address</label>
 						
-						<input type="text" name="addr1" id="user-address" maxlength="50" class="form-control" value="${dto.addr1}" readonly style="width: 100%;"placeholder="주소">
+						<input type="text" name="addr1" id="addr1" maxlength="50" class="form-control" value="${dto.addr1}" readonly style="width: 100%;"placeholder="주소">
 						<p class="block">
-							<input type="text" name="addr2" maxlength="50" class="form-control address-2" value="${dto.addr2}" style="width: 100%;"placeholder="상세 주소">
+							<input type="text" name="addr2" id="addr2" maxlength="50" class="form-control address-2" value="${dto.addr2}" style="width: 100%;"placeholder="상세 주소">
 						</p>
 					</div>
 				</div>
