@@ -120,7 +120,15 @@ function changeEmail() {
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<div class="container body-container">
 	    <div class="body-title">
+			<div>
 			<h3><i>${title}</i></h3>
+			</div>
+			
+			<div class="member-png">
+                <a href="#"><img src="${pageContext.request.contextPath}/resource/img//google.png"></a>
+                <a href="#"><img src="${pageContext.request.contextPath}/resource/img//kakao.png"></a>
+             	<a href="#"><img src="${pageContext.request.contextPath}/resource/img/naver.png"></a>
+            </div>
 	    </div>
 	    
 	    <div class="body-main mx-auto">
@@ -135,18 +143,19 @@ function changeEmail() {
 				<div class="row parent">
 					<div class="mapping">
 						<label for="user-password">Your Password</label>
-						<input type="password" name="user-pwd" id="user-password" class="form-control" maxlength="10"  autocomplete="off" placeholder="비밀번호">
+						<input type="password" name="user_pwd" id="user-password" class="form-control" maxlength="10"  autocomplete="off" placeholder="비밀번호">
 					
 					</div>
 					<div class="mapping">
 						<label for="user-password2">Confirm Your Password</label>
-						<input type="password" name="user-pwd2" id="user-password2" class="form-control" maxlength="10" autocomplete="off" placeholder="비밀번호 확인">
+						<input type="password" name="user_pwd2" id="user-password2" class="form-control" maxlength="10" autocomplete="off" placeholder="비밀번호 확인">
 					</div>
 				</div>
+				
 
 				<div class="row">
 					<label for="name">Your Name</label>
-					<input type="text" name="user-name" id="name" maxlength="10" class="form-control" value="${dto.user_name}" style="width: 49%;" ${mode=="update" ? "readonly ":""} placeholder="이름">
+					<input type="text" name="user_name" id="name" maxlength="10" class="form-control" value="${dto.user_name}" style="width: 49%;" ${mode=="update" ? "readonly ":""} placeholder="이름">
 				</div>
 				
 				<div class="row">

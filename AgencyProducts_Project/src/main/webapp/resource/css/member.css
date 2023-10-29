@@ -236,8 +236,16 @@ a {
 	margin-top: 10px;
 }
 
-
-
 .table tr td span {
 	color: #ccc;
+}
+
+.body-side {
+	display: flex;
+	justify-content: space-between;
+}
+
+.member-png img {
+    max-width: 35px;
+    margin-right: 10px;
 }
