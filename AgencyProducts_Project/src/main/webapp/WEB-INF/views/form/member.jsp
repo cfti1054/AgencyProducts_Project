@@ -119,8 +119,8 @@ function changeEmail() {
 <main>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<div class="container body-container">
-	    <div class="body-title">
-			<div>
+	    <div class="body-title body-side">
+	    	<div>
 			<h3><i>${title}</i></h3>
 			</div>
 			
@@ -137,6 +137,7 @@ function changeEmail() {
 					<label for="user-userId">Your ID</label>
 					<input type="text" name="user_id" id="user-userId" maxlength="10" class="form-control" style="width: 49%;" value="${dto.user_id}" 
 								${mode=="update" ? "readonly ":""} placeholder="아이디">
+					
 				</div>
 				
 
