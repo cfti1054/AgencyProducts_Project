@@ -86,6 +86,20 @@ function memberOk() {
         return;
     }
     
+    str = f.zip.value;
+    if( !str ) {
+        alert("우편번호를 선택해주세요. ");
+        f.email1.focus();
+        return;
+    }
+    
+    str = f.addr2.value;
+    if( !str ) {
+        alert("상세주소를 입력해주세요. ");
+        f.email1.focus();
+        return;
+    }
+    
 
    	f.action = "${pageContext.request.contextPath}/form/${mode}_ok.do";
     f.submit();
