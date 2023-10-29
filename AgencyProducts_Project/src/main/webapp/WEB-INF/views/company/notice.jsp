@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<title>notice</title>
 </head>
 
 <body>

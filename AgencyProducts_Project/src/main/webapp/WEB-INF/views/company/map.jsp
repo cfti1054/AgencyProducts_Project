@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<title>map</title>
 <style type="text/css">
 
 .main {margin-left: 50px;}

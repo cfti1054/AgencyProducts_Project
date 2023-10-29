@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<title>business</title>
 <style type="text/css">
 .img { margin: 50px auto; text-align:center; }
 
