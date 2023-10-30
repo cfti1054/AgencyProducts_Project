@@ -37,7 +37,7 @@
                         </li>
                         <li><a href="#">CATEGORY</a>
                             <ul class="sub_menu">
-                                <li><a href="#">배우</a></li>
+                                <li><a href="${pageContext.request.contextPath}/entertainer/actor.do">배우</a></li>
                                 <li><a href="#">가수</a></li>
                                 <li><a href="#">모델</a></li>
                                 <li><a href="#">엔터테이너</a></li>
