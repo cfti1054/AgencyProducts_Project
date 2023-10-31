@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>그룹원 및 솔로 등록</title>
+<title>그룹 등록</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <script type="text/javascript">
 function sendOk() {
@@ -46,7 +46,8 @@ function sendOk() {
 	</header>
 
 	<main>
-		<div class="container body-container">
+	
+		<div class="container body-container" style="margin-top: 120px;">
 	    <div class="body-title">
 			<h2><i class="far fa-image"></i> 연예인 등록 </h2>
 	    </div>
@@ -57,20 +58,20 @@ function sendOk() {
 					<tr> 
 						<td>연예인 ID</td>
 						<td> 
-							<input type="text" name="act_id" maxlength="100" class="form-control" value="${dto.act_id}">
+							<input type="text" name="enter_id " maxlength="100" class="form-control" value="${dto.enter_id }">
 						</td>
 					</tr>
 					<tr> 
-						<td>그룹명</td>
+						<td>연예인 이름</td>
 						<td> 
-							<input type="text" name="group_name" maxlength="100" class="form-control" value="${dto.group_name}">
+							<input type="text" name="enter_name " maxlength="100" class="form-control" value="${dto.enter_name }">
 						</td>
 					</tr>
 			
-					<tr>
-						<td>이미지 등록</td>
+					<tr> 
+						<td>생년월일</td>
 						<td> 
-							<input type="file" name="selectFile" accept="image/*" class="form-control">
+							<input type="text" name="enter_name " maxlength="100" class="form-control" value="${dto.enter_name }">
 						</td>
 					</tr>
 					
@@ -91,7 +92,7 @@ function sendOk() {
 						<td align="center">
 							<button type="button" class="btn" onclick="sendOk();">${mode=="update" ? "수정완료" : "등록완료"}</button>
 							<button type="reset" class="btn">다시입력</button>
-							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/photo/list.do';">${mode=="update" ? "수정취소" : "등록취소" }</button>
+							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">${mode=="update" ? "수정취소" : "등록취소" }</button>
 							
 							<c:if test="${mode=='update'}">
 								<input type="hidden" name="num" value="${dto.num}">

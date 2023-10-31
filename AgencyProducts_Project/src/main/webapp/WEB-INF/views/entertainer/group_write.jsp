@@ -19,21 +19,21 @@ function sendOk() {
         return;
     }
 
-    str = f..group_name.trim();
+    str = f.group_name.value.trim();
     if(!str) {
         alert("그룹명을 입력하세요. ");
         f.group_name.focus();
         return;
     }
     
-    let mode = "${mode}";
+   /* let mode = "${mode}";
     if(mode==="write" && (! f.selectFile.value)) {
     	alert("이미지파일을 추가하세요");
     	f.selectFile.focus();
     	return;
-    }
+    }*/
 
-    f.action = "${pageContext.request.contextPath}/entertainer/${mode}_ok.do";
+    f.action = "${pageContext.request.contextPath}/entertainer/group_${mode}_ok.do";
     f.submit();
 }
 </script>
@@ -46,9 +46,10 @@ function sendOk() {
 	</header>
 
 	<main>
-		<div class="container body-container">
+	
+		<div class="container body-container" style="margin-top: 120px;">
 	    <div class="body-title">
-			<h2><i class="far fa-image"></i> 연예인 등록 </h2>
+			<h2><i class="far fa-image"></i> 그룹 등록 </h2>
 	    </div>
 	    
 	    <div class="body-main mx-auto">
@@ -91,7 +92,7 @@ function sendOk() {
 						<td align="center">
 							<button type="button" class="btn" onclick="sendOk();">${mode=="update" ? "수정완료" : "등록완료"}</button>
 							<button type="reset" class="btn">다시입력</button>
-							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/photo/list.do';">${mode=="update" ? "수정취소" : "등록취소" }</button>
+							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">${mode=="update" ? "수정취소" : "등록취소" }</button>
 							
 							<c:if test="${mode=='update'}">
 								<input type="hidden" name="num" value="${dto.num}">

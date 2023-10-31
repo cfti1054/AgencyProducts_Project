@@ -15,22 +15,19 @@ public class EntertainerDAO {
 		String sql;
 		
 		try {
-			conn.setAutoCommit(false);
-			sql = "INSERT INTO entertainer (act_id, group_name, photo_num, img_name)"
-					+ " VALUES (?, ?, ?, ?)";
+			sql = "INSERT INTO entertainer (act_id, group_name, img_name)"
+					+ " VALUES (?, ?, ?)";
+			
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, dto.getAct_id());
 			pstmt.setString(2, dto.getGroup_name());
-			pstmt.setString(3, dto.getPhoto_num());
-			pstmt.setString(4, dto.getImg_name());
+			pstmt.setString(3, dto.getImg_name());
+			System.out.println(":" + dto.getAct_id());
+			System.out.println(":" + dto.getGroup_name());
+			System.out.println(":" + dto.getImg_name());
 			
 			pstmt.executeUpdate();
-			pstmt.close();
-			pstmt = null;
-			
-			sql = "";
-			pstmt = conn.prepareStatement(sql);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
