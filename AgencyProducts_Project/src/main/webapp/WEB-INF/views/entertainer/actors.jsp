@@ -32,7 +32,9 @@
 			
 			
 			<div class="admin_edit">
-				<button type="button" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_write.do';">그룹 등록</button>
+				<c:if test="${sessionScope.member.userId == 'admin'}">
+					<button type="button" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_write.do';">그룹 등록</button>
+				</c:if>
 			</div>
 			
 	        <div class="layout_grid">

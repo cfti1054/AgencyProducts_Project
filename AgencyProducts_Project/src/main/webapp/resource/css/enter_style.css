@@ -62,6 +62,10 @@ body {
     display: block;
 }
 
+.item_list .item a img {
+    border-radius: 8px;
+}
+
 
 .item_list .item .item_detail {
     text-align: left;
