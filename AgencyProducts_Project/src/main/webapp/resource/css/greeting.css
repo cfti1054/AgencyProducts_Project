@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #333;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+body {
+  width: 100%;
+  margin-top: 120px;
+  margin-bottom: 100px;
+}
+
+.wrap {
+  width: 1080px;
+  margin: 0 auto;
+  padding-top: 120px;
+}
+
+.container {
+	padding-bottom: 120px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+#aside {
+  width: 180px;
+}
+
+#aside h2 {
+  padding: 0 0 10px 10px;
+  border-bottom: 1px solid black;
+}
+
+#aside .list .title {
+  padding: 10px;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+#aside .list .title a {
+  display: block;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#artist {
+  width: 860px;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: hidden;
+  margin-bottom: 120px;
+}
+
+#artist .about {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+#artist .about h2 {
+  position: relative;
+  padding: 0 0 10px 20px;
+}
+
+#artist .about span {
+  display: inline-block;
+  width: 3px;
+  height: 24px;
+  margin: 0 10px 6px 10px;
+  background: #000;
+}
+
+#artist .about h4 {
+  margin-bottom: 6px;
+  color: #777;
+}
+
+#artist .introduce1 {
+  display: flex;
+  align-items: last baseline;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  padding-top: 18px;
+  padding-left: 20px;
+}
+
+#artist .introduce1 h3 {
+  margin-right: 10px;
+}
+
+#artist .introduce1 h5 {
+  color: indigo;
+  font-weight: 900;
+}
+
+#artist .greeting1 {
+  padding-left: 20px;
+}
+
+#artist .greeting1 h3 {
+  color: burlywood;
+  margin-bottom: 24px;
+}
+
+#artist .greeting1 p {
+  font-size: 14px;
+  line-height: 220%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 600;
+  margin-bottom: 60px;
+}
+
+#artist .introduce2 {
+  display: flex;
+  align-items: last baseline;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  padding-top: 18px;
+  padding-left: 20px;
+}
+
+#artist .introduce2 h3 {
+  margin-right: 10px;
+  color: silver;
+}
+
+#artist .introduce2 h5 {
+  font-weight: 900;
+}
+
+#artist .greeting2 h3 {
+  color: deeppink;
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+
+#artist .greeting2 p {
+  font-size: 14px;
+  line-height: 220%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 600;
+  padding-left: 20px;
+}
+
+

@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>notice</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/notice.css" type="text/css">
 </head>
 
 <body>
@@ -15,12 +16,44 @@
 </header>
 	
 <main>
-<br><br><br><br><br><br><br><br><br><br><br>
-	<div class="container body-container">
-		<h2>회사소개</h2>
-		<p>회사소개!</p>
-	</div>
-	<br><br><br><br><br><br><br><br><br><br><br>
+	<div class="wrap">
+            <div class="container">
+                <div id="aside" class="aside">
+                    <h2>ARTIST</h2>
+                    <ul class="list">
+                        <li class="title">
+                            <a href="#">회사소개</a>
+                        </li>	        
+                        <li class="title">
+                            <a href="#">대표인사말</a>
+                        </li>
+                        <li class="title">
+                            <a href="#">연혁</a>
+                        </li>
+                        <li class="title">
+                            <a href="#">사업현황</a>
+                        </li>
+                        <li class="title">
+                            <a href="#">오시는길</a>
+                        </li>
+                        <li class="title">
+                            <a href="#">공고</a>
+                        </li>	        
+                    </ul>
+                </div>
+                <div id="artist" class="artist">
+                    <div class="about">
+                        <h2>공고</h2>
+                        <span></span>
+                        <h4>NOTICE</h4>
+                    </div>
+                    <div class="notice">
+                        <h1>공지사항</h1>
+                        <p>공지내용</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 </main>
 </body>
 <footer>

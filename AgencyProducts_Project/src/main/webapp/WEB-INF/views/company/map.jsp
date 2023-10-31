@@ -5,13 +5,7 @@
 <html>
 <head>
 <title>map</title>
-<style type="text/css">
-
-.main {margin-left: 50px;}
-.img { margin: 50px auto; text-align:center; }
-.fifle {magin: 10px auto; padding-left:40px;}
-
-</style>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/map.css" type="text/css">
 
 </head>
 
@@ -23,32 +17,53 @@
 </header>
 	
 <main>
-<br><br><br><br><br><br><br><br><br><br><br>
-
-	<div class="main">
-	<div class="fifle">
-		<h2>
-		 회사소개 |
-		<span>MAP</span>		
-		</h2>
-		</div>	
-		<br><hr><br><br><br>
-		
-		<div class="img">
-		<table>
-			<tr>
-			  <td>
-				<img src="${pageContext.request.contextPath}/resource/img/AgencyProducts_black.png">
-		     </td>
-		     <td>
-		     <p style="text-align: center; margin-left: 300px ;">| 서울특별시 성동구 성수동 1가 685번지 |</p>
-		     </td>
-			</tr>
-		</table>
-	 </div>
-  </div>
-		
-	<br><br><br>
+	<div class="wrap">
+      <div class="container">
+          <div id="aside" class="aside">
+              <h2>ARTIST</h2>
+              <ul class="list">
+                  <li class="title">
+                      <a href="#">회사소개</a>
+                  </li>	        
+                  <li class="title">
+                      <a href="#">대표인사말</a>
+                  </li>
+                  <li class="title">
+                      <a href="#">연혁</a>
+                  </li>
+                  <li class="title">
+                      <a href="#">사업현황</a>
+                  </li>
+                  <li class="title">
+                      <a href="#">오시는길</a>
+                  </li>
+                  <li class="title">
+                      <a href="#">공고</a>
+                  </li>	        
+              </ul>
+          </div>
+          <div id="artist" class="artist">
+              <div class="about">
+                  <h2>오시는길</h2>
+                  <span></span>
+                  <h4>MAP</h4>
+              </div>
+              <div class="content">
+                <div class="img">
+                  <img src="${pageContext.request.contextPath}/resource/img/AgencyProducts_black.png" alt="agency_logo" width="280px">
+                </div>
+                <div class="address">
+                  <div class="detail">
+                    <p>| 서울특별시 성동구 성수동 1가 685번지 |</p>
+                  </div>
+                  <div class="map">
+                    <!-- kakao map -->
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
 </main>
 </body>
 <footer>

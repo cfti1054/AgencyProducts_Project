@@ -5,10 +5,7 @@
 <html>
 <head>
 <title>business</title>
-<style type="text/css">
-.img { margin: 50px auto; text-align:center; }
-
-</style>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/business.css" type="text/css">
 
 </head>
 
@@ -20,14 +17,38 @@
 </header>
 	
 <main>
-<br><br><br><br><br><br><br><br><br><br><br>
-
-	<div class="img">
-		<img src="${pageContext.request.contextPath}/resource/img/business.png">
-	</div>
-	
-	
-	<br><br><br>
+	<div class="wrap">
+        <div class="container">
+            <div id="aside" class="aside">
+                <h2>ARTIST</h2>
+                <ul class="list">
+                    <li class="title">
+                        <a href="#">회사소개</a>
+                    </li>	        
+                    <li class="title">
+                        <a href="#">대표인사말</a>
+                    </li>
+                    <li class="title">
+                        <a href="#">연혁</a>
+                    </li>
+                    <li class="title">
+                        <a href="#">사업현황</a>
+                    </li>
+                    <li class="title">
+                        <a href="#">오시는길</a>
+                    </li>
+                    <li class="title">
+                        <a href="#">공고</a>
+                    </li>	        
+                </ul>
+            </div>
+            <div id="artist" class="artist">
+                <div class="img">
+                    <img src="${pageContext.request.contextPath}/resource/img/business.png" alt="business" width="814px">
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 </body>
 <footer>
