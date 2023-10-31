@@ -21,7 +21,6 @@ header {
     width: 100%;
     height: 120px;
     background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0));
-    margin-bottom: 120px;
 }
 
 header .header {
@@ -32,7 +31,6 @@ header .header {
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 120px;
 }
 
 header .header .left_header {
@@ -76,7 +74,7 @@ header .header .left_header .navi .sub_menu {
     position: absolute;
     z-index: 200;
     top: 120px;
-    background-color: white;
+    background-color: transparent;
     display: none;
 }
 
@@ -171,4 +169,3 @@ footer .layout .inner {
     display: flex;
     justify-content: space-between;
 }
-
