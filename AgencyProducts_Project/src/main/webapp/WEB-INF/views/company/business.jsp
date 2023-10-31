@@ -23,26 +23,30 @@
                 <h2>ARTIST</h2>
                 <ul class="list">
                     <li class="title">
-                        <a href="#">회사소개</a>
+                        <a href="${pageContext.request.contextPath}/company/about.do">회사소개</a>
                     </li>	        
                     <li class="title">
-                        <a href="#">대표인사말</a>
+                        <a href="${pageContext.request.contextPath}/company/greeting.do">대표인사말</a>
                     </li>
                     <li class="title">
-                        <a href="#">연혁</a>
+                        <a href="${pageContext.request.contextPath}/company/business.do">사업현황</a>
                     </li>
                     <li class="title">
-                        <a href="#">사업현황</a>
+                        <a href="${pageContext.request.contextPath}/company/map.do">오시는길</a>
                     </li>
                     <li class="title">
-                        <a href="#">오시는길</a>
-                    </li>
-                    <li class="title">
-                        <a href="#">공고</a>
+                        <a href="${pageContext.request.contextPath}/company/notice.do">공고</a>
                     </li>	        
                 </ul>
             </div>
             <div id="artist" class="artist">
+            	    <div class="about">
+                        <h2>사업현황</h2>
+                        <span></span>
+                        <h4>BUSINESS</h4>
+                    </div>
+            
+            
                 <div class="img">
                     <img src="${pageContext.request.contextPath}/resource/img/business.png" alt="business" width="814px">
                 </div>
