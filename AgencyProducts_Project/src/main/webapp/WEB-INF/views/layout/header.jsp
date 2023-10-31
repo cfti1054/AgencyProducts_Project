@@ -19,7 +19,7 @@
                         <img src="https://via.placeholder.com/200x35" alt="logo" title="home">
                     </a>
                 </li>
-                <li>
+                <li id="navi">
                     <ul class="navi">
                         <li><a href="#">COMPANY</a>
                             <ul class="sub_menu">
@@ -83,5 +83,21 @@
             </div>
         </div>
     </header>
+    <script type="text/javascript">
+	    let mouseover = document.querySelector("#navi");
+	    let mouseleave = document.querySelector(".left_header");
+	
+	    mouseover.addEventListener('mouseenter', () => {
+	        for(i = 0; i < 5; i++){
+	            document.querySelectorAll('.sub_menu')[i].style.display = 'block';
+	        }
+	    });
+	
+	    mouseleave.addEventListener('mouseleave', () => {
+	        for(i = 0; i < 5; i++){
+	            document.querySelectorAll('.sub_menu')[i].style.display = 'none';
+	        }
+	    })
+    </script>
 </body>
 </html>

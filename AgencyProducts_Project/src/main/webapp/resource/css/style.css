@@ -1,6 +1,5 @@
 ﻿@charset "UTF-8";
 
-/* 헤더 */
 *{
     margin: 0;
     padding: 0;
@@ -12,6 +11,8 @@ ol, ul {
     list-style: none;
 }
 
+/* 헤더 */
+
 header {
     position: absolute;
     top: 0;
@@ -20,6 +21,7 @@ header {
     width: 100%;
     height: 120px;
     background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0));
+    margin-bottom: 120px;
 }
 
 header .header {
@@ -30,9 +32,11 @@ header .header {
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 120px;
 }
 
 header .header .left_header {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,10 +49,15 @@ header .header .left_header .logo {
 }
 
 header .header .left_header .navi {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+/* 메뉴바 내리는 작업 시작 */
+
+/* 메뉴바 내리는 작업 끝 */
 
 header .header .left_header .navi li {
     width: 130px;
@@ -67,14 +76,21 @@ header .header .left_header .navi .sub_menu {
     position: absolute;
     z-index: 200;
     top: 120px;
-    background-color: #fff;
+    background-color: white;
+    display: none;
 }
 
+header .header .left_header .navi .sub_menu li {
+    height: 45px;
+}
+
+/* 네비바 내리기 종료 */
+
 header .header .left_header .navi .sub_menu li a {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 100%;
     color: #999;
     text-align: center;
+    line-height: 45px;
 }
 
 header .header .left_header .navi .sub_menu li:hover a  {
@@ -155,3 +171,4 @@ footer .layout .inner {
     display: flex;
     justify-content: space-between;
 }
+
