@@ -20,7 +20,7 @@
                     </a>
                 </li>
                 <li id="navi">
-                    <ul class="navi">
+                    <ul id="navie" class="navi">
                         <li><a href="#">COMPANY</a>
                             <ul class="sub_menu">
                                 <li><a href="${pageContext.request.contextPath}/company/about.do">회사소개</a></li>
@@ -95,6 +95,7 @@
             </div>
         </div>
     </header>
+    
     <script type="text/javascript">
 	    let mouseover = document.querySelector("#navi");
 	    let mouseleave = document.querySelector(".left_header");
