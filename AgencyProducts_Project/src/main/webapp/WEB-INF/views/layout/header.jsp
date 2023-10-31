@@ -33,6 +33,10 @@
                         <li><a href="#">GOODS</a>
                             <ul class="sub_menu">
                                 <li><a href="${pageContext.request.contextPath}/goods/goods.do">굿즈</a></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
                             </ul>
                         </li>
                         <li><a href="#">CATEGORY</a>
@@ -41,17 +45,25 @@
                                 <li><a href="#">가수</a></li>
                                 <li><a href="#">모델</a></li>
                                 <li><a href="#">엔터테이너</a></li>
+                                <li></li>
                             </ul>
                         </li>
                         <li><a href="#">NOTICE</a>
                             <ul class="sub_menu">
                                 <li><a href="#">소식</a></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
                             </ul>
                         </li>
                         <li><a href="#">CUSTOMER</a>
                             <ul class="sub_menu">
                                 <li><a href="#">FAQ</a></li>
                                 <li><a href="#">1:1문의</a></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
                             </ul>
                         </li>
                     </ul>
