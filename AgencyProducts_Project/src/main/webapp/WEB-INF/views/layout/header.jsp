@@ -3,6 +3,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
+    
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,20 +99,24 @@
     </header>
     
     <script type="text/javascript">
-	    let mouseover = document.querySelector("#navi");
-	    let mouseleave = document.querySelector(".left_header");
-	
-	    mouseover.addEventListener('mouseenter', () => {
-	        for(i = 0; i < 5; i++){
-	            document.querySelectorAll('.sub_menu')[i].style.display = 'block';
-	        }
-	    });
-	
-	    mouseleave.addEventListener('mouseleave', () => {
-	        for(i = 0; i < 5; i++){
-	            document.querySelectorAll('.sub_menu')[i].style.display = 'none';
-	        }
-	    })
-    </script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let navi = document.querySelector('#navie');
+        let subMenus = document.querySelectorAll('.sub_menu');
+
+        navi.addEventListener('mouseenter', function() {
+            subMenus.forEach(function(subMenu) {
+                subMenu.style.display = 'block';
+            });
+        });
+
+        navi.addEventListener('mouseleave', function() {
+            subMenus.forEach(function(subMenu) {
+                subMenu.style.display = 'none';
+            });
+        });
+    });
+</script>
+
+    
 </body>
 </html>
