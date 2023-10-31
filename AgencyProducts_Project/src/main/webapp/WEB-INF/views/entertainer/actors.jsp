@@ -18,37 +18,43 @@
     	<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
 	</header>
 	
+	
+	
 	<div class="enter_container" style="margin-top: 120px;">
-		<div class="enter_title">
-			<h2>ACTOR</h2>
+			<div class="enter_title">
+				<h2>ACTOR</h2>
+				
+				<a> ACTOR </a>
+				<a> &gt; </a>
+				<a href="${pageContext.request.contextPath}/"> HOME </a>
+				
+			</div>
 			
-			<a> ACTOR </a>
-			<a> &gt; </a>
-			<a href="${pageContext.request.contextPath}/"> HOME </a>
 			
-		</div>
-		
-		<div class="admin_edit">
-			<button type="button" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_write.do';">그룹 등록</button>
-		</div>
-        <div class="layout_grid">
-            <ul class="item_list">
-            	
-	            <c:forEach var="i" begin="1" end="25" varStatus="x">
-	                <li class="item">
-	                    <a href="#">
-	                        <img src="https://via.placeholder.com/240x240" alt="${dto.enter_name}" title="item${dto.enter_name}">
-	                    </a>
-	                    <ul class="item_detail">
-	                        <li class="item_name">
-	                            <a href="#">item${dto.enter_name}</a>
-	                        </li>
-	                    </ul>
-	                </li>
-	            </c:forEach>                
-            </ul>
-        </div>
+			<div class="admin_edit">
+				<button type="button" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_write.do';">그룹 등록</button>
+			</div>
+			
+	        <div class="layout_grid">
+	            <ul class="item_list">
+	            	
+		            <c:forEach var="i" begin="1" end="25" varStatus="x">
+		                <li class="item">
+		                    <a href="#">
+		                        <img src="https://via.placeholder.com/240x240" alt="${dto.enter_name}" title="item${dto.enter_name}">
+		                    </a>
+		                    <ul class="item_detail">
+		                        <li class="item_name">
+		                            <a href="#">item${dto.enter_name}</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		            </c:forEach>                
+	            </ul>
+	        </div>
+	    
     </div>
+    
     
     <footer>
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
