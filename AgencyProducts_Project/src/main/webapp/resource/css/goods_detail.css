@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #333;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+
+/* 제품 상세 페이지 */
+
+.detail_container {
+    width: 100%;
+    padding-top: 240px;
+}
+
+.detail_layout {
+    width: 1300px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.detail_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail_wrap .detail_img {
+    width: 670px;
+}
+
+.detail_wrap .detail_img .img_cover{
+    width: 600px;
+    margin-right: 70px;
+    margin-left:  35px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.detail_wrap .detail_info_wrap {
+    width: 630px;
+}
+
+#form1 .detail_info .info_title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.info_list .info_price {
+    margin-bottom: 30px;
+}
+
+.info_list .info_price .price {
+    font-size: 18px;
+}
+
+.info_option .option_list_wrap {
+    padding: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.option_list_wrap .option_list {
+    display: flex;
+}
+
+.option_list_wrap .option_list h4 {
+    margin-right: 60px;
+    color: #999;
+}
+
+.option_list_wrap .option_list p {
+    color: #666;
+}
+
+.total_wrap {
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
+}
+
+.total_wrap .option_list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total_wrap .option_list .goods_title h4 {
+    color: #666;
+}
+
+.goods_option {
+    display: flex;
+    justify-content: space-between;
+}
+
+.goods_option .option_price {
+    font-weight: 600;
+    margin-right: 16px;
+}
+
+.goods_option .quantity input {
+    width: 50px;
+    height: 24px;
+}
+
+.goods_option .quantity button {
+    padding: 2px 4px;
+    cursor: pointer;
+}
+
+.total_price {
+    border-top: 1px solid #ccc;
+}
+
+.total_price div {
+    margin: 20px 0;
+    text-align: right;
+}
+
+.total_price div span { 
+    font-size: 14px;
+}
+
+.deter {
+    text-align: right;
+}
+
+.deter .sell {
+    margin-bottom: 10px;
+}
+
+.deter .sell a {
+    display: inline-block;
+    padding: 10px 100px;
+    background: #444;
+    color: #fff;
+    text-align: center;
+}
+
+.deter .cart a {
+    display: inline-block;
+    padding: 10px 108px;
+    background: #444;
+    color: #fff;
+    text-align: center;
+}
+
+.deter div:hover a {
+    background: #555;
+}
+
+
+
+.goods_content {
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-top: 50px;
+}
+
+.goods_content .content .detail {
+    text-align: center;
+}
+
+.goods_content .photo {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.goods_content .photo img {
+    border-radius: 10px;
+}
