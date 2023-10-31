@@ -15,17 +15,19 @@ ol, ul {
 body {
   width: 100%;
   margin-top: 120px;
+  margin-bottom: 100px;
 }
 
 .wrap {
   width: 1300px;
   margin: 0 auto;
-  padding-top: 120px 0;
+  
 }
 
 .container {
   display: flex;
   justify-content: space-between;
+  padding: 120px 0;
 }
 
 #aside {
@@ -55,3 +57,28 @@ body {
   padding-right: 20px;
   overflow: hidden;
 }
+
+#artist .about {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+#artist .about h2 {
+    position: relative;
+    padding: 0 0 10px 20px;
+}
+
+#artist .about span {
+    display: inline-block;
+    width: 3px;
+    height: 24px;
+    margin: 0 10px 6px 10px;
+    background: #000;
+}
+
+#artist .about h4 {
+    margin-bottom: 6px;
+    color: #777;
+}
+
