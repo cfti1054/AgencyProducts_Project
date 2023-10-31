@@ -20,7 +20,7 @@
             <div class="detail_wrap">
                 <div class="detail_img">
                     <div class="img_cover">
-                        <img src="https://via.placeholder.com/500x500" alt="detail_img">
+                        <img src="https://via.placeholder.com/450x450" alt="detail_img">
                     </div>
                 </div>
                 <div class="detail_info_wrap">
@@ -68,7 +68,7 @@
                                         <strong>총 가격</strong>
                                     </div>
                                 </div>
-                                <div class="deter" style="padding-top: 47px">
+                                <div class="deter">
                                     <div class="sell">
                                         <a href="#">바로 구매하기</a>
                                     </div>
