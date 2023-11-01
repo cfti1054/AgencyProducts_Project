@@ -44,7 +44,6 @@ function sendLogin() {
 </header>
 	
 <main>
-<br><br><br><br><br><br><br><br><br><br><br>
 	<div class="container body-container">
 		<div class="body-title">
 			<h3><i> Members Login </i></h3>
@@ -85,7 +84,6 @@ function sendLogin() {
 			</div>
 		</div>
 	</div>
-	<br><br><br><br><br><br><br><br><br><br><br>
 </main>
 </body>
 <footer>
