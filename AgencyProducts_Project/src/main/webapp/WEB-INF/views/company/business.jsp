@@ -35,7 +35,7 @@
                         <a href="${pageContext.request.contextPath}/company/map.do">오시는길</a>
                     </li>
                     <li class="title">
-                        <a href="${pageContext.request.contextPath}/company/notice.do">공고</a>
+                        <a href="${pageContext.request.contextPath}/notice/list.do">공고</a>
                     </li>	        
                 </ul>
             </div>
