@@ -29,7 +29,7 @@
                                 <li><a href="${pageContext.request.contextPath}/company/greeting.do">대표인사말</a></li>
                                 <li><a href="${pageContext.request.contextPath}/company/business.do">사업현황</a></li>
                                 <li><a href="${pageContext.request.contextPath}/company/map.do">오시는길</a></li>
-                                <li><a href="${pageContext.request.contextPath}/company/notice.do">공고</a></li>
+                                <li><a href="${pageContext.request.contextPath}/notice/list.do">공고</a></li>
                             </ul>
                         </li>
                         <li><a href="${pageContext.request.contextPath}/goods/goods.do">GOODS</a>
