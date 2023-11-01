@@ -174,4 +174,15 @@ footer .layout .inner {
 .footer_bottom ul {
     display: flex;
     justify-content: space-between;
+    padding: 0 70px;
+}
+
+.footer_bottom ul .fb_right {
+	padding: 54px 0;
+}
+
+.footer_bottom ul .fb_right p {
+	color: #d9d9d9;
+	line-height: 250%;
+	font-size: 16px;
 }

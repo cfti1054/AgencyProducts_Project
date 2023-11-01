@@ -17,13 +17,13 @@
         <div class="header">
             <ul class="left_header">
                 <li class="logo">
-                    <a href="#">
-                        <img src="https://via.placeholder.com/200x35" alt="logo" title="home">
+                    <a href="${pageContext.request.contextPath}/index.jsp">
+                        <img src="${pageContext.request.contextPath}/resource/img/AgencyProducts_white.png" alt="logo" title="home" width="100px">
                     </a>
                 </li>
                 <li id="navi">
                     <ul id="navie" class="navi">
-                        <li><a href="#">COMPANY</a>
+                        <li><a href="${pageContext.request.contextPath}/company/about.do">COMPANY</a>
                             <ul class="sub_menu">
                                 <li><a href="${pageContext.request.contextPath}/company/about.do">회사소개</a></li>
                                 <li><a href="${pageContext.request.contextPath}/company/greeting.do">대표인사말</a></li>
@@ -32,7 +32,7 @@
                                 <li><a href="${pageContext.request.contextPath}/company/notice.do">공고</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">GOODS</a>
+                        <li><a href="${pageContext.request.contextPath}/goods/goods.do">GOODS</a>
                             <ul class="sub_menu">
                                 <li><a href="${pageContext.request.contextPath}/goods/goods.do">굿즈</a></li>
                                 <li></li>
@@ -41,7 +41,7 @@
                                 <li></li>
                             </ul>
                         </li>
-                        <li><a href="#">CATEGORY</a>
+                        <li><a href="${pageContext.request.contextPath}/entertainer/actor.do">CATEGORY</a>
                             <ul class="sub_menu">
                                 <li><a href="${pageContext.request.contextPath}/entertainer/actor.do">배우</a></li>
                                 <li><a href="#">가수</a></li>

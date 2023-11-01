@@ -26,8 +26,13 @@
                 </div>
                 <div class="footer_bottom">
                     <ul>
-                        <li class="fb_left"><img src="https://via.placeholder.com/400x200" alt="fb_left" title="fb_left"></li>
-                        <li class="fb_right"><img src="https://via.placeholder.com/400x200" alt="fb_right" title="fb_right"></li>
+                        <li class="fb_left"><img src="${pageContext.request.contextPath}/resource/img/AgencyProducts_white.png" alt="fb_left" title="fb_left" width="300px"></li>
+                        <li class="fb_right">
+                        	<p>뉴욕시 맨하탄로 abbb ave</p>
+                        	<p>AgencyProducts의 모든 컨텐츠는 저작권의 보호를 받고 있습니다.</p>
+                        	<p>Copyright <i class="fa-regular fa-copyright" style="color: #ffffff;"></i> 2023. AgencyProducts.All rights reserved.</p>
+                        	<p>Contact.</p>
+                        </li>
                     </ul>
                 </div>
             </div>
