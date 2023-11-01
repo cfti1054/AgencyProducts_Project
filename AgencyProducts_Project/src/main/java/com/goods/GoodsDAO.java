@@ -21,7 +21,7 @@ public class GoodsDAO {
 		try {
 			conn.setAutoCommit(false);
 
-			sql = "INSERT INTO goods(goods_id, goods_name, goods_price, "
+			sql = "INSERT INTO goods (goods_id, goods_name, goods_price, "
 					+ " act_id, goods_count, reg_date, goods_acc) " 
 					+ " VALUES (?, ?, ?, ?, ?, SYSDATE, ?)";
 
@@ -37,10 +37,11 @@ public class GoodsDAO {
 			pstmt.executeUpdate();
 
 			pstmt.close();
+			pstmt = null;
 
 			if (dto.getImg_names() != null) {
 				sql = "INSERT INTO goods_photo(photo_num, goods_id, img_name) "
-						+ " VALUES(goods_photo_seq.NEXTVAL, ?, ?)";
+						+ " VALUES (goods_photo_seq.NEXTVAL, ?, ?)";
 
 				pstmt = conn.prepareStatement(sql);
 
@@ -225,7 +226,7 @@ public class GoodsDAO {
 		StringBuilder sb = new StringBuilder();
 
 		try {
-			sb.append(" SELECT goods_id, goods_name, goods_price, ");
+			sb.append(" SELECT g.goods_id, goods_name, goods_price, ");
 			sb.append(" TO_CHAR(reg_date, 'YYYY-MM-DD') reg_date, ");
 			sb.append(" goods_acc, img_name ");
 			sb.append(" FROM goods g ");
@@ -236,7 +237,7 @@ public class GoodsDAO {
 				kwd = kwd.replaceAll("(\\-|\\/|\\.)", "");
 				sb.append(" WHERE TO_CHAR(reg_date, 'YYYYMMDD') = ?");
 			}
-			sb.append(" ORDER BY goods_id ASC ");
+			sb.append(" ORDER BY g.goods_id ASC ");
 			sb.append(" OFFSET ? ROWS FETCH FIRST ? ROWS ONLY ");
 
 			pstmt = conn.prepareStatement(sb.toString());
@@ -277,23 +278,21 @@ public class GoodsDAO {
 	}
 
 	// 해당 게시물 보기
-	public GoodsDTO findById(long photo_num) {
+	// -----------------------------------------
+	public GoodsDTO findById(String goods_id) {
 		GoodsDTO dto = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql;
 
 		try {
-			sql = " SELECT g.goods_id, goods_name, goods_price, act_id, " 
-					+ " goods_count, reg_date, goods_acc, "
-					+ " photo_num, img_name " 
-					+ " FROM goods g " 
-					+ " JOIN goods_photo p ON g.goods_id = p.goods_id "
-					+ " WHERE photo_num = ? ";
+			sql = "SELECT goods_id, goods_name, goods_price, act_id, goods_count, reg_date, goods_acc "
+					+ " FROM goods "
+					+ " WHERE goods_id = ? ";
 
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setLong(1, photo_num);
+			pstmt.setString(1, goods_id);
 
 			rs = pstmt.executeQuery();
 
@@ -307,8 +306,6 @@ public class GoodsDAO {
 				dto.setGoods_count(rs.getInt("goods_count"));
 				dto.setReg_date(rs.getString("reg_date"));
 				dto.setGoods_acc(rs.getString("goods_acc"));
-				dto.setPhoto_num(rs.getLong("photo_num"));
-				dto.setImg_name(rs.getString("img_name"));
 
 			}
 
@@ -322,31 +319,52 @@ public class GoodsDAO {
 	}
 
 	// 게시물 수정
-	public void updateGoods(GoodsDTO dto, long photo_num) throws SQLException {
+	public void updateGoods(GoodsDTO dto) throws SQLException {
 		PreparedStatement pstmt = null;
 		String sql;
 
 		try {
-			sql = "UPDATE goods_photo p " + " RIGHT JOIN goods g ON (p.goods_id = g.goods_id) "
-					+ " SET p.img_name = ?, g.goods_name = ?, g.goods_price = ?, g.act_id = ?, "
-					+ " g.goods_count = ?, g.goods_acc = ? " + " WHERE goods_photo.photo_num = ? ";
+			sql = "UPDATE goods SET goods_name=?, goods_price=?, act_id=?, goods_count=?, goods_acc=? "
+					+ " WHERE goods_id=?";
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setString(1, dto.getImg_name());
-			pstmt.setString(2, dto.getGoods_name());
-			pstmt.setInt(3, dto.getGoods_price());
-			pstmt.setString(4, dto.getAct_id());
-			pstmt.setInt(5, dto.getGoods_count());
-			pstmt.setString(6, dto.getGoods_acc());
-			pstmt.setLong(7, photo_num);
+			pstmt.setString(1, dto.getGoods_name());
+			pstmt.setInt(2, dto.getGoods_price());
+			pstmt.setString(3, dto.getAct_id());
+			pstmt.setInt(4, dto.getGoods_count());
+			pstmt.setString(5, dto.getGoods_acc());
+			pstmt.setString(6, dto.getGoods_id());
 
 			pstmt.executeUpdate();
+			
+			pstmt.close();
+			pstmt = null;
+			
+			if (dto.getImg_names() != null) {
+				sql = "INSERT INTO goods_photo(photo_num, goods_id, img_name) VALUES "
+						+ " (sphotoFile_seq.NEXTVAL, ?, ?)";
+				pstmt = conn.prepareStatement(sql);
+				
+				for (int i = 0; i < dto.getImg_names().length; i++) {
+					pstmt.setString(1, dto.getGoods_id());
+					pstmt.setString(2, dto.getImg_names()[i]);
+					
+					pstmt.executeUpdate();
+				}
+			}
 
 		} catch (Exception e) {
+			DBUtil.rollback(conn);
+			
 			e.printStackTrace();
 			throw e;
 		} finally {
 			DBUtil.close(pstmt);
+
+			try {
+				conn.setAutoCommit(true);
+			} catch (SQLException e2) {
+			}
 		}
 	}
 
@@ -390,4 +408,38 @@ public class GoodsDAO {
 		}
 
 	}
+	
+	//  -------------------------------------
+	public List<GoodsDTO> listPhotoFile(String goods_id) {
+		List<GoodsDTO> list = new ArrayList<>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql;
+
+		try {
+			sql = "SELECT photo_num, goods_id, img_name FROM goods_photo WHERE goods_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, goods_id);
+			
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				GoodsDTO dto = new GoodsDTO();
+
+				dto.setPhoto_num(rs.getLong("photo_num"));
+				dto.setGoods_id(rs.getString("goods_id"));
+				dto.setImg_name(rs.getString("img_name"));
+				
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(pstmt);
+		}
+
+		return list;
+	}
+	
 }

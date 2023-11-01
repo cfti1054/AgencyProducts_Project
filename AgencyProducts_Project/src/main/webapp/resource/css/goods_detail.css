@@ -169,11 +169,28 @@ ol, ul {
     text-align: center;
 }
 
+.goods_content .img_list {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 100px 0;
+	padding: 40px;
+}
+
 .goods_content .photo {
-    margin: 50px auto;
+    margin: auto;
     text-align: center;
 }
 
 .goods_content .photo img {
     border-radius: 10px;
 }
+
+.goods_content .photo img:hover {
+	border: 3px solid darkblue;
+}
+
+.goods_content .scale {
+	text-align: center;
+}
+
+

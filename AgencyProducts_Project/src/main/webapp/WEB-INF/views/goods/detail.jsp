@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +21,7 @@
             <div class="detail_wrap">
                 <div class="detail_img">
                     <div class="img_cover">
-                        <img src="https://via.placeholder.com/450x450" alt="detail_img">
+                        <img src="${pageContext.request.contextPath}/uploads/photo/${listFile[0].img_name}" alt="detail_img">
                     </div>
                 </div>
                 <div class="detail_info_wrap">
@@ -68,7 +69,7 @@
                                         <strong>총 가격</strong>
                                     </div>
                                 </div>
-                                <div class="deter">
+                                <div class="deter" style="padding-top: 47px">
                                     <div class="sell">
                                         <a href="#">바로 구매하기</a>
                                     </div>
@@ -86,9 +87,18 @@
                 <div class="content">
                     <p class="detail">${ dto.goods_acc }</p>
                 </div>
-                <div class="photo">
-                    <img src="<c:url value='/uploads/photo/${ dto.img_name }'/>" alt="photo">
+                <div class="img_list">
+	                <c:forEach var="vo" items="${ listFile }" varStatus="status">
+		                <div class="photo photo${ status.index }">
+		                    <img src="${pageContext.request.contextPath}/uploads/photo/${vo.img_name}" alt="photo" width="120">
+		                </div>
+	                </c:forEach>                	
                 </div>
+                <c:forEach var="vo" items="${ listFile }" varStatus="status">
+	                <div class="scale detail_photo${ status.index }">
+	                    <img src="${pageContext.request.contextPath}/uploads/photo/${vo.img_name}" alt="photo" width="700">
+	                </div>
+                </c:forEach>
             </div>
         </div>
     </div>
@@ -96,6 +106,33 @@
     <footer>
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 	</footer>
+    
+    <script type="text/javascript">
+    	var photo = document.querySelectorAll(".photo");
+    	var scale = document.querySelectorAll(".scale");
+    	
+    	for(var i = 0; i < photo.length; i++) {
+	    	photo[i].addEventListener('mouseenter', sizeUp);
+    	}
+    	
+    	function sizeUp() {
+    		/*
+    		for(let i = 0; photo.length; i++) {
+    			document.querySelector(".detail_photo+i").style.display = 'block';
+    		}
+    	}
+    	
+    	for(var i = 0; i < photo.length; i++) {
+	    	photo[i].addEventListener('mouseleave', hide);
+    	}
+    	
+    	function hide() {
+    		for(let i = 0; photo.length; i++) {
+    			document.querySelector(".detail_photo+i").style.display = 'none';
+    		}
+		}
+    	*/
+    </script>
     
 </body>
 </html>
