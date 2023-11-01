@@ -28,6 +28,10 @@ a {
     text-decoration: none;
 }
 
+main {
+	padding: 288px 0 220px 0;
+}
+
 .container {
     width: 100%;
     margin: auto;

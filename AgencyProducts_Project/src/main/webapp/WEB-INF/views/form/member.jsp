@@ -133,7 +133,6 @@ function changeEmail() {
 </header>
 	
 <main>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	<div class="container body-container">
 	    <div class="body-title body-side">
 	    	<div>
@@ -285,7 +284,6 @@ function changeEmail() {
 			</form>
 	    </div>
 	</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
 </main>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
