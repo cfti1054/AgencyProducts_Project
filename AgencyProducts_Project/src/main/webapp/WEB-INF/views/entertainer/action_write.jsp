@@ -158,9 +158,13 @@ function sendOk() {
 					<table class="submit-table">
 						<tr>
 							<td>  <button type="button" class="btn" onclick="sendOk();">${mode=="update" ? "수정완료" : "등록완료"}</button> </td>
-								
 							<td> <button type="reset" class="btn">다시입력</button> </td>
 							<td> <button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/article.do?act_id=${sessionScope.enter.act_id }';">취소</button> </td>
+							<c:if test="${mode=='update'}">
+								<td>
+										<input type="hidden" name="ac_list_num" value="${dto.ac_list_num}">
+								</td>
+							</c:if>
 						</tr>
 					</table>
 				</form>

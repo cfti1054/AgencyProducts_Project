@@ -85,6 +85,7 @@ public class EntertainerServlet extends MyUploadServlet {
 		} else if (uri.indexOf("enter_delete.do") != -1) {
 			// 연예인 상세정보 삭제
 			detaildelete(req, resp);
+			
 		} else if (uri.indexOf("action_write.do") != -1) {
 			// 활동 추가 페이지
 			action_write(req, resp);
@@ -172,8 +173,9 @@ public class EntertainerServlet extends MyUploadServlet {
 			
 		    List<EntertainerDTO> list = dao.detailList(act_id);
 		    EntertainerDTO dto = dao.findById(act_id);
-		    
+		    List<EntertainerDTO> list2 = dao.ActionList(act_id);
 			req.setAttribute("list", list);
+			req.setAttribute("list2", list2);
 			req.setAttribute("dto", dto);
 			
 			
@@ -379,9 +381,6 @@ public class EntertainerServlet extends MyUploadServlet {
 			String enter_id = req.getParameter("enter_id");
 			EntertainerDTO dto = dao.deleteFindBy(enter_id);
 		   
-			
-		  
-			
 			req.setAttribute("mode", "update");
 	    	req.setAttribute("dto", dto);
 			forward(req, resp, "/WEB-INF/views/entertainer/detail_update.jsp");
@@ -496,23 +495,27 @@ public class EntertainerServlet extends MyUploadServlet {
 		EntertainerDAO dao = new EntertainerDAO();
 		String cp = req.getContextPath();
 		
+		HttpSession session = req.getSession();
+		EnterSessionInfo info = (EnterSessionInfo) session.getAttribute("enter");
+		
 		try {
+			
 			long ac_list_num = Long.parseLong(req.getParameter("ac_list_num"));
 			EntertainerDTO dto = dao.findByActionListNum(ac_list_num);
 			
 			if (dto == null) {
-				resp.sendRedirect(cp + "/entertainer/artist.do");
+				resp.sendRedirect(cp + "/entertainer/article.do?act_id=" + info.getAct_id());
 			}
 			
 			req.setAttribute("mode", "update");
 			req.setAttribute("dto", dto);
-			forward(req, resp, "/WEB-INF/views/entertainer/group_write.jsp");
+			forward(req, resp, "/WEB-INF/views/entertainer/action_write.jsp");
 			return;
 		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect(cp + "/entertainer/artist.do");
+		resp.sendRedirect(cp + "/entertainer/article.do?act_id=" + info.getAct_id());
 	}
 	
 	protected void action_updateSubmit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

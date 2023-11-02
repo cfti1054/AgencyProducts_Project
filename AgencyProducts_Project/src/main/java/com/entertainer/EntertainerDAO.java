@@ -401,6 +401,8 @@ public class EntertainerDAO {
 			DBUtil.close(pstmt);
 		}
 	}
+
+	///////////////////////////////////////////////////////////////////////////////////
 	
 	public void insertAction(EntertainerDTO dto) throws SQLException {
 		PreparedStatement pstmt = null;
@@ -504,5 +506,41 @@ public class EntertainerDAO {
 			DBUtil.close(pstmt);
 		}
 		return dto;
+	}
+	
+	public List<EntertainerDTO> ActionList(String act_id) throws SQLException{
+		List<EntertainerDTO> list = new ArrayList<EntertainerDTO>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql;
+		
+		try {
+			sql = "SELECT ac_list_num, action_content, TO_CHAR(start_date, 'YYYY-MM-DD') start_date , TO_CHAR(end_date, 'YYYY-MM-DD') end_date, act_id FROM enter_action "
+					+ "WHERE act_id = ? ";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, act_id);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				EntertainerDTO dto = new EntertainerDTO();
+				
+				dto.setAc_list_num(rs.getLong("ac_list_num"));
+				dto.setAction_content(rs.getString("action_content"));
+				dto.setStart_date(rs.getString("start_date"));
+				dto.setEnd_date(rs.getString("end_date"));
+				dto.setAct_id(rs.getString("act_id"));
+				
+				list.add(dto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			DBUtil.close(rs);
+			DBUtil.close(pstmt);
+		}
+		return list;
 	}
 }

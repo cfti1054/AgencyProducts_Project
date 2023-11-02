@@ -76,19 +76,7 @@ function deleteAction(){
 		</div>
 		
 	    <div>
-			<table class="table-form">
-            <thead>
-               <tr>
-                  <td>
-                     그룹명
-                  </td>
-                  <td>
-                     ${dto2.group_name }
-                  </td>
-               </tr>
-            </thead>
-            </table>
-            
+			
             <c:forEach var="dto" items="${list}" varStatus="status">
             <table>
                <tr>
@@ -123,15 +111,28 @@ function deleteAction(){
                      ${dto.stage_name}
                   </td>
                </tr>
+               <c:if test="${sessionScope.member.userId == 'admin'}">
                <tr>
                <td colspan="2">
          	     <button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/enter_update.do?enter_id=${dto.enter_id}';">연예인 수정</button>
            		   <button type="button" class="btn" onclick="deleteEnter('${dto.enter_id}');">연예인 삭제</button>
                </td>
                </tr>
+               </c:if>
          </table>
             </c:forEach>
-			
+            <c:forEach var="dto" items="${list2}" varStatus="status">
+         	<table>
+         	<tr>
+         		<td>${dto.start_date} - ${dto.end_date}</td>
+         		<td>${dto.action_content}</td>
+	         	<td>
+	         		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_update.do?ac_list_num=${dto.ac_list_num}';">수정</button>
+	         		<button type="button" class="btn" onclick="deleteAction('${dto.ac_list_num}');">삭제</button>
+	         	</td>
+         	</tr>
+         	</table>
+			</c:forEach>
 			<c:if test="${sessionScope.member.userId == 'admin'}">
 				<table class="submit-table">
 					<tr>
@@ -139,9 +140,6 @@ function deleteAction(){
 							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_update.do?act_id=${dto.act_id}';">그룹 수정</button>
 							<button type="button" class="btn" onclick="deleteGroup();">그룹 삭제</button>
 							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_write.do?act_id=${dto.act_id}';">활동 추가</button>
-							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_update.do?act_id=${dto.act_id}';">활동 수정</button>
-							<button type="button" class="btn" onclick="deleteAction();">활동 삭제</button>
-					
 						</td>
 						<td align="right">
 							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">리스트</button>
