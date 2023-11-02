@@ -4,11 +4,10 @@ public class EntertainerDTO {
 	//entertainer(연예인)
 	private String act_id; // 활동ID
 	private String group_name;
-	private String photo_num;
 	private String img_name;
 	
 	// job
-	private int job_num; // 직업코드
+	private String job_num; // 직업코드
 	private String job_name;
 	
 	// enter_detail(상세정보)
@@ -19,7 +18,7 @@ public class EntertainerDTO {
 	private String stage_name;
 	
 	// action
-	private int action_num; // 분류코드
+	private String action_num; // 분류코드
 	private String action_name;
 	
 	// enter_action
@@ -27,6 +26,8 @@ public class EntertainerDTO {
 	private String action_content;
 	private String start_date;
 	private String end_date;
+	
+	
 	public String getAct_id() {
 		return act_id;
 	}
@@ -39,22 +40,17 @@ public class EntertainerDTO {
 	public void setGroup_name(String group_name) {
 		this.group_name = group_name;
 	}
-	public String getPhoto_num() {
-		return photo_num;
-	}
-	public void setPhoto_num(String photo_num) {
-		this.photo_num = photo_num;
-	}
+	
 	public String getImg_name() {
 		return img_name;
 	}
 	public void setImg_name(String img_name) {
 		this.img_name = img_name;
 	}
-	public int getJob_num() {
+	public String getJob_num() {
 		return job_num;
 	}
-	public void setJob_num(int job_num) {
+	public void setJob_num(String job_num) {
 		this.job_num = job_num;
 	}
 	public String getJob_name() {
@@ -93,10 +89,10 @@ public class EntertainerDTO {
 	public void setStage_name(String stage_name) {
 		this.stage_name = stage_name;
 	}
-	public int getAction_num() {
+	public String getAction_num() {
 		return action_num;
 	}
-	public void setAction_num(int action_num) {
+	public void setAction_num(String action_num) {
 		this.action_num = action_num;
 	}
 	public String getAction_name() {

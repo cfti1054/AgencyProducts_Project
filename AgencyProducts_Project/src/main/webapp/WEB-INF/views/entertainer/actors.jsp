@@ -30,24 +30,24 @@
 				
 			</div>
 			
+				<!--<c:if test="${sessionScope.member.userId == 'admin'}">-->
 			
+				<!--</c:if>-->
 			<div class="admin_edit">
-				<c:if test="${sessionScope.member.userId == 'admin'}">
-					<button type="button" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_write.do';">그룹 등록</button>
-				</c:if>
+				<button type="button" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_write.do';">그룹 등록</button>
 			</div>
 			
 	        <div class="layout_grid">
 	            <ul class="item_list">
 	            	
-		            <c:forEach var="i" begin="1" end="25" varStatus="x">
+		            <c:forEach var="dto" items="${list}">
 		                <li class="item">
-		                    <a href="#">
-		                        <img src="https://via.placeholder.com/240x240" alt="${dto.enter_name}" title="item${dto.enter_name}">
+		     				<a href="${pageContext.request.contextPath}/entertainer/article.do?act_id=${dto.act_id}">
+		                        <img src="${pageContext.request.contextPath}/uploads/photo/${dto.img_name}" alt="${dto.group_name}" title="${dto.group_name}">
 		                    </a>
 		                    <ul class="item_detail">
 		                        <li class="item_name">
-		                            <a href="#">item${dto.enter_name}</a>
+		                            <a href="${pageContext.request.contextPath}/entertainer/article.do?act_id=${dto.act_id}">${dto.group_name}</a>
 		                        </li>
 		                    </ul>
 		                </li>

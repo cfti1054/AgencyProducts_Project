@@ -5,20 +5,62 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>그룹 등록</title>
+<title>${mode=="update" ? "그룹 수정" : "그룹 등록"} </title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<style type="text/css">
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #333;
+    box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.write_container {
+    width: 1100px;
+    padding: 80px 0;
+}
+.form-title {
+	padding-bottom: 30px;
+}
+
+.table-form {
+	width: 800px;
+}
+.table-form td { padding: 7px 0; }
+
+.table-form tr td:first-child{ background: #f8f8f8; text-align: center; width: 120px; font-weight: 500; }
+.table-form tr td:nth-child(2) { text-align: left; padding-left: 10px; border-bottom: 2px solid #eee}
+
+.table-form input[type=text]:focus { border: 1px solid #222; }
+
+.info {
+	font-size: 12px;
+	font: #888;
+}
+</style>
+
 <script type="text/javascript">
 function sendOk() {
     const f = document.enterForm;
 	let str;
 	
-    str = f.act_id.value.trim();
-    if(!str) {
+	const act_idForm = document.forms['enterForm'];
+	
+	<%--
+    if(! act_idForm.act_id.value ) {
         alert("활동ID를 입력하세요. ");
-        f.act_id.focus();
+        act_idForm.act_id.focus();
         return;
     }
-
+	--%>
     str = f.group_name.value.trim();
     if(!str) {
         alert("그룹명을 입력하세요. ");
@@ -26,13 +68,13 @@ function sendOk() {
         return;
     }
     
-   /* let mode = "${mode}";
+    let mode = "${mode}";
     if(mode==="write" && (! f.selectFile.value)) {
     	alert("이미지파일을 추가하세요");
     	f.selectFile.focus();
     	return;
-    }*/
-
+    }
+    
     f.action = "${pageContext.request.contextPath}/entertainer/group_${mode}_ok.do";
     f.submit();
 }
@@ -40,31 +82,35 @@ function sendOk() {
 </head>
 <body>
 
-<!-- 솔로 및 그룹원 등록 -->
+<!-- 그룹 등록 및 수정 -->
 	<header>
     	<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
 	</header>
 
 	<main>
 	
-		<div class="container body-container" style="margin-top: 120px;">
-	    <div class="body-title">
-			<h2><i class="far fa-image"></i> 그룹 등록 </h2>
+		<div class="write_container" style="margin-top: 120px;">
+	    <div class="form-title">
+			<h2><i class="far fa-image"></i>&nbsp;${mode=="update" ? "그룹 수정" : "그룹 등록"} </h2>
+	    
 	    </div>
 	    
-	    <div class="body-main mx-auto">
+	    <div class="write_enter">
 			<form name="enterForm" method="post" enctype="multipart/form-data">
-				<table class="table table-border table-form">
+				<table class="table-form">
 					<tr> 
-						<td>연예인 ID</td>
-						<td> 
-							<input type="text" name="act_id" maxlength="100" class="form-control" value="${dto.act_id}">
+						<td>활동ID</td>
+						<td>
+							<p> 
+								<input type="text" name="act_id" maxlength="100" class="form-control" value="${sessionScope.enter.act_id}" ${mode=="update" ? "readonly ":""} placeholder="활동ID">
+							</p>
+							
 						</td>
 					</tr>
 					<tr> 
 						<td>그룹명</td>
 						<td> 
-							<input type="text" name="group_name" maxlength="100" class="form-control" value="${dto.group_name}">
+							<input type="text" name="group_name" maxlength="100" class="form-control" value="${dto.group_name}" placeholder="그룹명">
 						</td>
 					</tr>
 			
@@ -80,7 +126,7 @@ function sendOk() {
 							<td>이미지 수정</td>
 							<td>
 								<img src="<c:url value='/uploads/photo/${dto.img_name}'/>" class="img">
-								<span class="info">(새로운 이미지를 등록하면 기존 이미지는 삭제됩니다.)</span>
+								<p class="info">(새로운 이미지를 등록하면 기존 이미지는 삭제됩니다.)</p>
 							</td>
 						</tr>
 					</c:if>
@@ -95,9 +141,8 @@ function sendOk() {
 							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">${mode=="update" ? "수정취소" : "등록취소" }</button>
 							
 							<c:if test="${mode=='update'}">
-								<input type="hidden" name="num" value="${dto.num}">
-								<input type="hidden" name="imageFilename" value="${dto.imageFilename}">
-								<input type="hidden" name="page" value="${page}">
+								<input type="hidden" name="act_id" value="${dto.act_id}">
+								<input type="hidden" name="imageFilename" value="${dto.img_name}">
 							</c:if>
 							
 						</td>
