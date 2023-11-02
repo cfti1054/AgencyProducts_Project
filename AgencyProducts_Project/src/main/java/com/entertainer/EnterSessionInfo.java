@@ -3,6 +3,7 @@ package com.entertainer;
 public class EnterSessionInfo {
 	private String act_id;
 	private String group_name;
+	
 	public String getAct_id() {
 		return act_id;
 	}

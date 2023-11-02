@@ -69,7 +69,7 @@ function deleteAction(){
 	
 	<div class="enter-container" style="margin-top: 120px;">
 	    <div class="form-title">
-			<h2><i class="far fa-image"></i> 상세 페이지 </h2>
+			<h2><i class="far fa-image"></i> ${dto.group_name} </h2>
 	    </div>
 	    <div>
 	    	<img src="<c:url value='/uploads/photo/${dto.img_name}'/>" class="img">

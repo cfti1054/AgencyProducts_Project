@@ -22,7 +22,7 @@ public class EntertainerDTO {
 	private String action_name;
 	
 	// enter_action
-	private long ac_list_num; // 활동내역 코드(seq)
+	private long ac_list_num; // 활동 내역 코드(seq)
 	private String action_content;
 	private String start_date;
 	private String end_date;

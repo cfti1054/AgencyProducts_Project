@@ -50,6 +50,7 @@ public class EntertainerServlet extends MyUploadServlet {
 		} else if (uri.indexOf("artist.do") != -1) {
 			// 가수 페이지
 			artist(req, resp);	
+		
 		} else if (uri.indexOf("group_write.do") != -1) {
 			// 그룹 추가 페이지 (연예인)
 			group_write(req, resp);
@@ -65,6 +66,7 @@ public class EntertainerServlet extends MyUploadServlet {
 		} else if (uri.indexOf("group_delete.do") != -1) {
 			// 그룹 삭제 페이지
 			group_delete(req, resp);
+		
 		} else if (uri.indexOf("action_write.do") != -1) {
 			// 활동 추가 페이지
 			action_write(req, resp);

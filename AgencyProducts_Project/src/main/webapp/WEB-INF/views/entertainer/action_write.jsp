@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${mode=="write" ? "활동 등록" : "" }</title>
+<title>${mode=="update" ? "활동 수정" : "활동 등록" }</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/enter_style.css" type="text/css">
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <style type="text/css">

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${mode=="update" ? "그룹 수정" : "그룹 등록"} </title>
+<title>${mode=="update" ? "그룹 수정" : "그룹 등록 "} </title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <style type="text/css">
 

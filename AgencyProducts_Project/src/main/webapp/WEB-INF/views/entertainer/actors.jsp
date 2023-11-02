@@ -33,6 +33,7 @@
 				<!--<c:if test="${sessionScope.member.userId == 'admin'}">-->
 			
 				<!--</c:if>-->
+				
 			<div class="admin_edit">
 				<button type="button" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_write.do';">그룹 등록</button>
 			</div>

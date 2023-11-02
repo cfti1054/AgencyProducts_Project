@@ -15,6 +15,7 @@ public class EntertainerDAO {
 	private Connection conn = DBConn.getConnection();
 	
 	public void insertGroup(EntertainerDTO dto) throws SQLException{
+		
 		// entertainer table
 		PreparedStatement pstmt = null;
 		String sql;
