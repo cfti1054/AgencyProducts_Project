@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>notice</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/notice.css" type="text/css">
 
 <script type="text/javascript">

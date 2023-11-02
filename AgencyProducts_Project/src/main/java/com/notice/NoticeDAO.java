@@ -37,14 +37,14 @@ public class NoticeDAO {
 			pstmt = null;
 
 			sql = "INSERT INTO notice(num, userId, subject, content, hitCount, reg_date) "
-					+ "  VALUES (NEWS_seq.NEXTVAL, ?, ?, ?, 0, SYSDATE)";
+					+ "  VALUES (?, ?, ?, ?, 0, SYSDATE)";
 
 			pstmt = conn.prepareStatement(sql);
 			
-			
-			pstmt.setString(1, dto.getUserId());
-			pstmt.setString(2, dto.getSubject());
-			pstmt.setString(3, dto.getContent());
+			pstmt.setLong(1, dto.getNum());
+			pstmt.setString(2, dto.getUserId());
+			pstmt.setString(3, dto.getSubject());
+			pstmt.setString(4, dto.getContent());
 
 			pstmt.executeUpdate();
 			
