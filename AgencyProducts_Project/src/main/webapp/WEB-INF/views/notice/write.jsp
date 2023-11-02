@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>notice</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/notice.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/notice_write.css" type="text/css">
 
 
 
@@ -92,29 +93,30 @@ function sendOk() {
 								<tr>
 									<td class="td_css">제&nbsp;&nbsp;&nbsp;&nbsp;목</td>
 									<td class="td_text"> 
-										<input type="text" name="subject" maxlength="100" class="form-control" value="${dto.subject}">
+										<input type="text" name="subject" maxlength="200" class="form-control subject_input" value="${dto.subject}">
 									</td>
 								</tr>
-				
+								<hr>
 								
 				
 								<tr> 
 									<td class="td_css">작성자</td>
 									<td> 
-										<p>${sessionScope.member.userName}</p>
+										<p class="name">${sessionScope.member.userName}</p>
 									</td>
 								</tr>
 								
 								<tr> 
-									<td valign="top" class="td_css">내&nbsp;&nbsp;&nbsp;&nbsp;용</td>
+									<td class="td_css">내&nbsp;&nbsp;&nbsp;&nbsp;용</td>
 									<td class="td_text"> 
-										<textarea name="content" class="form-control">${dto.content}</textarea>
+										<textarea name="content" class="form-control content_input">${dto.content}</textarea>
 									</td>
 								</tr>
 								
 								<tr>
 									<td class="td_css">첨&nbsp;&nbsp;&nbsp;&nbsp;부</td>
 									<td class="td_text"> 
+										<i class="fa-solid fa-paperclip"></i>
 										<input type="file" name="selectFile" class="form-control" multiple>
 									</td>
 								</tr>
@@ -134,7 +136,7 @@ function sendOk() {
 								</c:if>
 							</table>
 								
-							<table class="table">
+							<table class="table table-button">
 								<tr> 
 									<td align="center">
 										<button type="button" class="btn" onclick="sendOk();">${mode=='update'?'수정완료':'등록하기'}</button>
