@@ -41,16 +41,20 @@ public class EntertainerServlet extends MyUploadServlet {
 		pathname = root + "uploads" + File.separator + "photo";
 
 		// uri에 따른 작업 구분
-		if (uri.indexOf("actor.do") != -1) {
-			// 배우화면
+		if (uri.indexOf("artist.do") != -1) {
+			// 전체 아티스트
+			artist(req, resp);
+		} else if (uri.indexOf("actor.do") != -1) {
+			// 배우 화면
 			actor(req, resp);
+		} else if (uri.indexOf("singer.do") != -1) {
+			// 가수 화면
+			singer(req, resp);
+			
 		} else if (uri.indexOf("article.do") != -1) {
 			// 상세 페이지
 			article(req, resp);
-		} else if (uri.indexOf("artist.do") != -1) {
-			// 가수 페이지
-			artist(req, resp);	
-		
+
 		} else if (uri.indexOf("group_write.do") != -1) {
 			// 그룹 추가 페이지 (연예인)
 			group_write(req, resp);
@@ -85,6 +89,28 @@ public class EntertainerServlet extends MyUploadServlet {
 		}
 	}
 
+	protected void artist(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
+		// 전체 아티스트 페이지
+		EntertainerDAO dao = new EntertainerDAO();
+
+		try {
+			HttpSession session = req.getSession();
+
+			if (session != null) {
+				// 세션에 저장된 정보를 지운다.
+				session.removeAttribute("enter");
+				session.invalidate();
+			}
+			List<EntertainerDTO> list = dao.listArtist();
+
+			req.setAttribute("list", list);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		forward(req, resp, "/WEB-INF/views/entertainer/artist.jsp");
+
+	}
 	protected void actor(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
 		// 배우 페이지
 		EntertainerDAO dao = new EntertainerDAO();
@@ -104,8 +130,25 @@ public class EntertainerServlet extends MyUploadServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		req.setAttribute("category", "actor");
 		forward(req, resp, "/WEB-INF/views/entertainer/actors.jsp");
+		
+	}
+	protected void singer(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 가수 페이지
+		EntertainerDAO dao = new EntertainerDAO();
+		
+		try {
+			
+			List<EntertainerDTO> list = dao.listSinger();
+			
+			req.setAttribute("list", list);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		req.setAttribute("category", "singer");
+		forward(req, resp, "/WEB-INF/views/entertainer/actors.jsp");	
 		
 	}
 	protected void article(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -148,23 +191,6 @@ public class EntertainerServlet extends MyUploadServlet {
 		return;
 	}
 	
-	protected void artist(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 가수 페이지
-		EntertainerDAO dao = new EntertainerDAO();
-
-		try {
-
-			List<EntertainerDTO> list = dao.listArtist();
-
-			req.setAttribute("list", list);
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		req.setAttribute("mode", "artist");
-		forward(req, resp, "/WEB-INF/views/entertainer/actor.jsp");	
-	
-	}
 	
 	
 	protected void group_write(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

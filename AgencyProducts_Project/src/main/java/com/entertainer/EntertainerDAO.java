@@ -69,6 +69,39 @@ public class EntertainerDAO {
 			DBUtil.close(pstmt);
 		}
 	}
+	public List<EntertainerDTO> listArtist(){
+		List<EntertainerDTO> list = new ArrayList<EntertainerDTO>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql;
+		
+		try {
+			sql = "SELECT DISTINCT e1.act_id, group_name, img_name "
+					+ " FROM entertainer e1 ";
+					
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				EntertainerDTO dto = new EntertainerDTO();
+				
+				dto.setAct_id(rs.getString("act_id"));
+				dto.setGroup_name(rs.getString("group_name"));
+				dto.setImg_name(rs.getString("img_name"));
+				
+				list.add(dto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(rs);
+			DBUtil.close(pstmt);
+		}
+		return list;
+	}	
 	
 	public List<EntertainerDTO> listActor(){
 		List<EntertainerDTO> list = new ArrayList<EntertainerDTO>();
@@ -77,11 +110,11 @@ public class EntertainerDAO {
 		String sql;
 		
 		try {
-			sql = "SELECT e1.act_id, group_name, img_name "
-					+ " FROM entertainer e1 ";
-					//+ " JOIN enter_detail e2 "
-					//+ " ON e1.act_id = e2.act_id "
-					//+ " WHERE job_num = 2";
+			sql = "SELECT DISTINCT e1.act_id, group_name, img_name "
+					+ " FROM entertainer e1 "
+					+ " JOIN enter_detail e2 "
+					+ " ON e1.act_id = e2.act_id "
+					+ " WHERE job_num = '2'";
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -106,18 +139,18 @@ public class EntertainerDAO {
 		return list;
 	}
 	
-	public List<EntertainerDTO> listArtist(){
+	public List<EntertainerDTO> listSinger(){
 		List<EntertainerDTO> list = new ArrayList<EntertainerDTO>();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql;
 		
 		try {
-			sql = "SELECT e1.act_id, group_name, img_name "
+			sql = "SELECT DISTINCT e1.act_id, group_name, img_name "
 					+ " FROM entertainer e1 "
 					+ " JOIN enter_detail e2 "
 					+ " ON e1.act_id = e2.act_id "
-					+ " WHERE job_num = 1";
+					+ " WHERE job_num = '1'";
 			
 			pstmt = conn.prepareStatement(sql);
 			

@@ -41,12 +41,12 @@
                                 <li></li>
                             </ul>
                         </li>
-                        <li><a href="${pageContext.request.contextPath}/entertainer/actor.do">CATEGORY</a>
+                        <li><a href="${pageContext.request.contextPath}/entertainer/artist.do">ARTIST</a>
                             <ul class="sub_menu">
                                 <li><a href="${pageContext.request.contextPath}/entertainer/actor.do">배우</a></li>
-                                <li><a href="#">가수</a></li>
-                                <li><a href="#">모델</a></li>
-                                <li><a href="#">엔터테이너</a></li>
+                                <li><a href="${pageContext.request.contextPath}/entertainer/singer.do">가수</a></li>
+                                <li></li>
+                                <li></li>
                                 <li></li>
                             </ul>
                         </li>
