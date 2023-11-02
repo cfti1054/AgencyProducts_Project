@@ -7,36 +7,44 @@
 <meta charset="UTF-8">
 <title>그룹 등록</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-<script type="text/javascript">
-function sendOk() {
-    const f = document.enterForm;
-	let str;
-	
-    str = f.act_id.value.trim();
-    if(!str) {
-        alert("활동ID를 입력하세요. ");
-        f.act_id.focus();
-        return;
-    }
 
-    str = f..group_name.trim();
-    if(!str) {
-        alert("그룹명을 입력하세요. ");
-        f.group_name.focus();
+<script type="text/javascript">
+
+function sendOk() {
+    const f = document.detailForm;
+	
+    if(! f.enter_id.value.trim() ) {
+        alert("연예인 ID를 입력하세요. ");
+        enter_id.focus();
         return;
     }
     
-    let mode = "${mode}";
-    if(mode==="write" && (! f.selectFile.value)) {
-    	alert("이미지파일을 추가하세요");
-    	f.selectFile.focus();
-    	return;
+    if(! f.enter_name.value.trim() ) {
+        alert("연예인 이름을 입력하세요. ");
+        enter_name.focus();
+        return;
     }
-
-    f.action = "${pageContext.request.contextPath}/entertainer/${mode}_ok.do";
+    
+    if(! f.enter_birth.value.trim() ) {
+        alert("생년월일을 입력하세요. ");
+        enter_birth.focus();
+        return;
+    }
+    
+    
+    if(! f.debut_date.value.trim() ) {
+        alert("데뷔일을 입력하세요. ");
+        debut_date.focus();
+        return;
+    }
+    
+    f.action = "${pageContext.request.contextPath}/entertainer/enter_${mode}_ok.do";
     f.submit();
 }
+
+
 </script>
+
 </head>
 <body>
 
@@ -52,8 +60,10 @@ function sendOk() {
 			<h2><i class="far fa-image"></i> 연예인 등록 </h2>
 	    </div>
 	    
+	    		
+	    
 	    <div class="body-main mx-auto">
-			<form name="enterForm" method="post" enctype="multipart/form-data">
+			<form name="detailForm" method="post" enctype="multipart/form-data">
 				<table class="table table-border table-form">
 					<tr> 
 						<td>연예인 ID</td>
@@ -64,29 +74,44 @@ function sendOk() {
 					<tr> 
 						<td>연예인 이름</td>
 						<td> 
-							<input type="text" name="enter_name " maxlength="100" class="form-control" value="${dto.enter_name }">
+							<input type="text" name="enter_name" maxlength="100" class="form-control" value="${dto.enter_name }">
 						</td>
 					</tr>
-			
 					<tr> 
 						<td>생년월일</td>
 						<td> 
-							<input type="text" name="enter_name " maxlength="100" class="form-control" value="${dto.enter_name }">
+							<input type="date" name="enter_birth" maxlength="100" class="form-control" value="${dto.enter_birth }">
 						</td>
 					</tr>
-					
-					<c:if test="${mode=='update'}">
-						<tr>
-							<td>이미지 수정</td>
-							<td>
-								<img src="<c:url value='/uploads/photo/${dto.img_name}'/>" class="img">
-								<span class="info">(새로운 이미지를 등록하면 기존 이미지는 삭제됩니다.)</span>
-							</td>
-						</tr>
-					</c:if>
-					
+					<tr> 
+						<td>데뷔일</td>
+						<td> 
+							<input type="date" name="debut_date" maxlength="100" class="form-control" value="${dto.debut_date }">
+						</td>
+					</tr>
+					<tr> 
+						<td>직업코드</td>
+						<td> 
+							<input type="radio" name="job_num " maxlength="100" class="form-control" value="1" checked>가수
+							<input type="radio" name="job_num " maxlength="100" class="form-control" value="2">배우
+							<input type="radio" name="job_num " maxlength="100" class="form-control" value="3">모델
+						</td>
+					</tr>
+					</table>
+					<div class="row">
+							<p>활동ID
+							<input name="act_id" type="text" value="${sessionScope.enter.act_id}" readonly>
+							</p>		
+				</div>
+					<table>
+					<tr> 
+						<td>예명</td>
+						<td> 
+							<input type="text" name="stage_name " maxlength="100" class="form-control" value="${dto.stage_name }">
+						</td>
+					</tr>
 				</table>
-					
+				
 				<table class="table">
 					<tr> 
 						<td align="center">
@@ -95,17 +120,14 @@ function sendOk() {
 							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">${mode=="update" ? "수정취소" : "등록취소" }</button>
 							
 							<c:if test="${mode=='update'}">
-								<input type="hidden" name="num" value="${dto.num}">
-								<input type="hidden" name="imageFilename" value="${dto.imageFilename}">
-								<input type="hidden" name="page" value="${page}">
+								<input type="hidden" name="num" value="${dto.enter_id}">
 							</c:if>
 							
 						</td>
 					</tr>
 				</table>
-		
 			</form>
-
+			
 	    </div>
 	</div>
 	</main>

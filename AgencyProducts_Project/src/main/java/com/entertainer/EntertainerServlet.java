@@ -27,14 +27,9 @@ public class EntertainerServlet extends MyUploadServlet {
 	@Override
 	protected void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String uri = req.getRequestURI();
-		//String cp = req.getContextPath();
 		
 		HttpSession session = req.getSession();
 		session.getAttribute("member");
-			/*if(info == null) {
-				resp.sendRedirect(cp + "/member/login.do");
-				return;
-			}*/
 			
 		// 이미지 저장 경로
 		String root = session.getServletContext().getRealPath("/");
@@ -71,6 +66,25 @@ public class EntertainerServlet extends MyUploadServlet {
 			// 그룹 삭제 페이지
 			group_delete(req, resp);
 		
+		} else if (uri.indexOf("enter_write.do") != -1) {
+			// 연예인 상세정보 추가 폼
+			detailWrite(req, resp);
+			
+		} else if (uri.indexOf("enter_write_ok.do") != -1) {
+			// 연예인 상세정보 추가 완료
+			detailSubmit(req, resp);
+			
+		} else if (uri.indexOf("enter_update.do") != -1) {
+			// 연예인 상세정보 수정 폼
+			detailupdate(req, resp);
+		
+		} else if (uri.indexOf("enter_update_ok.do") != -1) {
+			// 연예인 상세정보 수정 완료
+			detailupSubmit(req, resp);
+			
+		} else if (uri.indexOf("enter_delete.do") != -1) {
+			// 연예인 상세정보 삭제
+			detaildelete(req, resp);
 		} else if (uri.indexOf("action_write.do") != -1) {
 			// 활동 추가 페이지
 			action_write(req, resp);
@@ -148,42 +162,29 @@ public class EntertainerServlet extends MyUploadServlet {
 	}
 	protected void article(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 상세 페이지
-		HttpSession session = req.getSession();
 		
-		EntertainerDAO dao = new EntertainerDAO();
-		
-		String cp = req.getContextPath();
+	    EntertainerDAO dao = new EntertainerDAO();
+	    String cp = req.getContextPath();
 		
 		try {
+			
 			String act_id = req.getParameter("act_id");
 			
-			EntertainerDTO dto = dao.findById(act_id);
-			
-			if(dto == null) {
-				resp.sendRedirect(cp + "/entertainter/actor");
-				return;
-			}
-			EnterSessionInfo info2 = new EnterSessionInfo();
-			info2.setAct_id(dto.getAct_id());
-			info2.setGroup_name(dto.getGroup_name());
-			session.setAttribute("enter", info2);
-			
-			dto.setEnter_name(dto.getEnter_name());
-			dto.setEnter_birth(dto.getEnter_birth());
-			dto.setDebut_date(dto.getDebut_date());
-			dto.setStage_name(dto.getStage_name());
-			
+		    List<EntertainerDTO> list = dao.detailList(act_id);
+		    EntertainerDTO dto = dao.findById(act_id);
+		    
+			req.setAttribute("list", list);
 			req.setAttribute("dto", dto);
 			
-			forward(req, resp, "/WEB-INF/views/entertainer/article.jsp");
-			return;
 			
+			forward(req, resp, "/WEB-INF/views/entertainer/article.jsp");
+			return; 
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect(cp + "/entertainter/actor.do");
-		return;
+		
+		resp.sendRedirect(cp + "/entertainer/actor.do");
 	}
 	
 	
@@ -328,6 +329,127 @@ public class EntertainerServlet extends MyUploadServlet {
 		resp.sendRedirect(cp + "/entertainer/artist.do");
 	}
 	
+//----------------------------------------------------------------------------------------------------------------------	
+	
+	protected void detailWrite(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 연예인 상세등록 폼
+		req.setAttribute("mode", "write");
+		forward(req, resp, "/WEB-INF/views/entertainer/enter_write.jsp");
+	}
+	
+	protected void detailSubmit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 연예인 상세정보 등록
+		
+		EntertainerDAO dao = new EntertainerDAO();
+		String cp = req.getContextPath();
+		if (req.getMethod().equalsIgnoreCase("GET")) {
+			resp.sendRedirect(cp + "/entertainer/*");
+			return;
+		}
+		
+		try {
+			EntertainerDTO dto = new EntertainerDTO();
+			
+		    dto.setEnter_id(req.getParameter("enter_id"));
+			dto.setEnter_name(req.getParameter("enter_name"));
+			dto.setEnter_birth(req.getParameter("enter_birth"));
+			dto.setDebut_date(req.getParameter("debut_date"));
+			dto.setJob_num(req.getParameter("job_num"));
+			dto.setAct_id(req.getParameter("act_id"));
+			dto.setStage_name(req.getParameter("stage_name"));  
+			
+			dao.insertEnterDetail(dto);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		resp.sendRedirect(cp + "/entertainer/actor.do");
+	}
+	
+	protected void detailupdate(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 연예인 수정 폼
+		
+		EntertainerDAO dao = new EntertainerDAO();
+	//	EntertainerDTO dto2 = dao.deleteFindBy(info.getAct_id());
+		String cp = req.getContextPath();
+		
+		try {
+
+			String enter_id = req.getParameter("enter_id");
+			EntertainerDTO dto = dao.deleteFindBy(enter_id);
+		   
+			
+		  
+			
+			req.setAttribute("mode", "update");
+	    	req.setAttribute("dto", dto);
+			forward(req, resp, "/WEB-INF/views/entertainer/detail_update.jsp");
+			return;
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		resp.sendRedirect(cp + "/entertainer/actor.do");
+	}
+	
+	protected void detailupSubmit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 연예인 수정 완료
+		EntertainerDAO dao = new EntertainerDAO();
+		String cp = req.getContextPath();
+		
+		if (req.getMethod().equalsIgnoreCase("GET")) {
+			resp.sendRedirect(cp + "/entertainer/actor.do");
+			return;
+		}
+
+		try {
+			EntertainerDTO dto = new EntertainerDTO();
+			
+		    dto.setEnter_name(req.getParameter("enter_name"));
+		    dto.setEnter_birth(req.getParameter("enter_birth"));
+		    dto.setDebut_date(req.getParameter("debut_date"));
+		    dto.setJob_num(req.getParameter("job_num"));
+		    dto.setAct_id(req.getParameter("act_id"));
+		    dto.setStage_name(req.getParameter("stage_name"));
+		    dto.setEnter_id(req.getParameter("enter_id"));
+			
+			dao.updatedetail(dto);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		resp.sendRedirect(cp + "/entertainer/actor.do");
+		return;
+	}
+	
+	protected void detaildelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 연예인 삭제	
+		
+		EntertainerDAO dao = new EntertainerDAO();
+		String cp = req.getContextPath();
+		
+		try {
+			String act_id = req.getParameter("act_id");
+			EntertainerDTO dto = dao.deleteFindBy(act_id);
+			
+			if(dto == null) {
+				resp.sendRedirect(cp + "/entertainer/article.do?act_id=");
+				return;
+			}
+			
+			req.setAttribute("mode", "delete");
+			dao.deletedetail(act_id);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		resp.sendRedirect(cp + "/entertainer/article.do?act_id=");
+		
+	} 
+	
+//----------------------------------------------------------------------------------------------------------------------	
+
 	protected void action_write(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 활동 추가
 		req.setAttribute("mode", "write");

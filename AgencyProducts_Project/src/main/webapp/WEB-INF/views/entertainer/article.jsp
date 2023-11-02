@@ -77,54 +77,60 @@ function deleteAction(){
 		
 	    <div>
 			<table class="table-form">
-				<thead>
-					<tr>
-						<td>
-							그룹명
-						</td>
-						<td>
-							${dto.group_name }
-						</td>
-					</tr>
-				</thead>
-				
-				<tbody>
-				<c:forEach var="dto" items="${list}">
-					<tr>
-						<td>
-							이름
-						</td>
-						<td>
-							${dto.enter_name }
-						</td>
-					</tr>
-					<tr>
-						<td>
-							생년월일
-						</td>
-						<td>
-							${dto.enter_birth}
-						</td>
-					</tr>
-					<tr>
-						<td>
-							데뷔일
-						</td>
-						<td>
-							${dto.debut_date}
-						</td>
-					</tr>
-					<tr>
-						<td>
-							예명
-						</td>
-						<td>
-							${dto.stage_name}
-						</td>
-					</tr>
-				</c:forEach>
-				</tbody>
-			</table>
+            <thead>
+               <tr>
+                  <td>
+                     그룹명
+                  </td>
+                  <td>
+                     ${dto2.group_name }
+                  </td>
+               </tr>
+            </thead>
+            </table>
+            
+            <c:forEach var="dto" items="${list}" varStatus="status">
+            <table>
+               <tr>
+                  <td>
+                     이름
+                  </td>
+                  <td>
+                     ${dto.enter_name }
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     생년월일
+                  </td>
+                  <td>
+                     ${dto.enter_birth}
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     데뷔일
+                  </td>
+                  <td>
+                     ${dto.debut_date}
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     예명
+                  </td>
+                  <td>
+                     ${dto.stage_name}
+                  </td>
+               </tr>
+               <tr>
+               <td colspan="2">
+         	     <button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/enter_update.do?enter_id=${dto.enter_id}';">연예인 수정</button>
+           		   <button type="button" class="btn" onclick="deleteEnter('${dto.enter_id}');">연예인 삭제</button>
+               </td>
+               </tr>
+         </table>
+            </c:forEach>
 			
 			<c:if test="${sessionScope.member.userId == 'admin'}">
 				<table class="submit-table">
