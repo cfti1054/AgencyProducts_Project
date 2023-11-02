@@ -57,6 +57,11 @@ function deleteAction(){
 	if(confirm('활동을 삭제하시겠습니까 ? ')) {
 		location.href = '${pageContext.request.contextPath}/entertainer/action_delete.do?ac_list_num=${dto.ac_list_num}';
 	}
+	
+function deleteAction(enter_id){
+	if(confirm('연예인을 삭제하시겠습니까 ? ')) {
+		location.href = '${pageContext.request.contextPath}/entertainer/enter_delete.do?enter_id=' + enter_id;
+	}
 }
 </script>
 </head>
