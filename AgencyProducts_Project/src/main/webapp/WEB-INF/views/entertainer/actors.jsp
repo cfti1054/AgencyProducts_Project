@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${category=="actor" ? "ACTOR" : "ARTIST"} </title>
+<title>${category=="actor" ? "ACTOR" : "SINGER"} </title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/enter_style.css" type="text/css">
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
@@ -22,9 +22,9 @@
 	
 	<div class="enter_container" style="margin-top: 120px;">
 			<div class="enter_title">
-				<h2>${category=="actor" ? "ACTOR" : "ARTIST"} </h2>
+				<h2>${category=="actor" ? "ACTOR" : "SINGER"} </h2>
 				
-				<a>${category=="actor" ? "ACTOR" : "ARTIST"} </a>
+				<a>${category=="actor" ? "ACTOR" : "SINGER"} </a>
 				<a> &gt; </a>
 				<a href="${pageContext.request.contextPath}/"> HOME </a>
 				
