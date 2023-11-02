@@ -56,9 +56,10 @@
                                         <li class="goods_option">
                                             <p class="option_price">${ dto.goods_price } </p>
                                             <div class="quantity">
-                                                <input name="quantity" type="number" class="quantity_num">
+                                                <input name="quantity" type="text" class="quantity_num" readonly value="0">
                                                 <button type="button" class="add" onclick="plus();"><i class="fa-solid fa-plus"></i></button>
                                                 <button type="button" class="minus" onclick="minus();"><i class="fa-solid fa-minus"></i></button>
+                                                <input name="unit_price" type="hidden" value="${ dto.goods_price }">
                                             </div>
                                         </li>
                                     </ul>
@@ -66,7 +67,8 @@
                                 <div class="total_price">
                                     <div>
                                         <span>총 상품금액</span>
-                                        <strong>총 가격</strong>
+                                        <strong id="tot_price">총 가격</strong>
+                                        
                                     </div>
                                 </div>
                                 <div class="deter" style="padding-top: 47px">
@@ -108,6 +110,7 @@
 	</footer>
     
     <script type="text/javascript">
+    /*
     	var photo = document.querySelectorAll(".photo");
     	var scale = document.querySelectorAll(".scale");
     	
@@ -116,7 +119,7 @@
     	}
     	
     	function sizeUp() {
-    		/*
+    		
     		for(let i = 0; photo.length; i++) {
     			document.querySelector(".detail_photo+i").style.display = 'block';
     		}
@@ -132,6 +135,34 @@
     		}
 		}
     	*/
+    	
+    	const f = document.form1;
+    	const unit_price = Number(f.unit_price.value);
+    	let count = Number(f.quantity.value);
+    	let total = unit_price * count;
+    	
+    	let plus = () => {
+    		count++;
+    		f.quantity.value = count;
+    		let total = 10000 * count;
+    		console.log(total);
+    		document.getElementById("tot_price").innerHTML=total + '원';
+    	}
+    	
+    	let minus = () => {
+    		count--;
+    		if(count < 0) {
+    			count = 0;
+    		}
+    		f.quantity.value = count;
+    		let total = 10000 * count;
+    		console.log(total);
+    		document.getElementById("tot_price").innerHTML = total.toString() + '원';
+    	}
+    	
+    	
+    	
+    	
     </script>
     
 </body>
