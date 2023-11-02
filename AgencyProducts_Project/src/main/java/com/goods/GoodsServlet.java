@@ -157,7 +157,7 @@ public class GoodsServlet extends MyUploadServlet {
 		String query = "page=" + page;
 		
 		try {
-			long photoNum = Long.parseLong(req.getParameter("photo_num"));
+			String goods_id = req.getParameter("goods_id");
 			String schType = req.getParameter("schType");
 			String kwd = req.getParameter("kwd");
 			if(schType == null) {
@@ -171,17 +171,20 @@ public class GoodsServlet extends MyUploadServlet {
 			}
 			
 			// 굿즈 상세내용 가져오기
-			GoodsDTO dto = dao.findById(photoNum);
+			GoodsDTO dto = dao.findById(goods_id);
 			if(dto == null) {
 				resp.sendRedirect(cp + "/goods/goods.do?" + query);
 				return;
 			}
 			dto.setGoods_acc(util.htmlSymbols(dto.getGoods_acc()));
 			
+			List<GoodsDTO> listFile = dao.listPhotoFile(goods_id);
+			
 			// JSP로 전달할 속성
 			req.setAttribute("dto", dto);
 			req.setAttribute("page", page);
 			req.setAttribute("query", query);
+			req.setAttribute("listFile", listFile);
 			
 			// 포워딩
 			forward(req, resp, "/WEB-INF/views/goods/detail.jsp");
@@ -247,8 +250,8 @@ public class GoodsServlet extends MyUploadServlet {
 		String cp = req.getContextPath();
 		
 		try {
-			long photoNum = Long.parseLong(req.getParameter("photo_num"));
-			GoodsDTO dto = dao.findById(photoNum);
+			String goods_id = req.getParameter("goods_id");
+			GoodsDTO dto = dao.findById(goods_id);
 			
 			if(dto == null) {
 				resp.sendRedirect(cp + "/goods/goods.do");
@@ -301,9 +304,7 @@ public class GoodsServlet extends MyUploadServlet {
 				dto.setImg_names(saveFiles);
 			}
 			
-			long photoNum = Long.parseLong(req.getParameter("photo_num"));
-			
-			dao.updateGoods(dto, photoNum);
+			dao.updateGoods(dto);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -319,11 +320,11 @@ public class GoodsServlet extends MyUploadServlet {
 		String cp = req.getContextPath();
 		
 		try {
-			long photoNum = Long.parseLong(req.getParameter("photo_num"));
+			String goods_id = req.getParameter("goods_id");
 			
 			String goodsId = req.getParameter("goods_id");
 			
-			GoodsDTO dto = dao.findById(photoNum);
+			GoodsDTO dto = dao.findById(goods_id);
 			
 			if(dto == null) {
 				resp.sendRedirect(cp + "/goods/goods.do");
