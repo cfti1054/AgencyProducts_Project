@@ -523,8 +523,8 @@ public class NoticeServlet extends MyUploadServlet {
 			return;
 		}
 
-		String page = req.getParameter("page");
-		String size = req.getParameter("size");
+		String page = req.getParameter("page_list");
+		String size = req.getParameter("size_list");
 		String query = "size=" + size + "&page=" + page;
 
 		String schType = req.getParameter("schType");

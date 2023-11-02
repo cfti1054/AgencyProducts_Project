@@ -110,6 +110,7 @@ $(document).ready(function(){
 								<td align="right" width="100">
 									<c:if test="${sessionScope.member.userId=='admin'}">
 										<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/notice/write.do?size=${size}';">글올리기</button>
+										
 									</c:if>
 								</td>
 							</tr>
@@ -122,6 +123,8 @@ $(document).ready(function(){
 									<td width="50%">
 										<c:if test="${sessionScope.member.userId=='admin'}">
 											<span class="item-delete" id="btnDeleteList" title="삭제"><i class="fa-regular fa-trash-can"></i></span>
+											<input type="hidden" name="page_list" value="${page}" >
+											<input type="hidden" name="size_list" value="${size}" >
 										</c:if>
 										
 									</td>
