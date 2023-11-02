@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>spring</title>
+<title>notice</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/notice.css" type="text/css">
 
 
@@ -73,9 +73,7 @@
 						
 						<tbody>
 							<tr>
-								<td width="50%">
-									이름 : ${dto.userName}
-								</td>
+								
 								<td align="right">
 									${dto.reg_date} | 조회 ${dto.hitCount}
 								</td>

@@ -80,35 +80,41 @@ $(document).ready(function(){
 					<span></span>
 					<h4>NOTICE</h4>
 				</div>
-				
+			
+			
 				<div class="container body-container">
 	    
+	    
 			    <div class="content">
-			    	<table class="table">
-						<tr>
-							
-							<td align="center">
-								<form name="searchForm" action="${pageContext.request.contextPath}/notice/list.do" method="post">
-									<select name="schType" class="form-select">
-										<option value="all"      ${schType=="all"?"selected":"" }>제목+내용</option>
-										<option value="reg_date"  ${schType=="reg_date"?"selected":"" }>등록일</option>
-										<option value="subject"  ${schType=="subject"?"selected":"" }>제목</option>
-										<option value="content"  ${schType=="content"?"selected":"" }>내용</option>
-									</select>
-									<input type="text" name="kwd" value="${kwd}" class="form-control">
-									<input type="hidden" name="size" value="${size}">
-									<button type="button" class="btn" onclick="searchList();">검색</button>
-								</form>
-							</td>
-							<td align="right" width="100">
-								<c:if test="${sessionScope.member.userId=='admin'}">
-									<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/notice/write.do?size=${size}';">글올리기</button>
-								</c:if>
-							</td>
-						</tr>
-					</table>
-					
-				    <div class="body-main mx-auto">
+			    
+				    <table class="table">
+							<tr>
+								<td width="100">
+									<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/notice/list.do';" title="새로고침"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+								</td>
+								<td align="center">
+									<form name="searchForm" action="${pageContext.request.contextPath}/notice/list.do" method="post">
+										<select name="schType" class="form-select">
+											<option value="all"      ${schType=="all"?"selected":"" }>제목+내용</option>
+											
+											<option value="reg_date"  ${schType=="reg_date"?"selected":"" }>등록일</option>
+											<option value="subject"  ${schType=="subject"?"selected":"" }>제목</option>
+											<option value="content"  ${schType=="content"?"selected":"" }>내용</option>
+										</select>
+										<input type="text" name="kwd" value="${kwd}" class="form-control">
+										<input type="hidden" name="size" value="${size}">
+										<button type="button" class="btn" onclick="searchList();">검색</button>
+									</form>
+								</td>
+								<td align="right" width="100">
+									<c:if test="${sessionScope.member.userId=='admin'}">
+										<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/notice/write.do?size=${size}';">글올리기</button>
+									</c:if>
+								</td>
+							</tr>
+						</table>
+						
+						
 				        <form name="listForm" method="post">
 							<table class="table">
 								<tr>
@@ -116,11 +122,13 @@ $(document).ready(function(){
 										<c:if test="${sessionScope.member.userId=='admin'}">
 											<span class="item-delete" id="btnDeleteList" title="삭제"><i class="fa-regular fa-trash-can"></i></span>
 										</c:if>
+										
 									</td>
+									
 								</tr>
 							</table>
 							
-							<table class="table  table-list">
+							<table class="table table-border table-list">
 								<thead>
 									<tr>
 										<c:if test="${sessionScope.member.userId=='admin'}">
@@ -130,6 +138,7 @@ $(document).ready(function(){
 										</c:if>
 										<th class="num">번호</th>
 										<th class="subject">제목</th>
+										
 										<th class="date">작성일</th>
 										<th class="hit">조회수</th>
 									</tr>
@@ -138,7 +147,7 @@ $(document).ready(function(){
 								<tbody>
 									
 									
-									<c:forEach var="dto" items="${listNotice}">
+									<c:forEach var="dto" items="${list}" varStatus="status">
 										<tr>
 											<c:if test="${sessionScope.member.userId=='admin'}">
 												<td>
@@ -146,10 +155,11 @@ $(document).ready(function(){
 												</td>
 											</c:if>
 											<td>${dataCount - (page-1) * size - status.index}</td>
-											<td class="left" id="subject1">
+											<td class="left">
 												<a href="${articleUrl}&num=${dto.num}">${dto.subject}</a>
-												<c:if test="${dto.gap<1}"></c:if>
+												<c:if test="${dto.gap<1}"><img src="${pageContext.request.contextPath}/resource/images/new.gif"></c:if>
 											</td>
+											
 											<td>${dto.reg_date}</td>
 											<td>${dto.hitCount}</td>
 										</tr>
@@ -157,19 +167,17 @@ $(document).ready(function(){
 								</tbody>
 							</table>
 						</form>
-					
-					
-							<div class="page-navigation">
-								${dataCount == 0 ? "등록된 게시물이 없습니다." : paging}
-							</div>
-					
-					
-		
-			    		</div>
-					</div>
+						
+						<div class="page-navigation">
+							${dataCount == 0 ? "등록된 게시물이 없습니다." : paging}
+						</div>
+						
+				    </div>
 				</div>
-				
-			</div>
+			
+			
+			
+			</div>	
 		</div>
 	</div>
 </main>
