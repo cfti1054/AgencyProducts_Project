@@ -157,7 +157,7 @@ $(document).ready(function(){
 											<td>${dataCount - (page-1) * size - status.index}</td>
 											<td class="left">
 												<a href="${articleUrl}&num=${dto.num}">${dto.subject}</a>
-												<c:if test="${dto.gap<1}"><img src="${pageContext.request.contextPath}/resource/images/new.gif"></c:if>
+												<c:if test="${dto.gap<1}"></c:if>
 											</td>
 											
 											<td>${dto.reg_date}</td>
