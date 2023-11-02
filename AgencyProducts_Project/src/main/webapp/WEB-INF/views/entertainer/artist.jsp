@@ -30,12 +30,13 @@
 				
 			</div>
 			
-			<div class="admin_edit">
-				<button type="button" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_write.do';">그룹 등록</button>
-			</div>
-				<!--<c:if test="${sessionScope.member.userId == 'admin'}">-->
-				<!--</c:if>-->
+			<c:if test="${sessionScope.member.userId == 'admin'}">
 			
+				<div class="admin_edit">
+					<button type="button" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_write.do';">그룹 등록</button>
+				</div>
+			
+			</c:if>
 	        <div class="layout_grid">
 	            <ul class="item_list">
 	            	

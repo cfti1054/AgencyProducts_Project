@@ -2,7 +2,6 @@ package com.entertainer;
 
 import java.io.File;
 
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import com.member.SessionInfo;
 import com.util.FileManager;
 import com.util.MyUploadServlet;
 
@@ -30,7 +30,7 @@ public class EntertainerServlet extends MyUploadServlet {
 		//String cp = req.getContextPath();
 		
 		HttpSession session = req.getSession();
-//		SessionInfo info = (SessionInfo)session.getAttribute("member");
+		session.getAttribute("member");
 			/*if(info == null) {
 				resp.sendRedirect(cp + "/member/login.do");
 				return;
@@ -95,12 +95,9 @@ public class EntertainerServlet extends MyUploadServlet {
 
 		try {
 			HttpSession session = req.getSession();
-
-			if (session != null) {
-				// 세션에 저장된 정보를 지운다.
-				session.removeAttribute("enter");
-				session.invalidate();
-			}
+			session.getAttribute("enter");
+			
+			
 			List<EntertainerDTO> list = dao.listArtist();
 
 			req.setAttribute("list", list);
@@ -117,12 +114,8 @@ public class EntertainerServlet extends MyUploadServlet {
 		
 		try {
 			HttpSession session = req.getSession();
+			session.getAttribute("enter");
 			
-			if(session != null) {
-				// 세션에 저장된 정보를 지운다.
-				session.removeAttribute("enter");
-				session.invalidate();
-			}
 			List<EntertainerDTO> list = dao.listActor();
 			
 			req.setAttribute("list", list);
@@ -139,6 +132,8 @@ public class EntertainerServlet extends MyUploadServlet {
 		EntertainerDAO dao = new EntertainerDAO();
 		
 		try {
+			HttpSession session = req.getSession();
+			session.getAttribute("enter");
 			
 			List<EntertainerDTO> list = dao.listSinger();
 			
@@ -168,10 +163,10 @@ public class EntertainerServlet extends MyUploadServlet {
 				resp.sendRedirect(cp + "/entertainter/actor");
 				return;
 			}
-			EnterSessionInfo info = new EnterSessionInfo();
-			info.setAct_id(dto.getAct_id());
-			info.setGroup_name(dto.getGroup_name());
-			session.setAttribute("enter", info);
+			EnterSessionInfo info2 = new EnterSessionInfo();
+			info2.setAct_id(dto.getAct_id());
+			info2.setGroup_name(dto.getGroup_name());
+			session.setAttribute("enter", info2);
 			
 			dto.setEnter_name(dto.getEnter_name());
 			dto.setEnter_birth(dto.getEnter_birth());
@@ -195,6 +190,14 @@ public class EntertainerServlet extends MyUploadServlet {
 	
 	protected void group_write(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 그룹 추가 페이지
+		HttpSession session = req.getSession();
+		SessionInfo info = (SessionInfo) session.getAttribute("member");
+		String cp = req.getContextPath();
+		
+		if(!info.getUserId().equals("admin")) {
+			resp.sendRedirect(cp + "/entertainer/artist.do");
+			return;
+		}
 		req.setAttribute("mode", "write");
 
 		forward(req, resp, "/WEB-INF/views/entertainer/group_write.jsp");
@@ -208,7 +211,7 @@ public class EntertainerServlet extends MyUploadServlet {
 		String cp = req.getContextPath();
 		
 		if(req.getMethod().equals("GET")) {
-			resp.sendRedirect(cp + "/entertainer/actor.do");
+			resp.sendRedirect(cp + "/entertainer/artist.do");
 			return;
 		}
 		
@@ -234,7 +237,7 @@ public class EntertainerServlet extends MyUploadServlet {
 			e.printStackTrace();
 		}
 		
-		resp.sendRedirect(cp + "/entertainer/actor.do");
+		resp.sendRedirect(cp + "/entertainer/artist.do");
 		return;
 	}
 	
@@ -242,13 +245,14 @@ public class EntertainerServlet extends MyUploadServlet {
 		// 그룹 수정
 		EntertainerDAO dao = new EntertainerDAO();
 		String cp = req.getContextPath();
-		
+		HttpSession session = req.getSession();
+		session.getAttribute("enter");
 		try {
 			String act_id = req.getParameter("act_id");
 			EntertainerDTO dto = dao.findById(act_id);
 			
 			if (dto == null) {
-				resp.sendRedirect(cp + "/entertainer/actor.do");
+				resp.sendRedirect(cp + "/entertainer/artist.do");
 			}
 			
 			req.setAttribute("mode", "update");
@@ -259,7 +263,7 @@ public class EntertainerServlet extends MyUploadServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect(cp + "/entertainer/actor");
+		resp.sendRedirect(cp + "/entertainer/artist.do");
 	}
 	
 	protected void group_updateSubmit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -269,7 +273,7 @@ public class EntertainerServlet extends MyUploadServlet {
 		String cp = req.getContextPath();
 		
 		if(req.getMethod().equals("GET")) {
-			resp.sendRedirect(cp + "/entertainer/actor.do");
+			resp.sendRedirect(cp + "/entertainer/artist.do");
 			return;
 		}
 		
@@ -294,7 +298,7 @@ public class EntertainerServlet extends MyUploadServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect(cp + "/entertainer/actor.do");
+		resp.sendRedirect(cp + "/entertainer/artist.do");
 		return;
 	}
 	
@@ -309,7 +313,7 @@ public class EntertainerServlet extends MyUploadServlet {
 			
 			EntertainerDTO dto = dao.findById(act_id);
 			if(dto == null) {
-				resp.sendRedirect(cp + "/entertainer/actor.do");
+				resp.sendRedirect(cp + "/entertainer/artist.do");
 				return;
 			}
 
@@ -321,7 +325,7 @@ public class EntertainerServlet extends MyUploadServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect(cp + "/entertainer/actor.do");
+		resp.sendRedirect(cp + "/entertainer/artist.do");
 	}
 	
 	protected void action_write(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -375,7 +379,7 @@ public class EntertainerServlet extends MyUploadServlet {
 			EntertainerDTO dto = dao.findByActionListNum(ac_list_num);
 			
 			if (dto == null) {
-				resp.sendRedirect(cp + "/entertainer/actor.do");
+				resp.sendRedirect(cp + "/entertainer/artist.do");
 			}
 			
 			req.setAttribute("mode", "update");
@@ -386,7 +390,7 @@ public class EntertainerServlet extends MyUploadServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect(cp + "/entertainer/actor");
+		resp.sendRedirect(cp + "/entertainer/artist.do");
 	}
 	
 	protected void action_updateSubmit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -126,21 +126,23 @@ function deleteAction(){
 				</tbody>
 			</table>
 			
-			<table class="submit-table">
-				<tr>
-					<td width="50%">
-						<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_update.do?act_id=${dto.act_id}';">그룹 수정</button>
-						<button type="button" class="btn" onclick="deleteGroup();">그룹 삭제</button>
-						<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_write.do?act_id=${dto.act_id}';">활동 추가</button>
-						<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_update.do?act_id=${dto.act_id}';">활동 수정</button>
-						<button type="button" class="btn" onclick="deleteAction();">활동 삭제</button>
-				
-					</td>
-					<td align="right">
-						<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">리스트</button>
-					</td>
-				</tr>
-			</table>
+			<c:if test="${sessionScope.member.userId == 'admin'}">
+				<table class="submit-table">
+					<tr>
+						<td width="50%">
+							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_update.do?act_id=${dto.act_id}';">그룹 수정</button>
+							<button type="button" class="btn" onclick="deleteGroup();">그룹 삭제</button>
+							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_write.do?act_id=${dto.act_id}';">활동 추가</button>
+							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_update.do?act_id=${dto.act_id}';">활동 수정</button>
+							<button type="button" class="btn" onclick="deleteAction();">활동 삭제</button>
+					
+						</td>
+						<td align="right">
+							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">리스트</button>
+						</td>
+					</tr>
+				</table>
+			</c:if>
 
 		</div>
 	</div>
