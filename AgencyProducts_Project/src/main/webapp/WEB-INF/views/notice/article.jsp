@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>notice</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/notice.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/notice_article.css" type="text/css">
 
 
 <c:if test="${sessionScope.member.userId=='admin'}">
@@ -65,7 +66,7 @@
 					<table class="table table-border table-article">
 						<thead>
 							<tr>
-								<td colspan="2" align="center">
+								<td colspan="2">
 									${dto.subject}
 								</td>
 							</tr>
@@ -79,10 +80,12 @@
 								</td>
 							</tr>
 							
+							
 							<tr style="border-bottom:none;">
 								<td colspan="2" valign="top" height="200">
 									${dto.content}
 								</td>
+								
 							</tr>
 							
 							<tr>
@@ -115,15 +118,26 @@
 						</tbody>
 					</table>
 					
-					<table class="table">
+					<table class="table table-button">
 						<tr>
 							<td width="50%">
-								<c:if test="${sessionScope.member.userId=='admin'}">
-									<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/notice/update.do?num=${dto.num}&page=${page}&size=${size}';">수정</button>
-									<button type="button" class="btn" onclick="deleteNotice();">삭제</button>
-								</c:if>
-							
-								
+								<c:choose>
+									<c:when test="${sessionScope.member.userId=='admin'}">
+										<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/notice/update.do?num=${dto.num}&page=${page}&size=${size}';">수정</button>
+									</c:when>
+									<c:otherwise>
+										<button type="button" class="btn" disabled>수정</button>
+									</c:otherwise>
+								</c:choose>
+						    	
+								<c:choose>
+						    		<c:when test="${sessionScope.member.userId=='admin'}">
+						    			<button type="button" class="btn" onclick="deleteNotice();">삭제</button>
+						    		</c:when>
+						    		<c:otherwise>
+						    			<button type="button" class="btn" disabled>삭제</button>
+						    		</c:otherwise>
+						    	</c:choose>
 							</td>
 							<td align="right">
 								<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/notice/list.do?${query}';">리스트</button>

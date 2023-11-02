@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #333;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+body {
+  width: 100%;
+  margin-top: 120px;
+  margin-bottom: 100px;
+  padding-top: 100px;
+}
+
+.wrap {
+  width: 1300px;
+  margin: 0 auto;
+  padding: 120px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-regular {
+	margin-left: 19px;
+}
+
+#aside {
+  width: 180px;
+}
+
+#aside h2 {
+  padding: 0 0 10px 10px;
+  border-bottom: 1px solid black;
+}
+
+#aside .list .title {
+  padding: 10px;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+#aside .list .title a {
+  display: block;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#artist {
+  width: 1080px;
+  padding: 0 40px;
+  overflow: hidden;
+}
+
+#artist .about {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 30px;
+}
+
+#artist .about h2 {
+  position: relative;
+  padding: 0 0 10px 20px;
+}
+
+#artist .about span {
+  display: inline-block;
+  width: 3px;
+  height: 24px;
+  margin: 0 10px 6px 10px;
+  background: #000;
+}
+
+#artist .about h4 {
+  margin-bottom: 6px;
+  color: #777;
+}
+
+#artist .body-main .table {
+	width: 100%;
+}
+
+#artist .body-main .table-article thead tr td {
+	padding: 5px 10px;
+	font-size: 20px;
+	font-style: italic;
+	font-weight: 600;
+	color: rebeccapurple;
+	border-bottom: 1px solid #ccc;
+}
+
+#artist .body-main .table-article tbody tr:first-child td {
+	padding: 5px 10px;
+	font-style: italic;
+}
+
+#artist .body-main .table-article tbody tr:nth-child(2) td {
+	padding: 22px 14px;
+	border-bottom: 1px solid #ccc;
+}
+
+#artist .body-main .table-article tbody tr:nth-child(4) td {
+	padding: 10px 10px;
+}
+
+#artist .body-main .table-article tbody tr:nth-child(5) td {
+	padding: 10px 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+#artist .body-main .table-button {
+	margin-top: 20px;
+	padding: 0 12px;
+}
+
+
+#artist .body-main .table-button tr td button {
+	width: 100px;
+	height: 32px;
+	margin-right: 6px;
+	cursor: pointer;
+	border: none;
+	border-radius: 4px;
+	background-color: #bdbdbd;
+	color: #fff;
+}
