@@ -76,6 +76,8 @@ public class MemberDAO {
 			pstmt.setString(3, dto.getZip());
 			pstmt.setString(4, dto.getAddr1());
 			pstmt.setString(5, dto.getAddr2());
+			
+			
 			pstmt.setString(6, dto.getTel());
 			pstmt.setString(7, dto.getEmail());
 			
