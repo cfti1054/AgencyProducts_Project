@@ -22,25 +22,22 @@
           <div id="aside" class="aside">
               <h2>ARTIST</h2>
               <ul class="list">
-                  <li class="title">
-                      <a href="#">회사소개</a>
-                  </li>	        
-                  <li class="title">
-                      <a href="#">대표인사말</a>
-                  </li>
-                  <li class="title">
-                      <a href="#">연혁</a>
-                  </li>
-                  <li class="title">
-                      <a href="#">사업현황</a>
-                  </li>
-                  <li class="title">
-                      <a href="#">오시는길</a>
-                  </li>
-                  <li class="title">
-                      <a href="#">공고</a>
-                  </li>	        
-              </ul>
+                    <li class="title">
+                        <a href="${pageContext.request.contextPath}/company/about.do">회사소개</a>
+                    </li>	        
+                    <li class="title">
+                        <a href="${pageContext.request.contextPath}/company/greeting.do">대표인사말</a>
+                    </li>
+                    <li class="title">
+                        <a href="${pageContext.request.contextPath}/company/business.do">사업현황</a>
+                    </li>
+                    <li class="title">
+                        <a href="${pageContext.request.contextPath}/company/map.do">오시는길</a>
+                    </li>
+                    <li class="title">
+                        <a href="${pageContext.request.contextPath}/notice/list.do">공고</a>
+                    </li>	        
+                </ul>
           </div>
           <div id="artist" class="artist">
               <div class="about">

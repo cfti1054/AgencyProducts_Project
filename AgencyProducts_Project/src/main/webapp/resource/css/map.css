@@ -20,7 +20,7 @@ body {
 }
 
 .wrap {
-  width: 1080px;
+  width: 1300px;
   margin: 0 auto;
   padding-bottom: 120px;
 }
@@ -52,7 +52,7 @@ body {
 }
 
 #artist {
-  width: 860px;
+  width: 1080px;
   padding-left: 20px;
   padding-right: 20px;
   overflow: hidden;
