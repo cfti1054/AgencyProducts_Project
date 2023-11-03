@@ -179,14 +179,14 @@ public class MemberServlet extends MyServlet {
 		String cp = req.getContextPath();
 		if (info == null) {
 			// 로그 아웃 상태이면
-			resp.sendRedirect(cp + "/member/login.do");
+			resp.sendRedirect(cp + "/form/login.do");
 			return;
 		}
 
 		String mode = req.getParameter("mode");
 		req.setAttribute("mode", mode);
 
-		forward(req, resp, "/WEB-INF/views/member/pwd.jsp");
+		forward(req, resp, "/WEB-INF/views/form/pwd.jsp");
 	}
 
 	protected void pwdSubmit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -204,7 +204,7 @@ public class MemberServlet extends MyServlet {
 		try {
 			SessionInfo info = (SessionInfo) session.getAttribute("member");
 			if (info == null) { // 로그아웃 된 경우
-				resp.sendRedirect(cp + "/member/login.do");
+				resp.sendRedirect(cp + "/form/login.do");
 				return;
 			}
 
@@ -216,16 +216,16 @@ public class MemberServlet extends MyServlet {
 				return;
 			}
 
-			String userPwd = req.getParameter("user_pwd");
+			String user_pwd = req.getParameter("user_pwd");
 			String mode = req.getParameter("mode");
-			if (!dto.getUser_pwd().equals(userPwd)) {
+			if ( !dto.getUser_pwd().equals(user_pwd)) {
 				if (mode.equals("update")) {
 					req.setAttribute("title", "회원 정보 수정");
 				}
 
 				req.setAttribute("mode", mode);
 				req.setAttribute("message", "패스워드가 일치하지 않습니다.");
-				forward(req, resp, "/WEB-INF/views/member/pwd.jsp");
+				forward(req, resp, "/WEB-INF/views/form/pwd.jsp");
 				return;
 			}
 
@@ -244,7 +244,7 @@ public class MemberServlet extends MyServlet {
 			req.setAttribute("title", "회원 정보 수정");
 			req.setAttribute("dto", dto);
 			req.setAttribute("mode", "update");
-			forward(req, resp, "/WEB-INF/views/member/member.jsp");
+			forward(req, resp, "/WEB-INF/views/form/member.jsp");
 			return;
 
 		} catch (Exception e) {
@@ -268,7 +268,7 @@ public class MemberServlet extends MyServlet {
 		try {
 			SessionInfo info = (SessionInfo) session.getAttribute("member");
 			if (info == null) { // 로그아웃 된 경우
-				resp.sendRedirect(cp + "/member/login.do");
+				resp.sendRedirect(cp + "/form/login.do");
 				return;
 			}
 
@@ -277,11 +277,12 @@ public class MemberServlet extends MyServlet {
 			dto.setUser_id(req.getParameter("user_id"));
 			dto.setUser_pwd(req.getParameter("user_pwd"));
 			dto.setUser_name(req.getParameter("user_name"));
-
+			dto.setBirth(req.getParameter("birth"));
+			
 			String email1 = req.getParameter("email1");
 			String email2 = req.getParameter("email2");
 			dto.setEmail(email1 + "@" + email2);
-
+			
 			String tel1 = req.getParameter("tel1");
 			String tel2 = req.getParameter("tel2");
 			String tel3 = req.getParameter("tel3");

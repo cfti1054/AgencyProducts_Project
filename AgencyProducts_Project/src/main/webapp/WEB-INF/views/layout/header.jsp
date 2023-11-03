@@ -90,7 +90,7 @@
 						<c:otherwise>
 							<!--로그인 후-->
 		                    <li><a href="${pageContext.request.contextPath}/form/logout.do" title="로그아웃"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a></li>
-		                    <li><a href="#"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></li>
+		                    <li><a href="${pageContext.request.contextPath}/form/pwd.do?mode=update"><i class="fa-solid fa-user" style="color: #ffffff;"></i></a></li>
 						</c:otherwise>
 					</c:choose>
                 </ul>

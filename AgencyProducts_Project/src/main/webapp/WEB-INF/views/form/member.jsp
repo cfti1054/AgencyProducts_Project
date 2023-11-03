@@ -19,20 +19,20 @@ function memberOk() {
 	str = f.user_id.value;
 	if( !/^[a-z][a-z0-9_]{4,9}$/i.test(str) ) { 
 		alert("아이디를 다시 입력 하세요. ");
-		f.userId.focus();
+		f.user_id.focus();
 		return;
 	}
 
 	str = f.user_pwd.value;
 	if( !/^(?=.*[a-z])(?=.*[!@#$%^*+=-]|.*[0-9]).{5,10}$/i.test(str) ) { 
 		alert("패스워드를 다시 입력 하세요. ");
-		f.userPwd.focus();
+		f.user_pwd.focus();
 		return;
 	}
 
 	if( str !== f.user_pwd2.value ) {
         alert("패스워드가 일치하지 않습니다. ");
-        f.userPwd.focus();
+        f.user_pwd2.focus();
         return;
 	}
 	

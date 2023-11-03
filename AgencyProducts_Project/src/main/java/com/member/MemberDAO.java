@@ -101,25 +101,25 @@ public class MemberDAO {
 		
 	}
 
-	public MemberDTO findById(String userId) {
+	public MemberDTO findById(String user_id) {
 		MemberDTO dto = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		StringBuilder sb = new StringBuilder();
 		
 		try {
-			sb.append("SELECT m1.userId, userName, userPwd,");
-			sb.append("      enabled, register_date, modify_date,");
+			sb.append("SELECT u1.user_id, user_name, user_pwd,");
+			sb.append("      enabled, TO_CHAR(reg_date, 'YYYY-MM-DD') reg_date, ");
 			sb.append("      TO_CHAR(birth, 'YYYY-MM-DD') birth, ");
 			sb.append("      email, tel,");
 			sb.append("      zip, addr1, addr2");
-			sb.append("  FROM member1 m1");
-			sb.append("  LEFT OUTER JOIN member2 m2 ON m1.userId=m2.userId ");
-			sb.append("  WHERE m1.userId = ?");
+			sb.append("  FROM user1 u1");
+			sb.append("  LEFT OUTER JOIN user2 u2 ON u1.user_id=u2.user_id ");
+			sb.append("  WHERE u1.user_id = ?");
 			
 			pstmt = conn.prepareStatement(sb.toString());
 			
-			pstmt.setString(1, userId);
+			pstmt.setString(1, user_id);
 			
 			rs = pstmt.executeQuery();
 			
@@ -168,7 +168,7 @@ public class MemberDAO {
 		String sql;
 		
 		try {
-			sql = "UPDATE member1 SET userPwd=?, modify_date=SYSDATE  WHERE userId=?";
+			sql = "UPDATE user1 SET user_pwd=? WHERE user_id=?";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, dto.getUser_pwd());
@@ -179,7 +179,7 @@ public class MemberDAO {
 			pstmt.close();
 			pstmt = null;
 			
-			sql = "UPDATE member2 SET birth=TO_DATE(?,'YYYY-MM-DD'), email=?, tel=?, zip=?, addr1=?, addr2=? WHERE userId=?";
+			sql = "UPDATE user2 SET birth=TO_DATE(?,'YYYY-MM-DD'), email=?, tel=?, zip=?, addr1=?, addr2=? WHERE user_id=?";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, dto.getBirth());
@@ -201,25 +201,25 @@ public class MemberDAO {
 
 	}
 	
-	public void deleteMember(String userId) throws SQLException {
+	public void deleteMember(String user_id) throws SQLException {
 		PreparedStatement pstmt = null;
 		String sql;
 		
 		try {
-			sql = "UPDATE member1 SET enabled=0 WHERE userId=?";
+			sql = "UPDATE user1 SET enabled=0 WHERE user_id=?";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, userId);
+			pstmt.setString(1, user_id);
 			
 			pstmt.executeUpdate();
 			
 			pstmt.close();
 			pstmt = null;
 			
-			sql = "DELETE FROM member2 WHERE userId=?";
+			sql = "DELETE FROM user2 WHERE user_id=?";
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, userId);
+			pstmt.setString(1, user_id);
 			
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
