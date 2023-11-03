@@ -12,7 +12,7 @@
 
 function sendOk() {
     const f = document.detailForm;
-	
+/*	
     if(! f.enter_id.value.trim() ) {
         alert("연예인 ID를 입력하세요. ");
         enter_id.focus();
@@ -36,7 +36,7 @@ function sendOk() {
         alert("데뷔일을 입력하세요. ");
         debut_date.focus();
         return;
-    }
+    }*/
     
     f.action = "${pageContext.request.contextPath}/entertainer/enter_${mode}_ok.do";
     f.submit();
@@ -100,7 +100,7 @@ function sendOk() {
 					</table>
 					<div class="row">
 							<p>활동ID
-							<input name="act_id" type="text" value="${sessionScope.enter.act_id}" readonly>
+							<input name="act_id" type="text" value="${act_id}" readonly>
 							</p>		
 				</div>
 					<table>

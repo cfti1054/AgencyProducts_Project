@@ -435,7 +435,8 @@ public class EntertainerDAO {
 		String sql;
 		
 		try {
-			sql = "UPDATE enter_action SET action_num = ?, action_content = ?, start_date = ?, end_date = ? WHERE ac_list_num = ? ";
+			sql = "UPDATE enter_action SET action_num = ?, action_content = ?, start_date = ?, end_date = ?"
+					+ "  WHERE ac_list_num = ? ";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, dto.getAction_num());
@@ -480,14 +481,17 @@ public class EntertainerDAO {
 		String sql;
 		
 		try {
-			sql = "SELECT ac_list_num, action_num, action_content, start_date, end_date, act_id FROM enter_action WHERE ac_list_num = ?";
+			sql = "SELECT ac_list_num, action_num, action_content,"
+					+ " to_char(start_date, 'YYYY-MM-DD') start_date, to_char(end_date, 'YYYY-MM-DD') end_date, act_id"
+					+ " FROM enter_action WHERE ac_list_num = ?";
+			
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setLong(1, ac_list_num);
 			
 			rs = pstmt.executeQuery();
 			
-			while(rs.next()) {
+			if(rs.next()) {
 				dto = new EntertainerDTO();
 				
 				dto.setAc_list_num(rs.getLong("ac_list_num"));
@@ -495,6 +499,7 @@ public class EntertainerDAO {
 				dto.setAction_content(rs.getString("action_content"));
 				dto.setStart_date(rs.getString("start_date"));
 				dto.setEnd_date(rs.getString("end_date"));
+				dto.setAct_id(rs.getString("act_id"));
 				
 			}
 			
@@ -515,8 +520,10 @@ public class EntertainerDAO {
 		String sql;
 		
 		try {
-			sql = "SELECT ac_list_num, action_content, TO_CHAR(start_date, 'YYYY-MM-DD') start_date , TO_CHAR(end_date, 'YYYY-MM-DD') end_date, act_id FROM enter_action "
-					+ "WHERE act_id = ? ";
+			sql = "SELECT ac_list_num, action_content, TO_CHAR(start_date, 'YYYY-MM-DD') start_date , "
+					+ " TO_CHAR(end_date, 'YYYY-MM-DD') end_date, act_id "
+					+ " FROM enter_action "
+					+ " WHERE act_id = ? ";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, act_id);

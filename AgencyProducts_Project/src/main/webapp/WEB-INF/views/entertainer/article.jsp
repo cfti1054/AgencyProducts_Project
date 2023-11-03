@@ -53,14 +53,16 @@ function deleteGroup(){
 	}
 }
 
-function deleteAction(){
+function deleteAction(ac_list_num){
 	if(confirm('활동을 삭제하시겠습니까 ? ')) {
-		location.href = '${pageContext.request.contextPath}/entertainer/action_delete.do?ac_list_num=${dto.ac_list_num}';
+		location.href = '${pageContext.request.contextPath}/entertainer/action_delete.do?ac_list_num=' + ac_list_num + "&act_id=${dto.act_id}" ;
 	}
-	
-function deleteAction(enter_id){
+}
+
+function deleteEnter(enter_id){
+     alert(enter_id);
 	if(confirm('연예인을 삭제하시겠습니까 ? ')) {
-		location.href = '${pageContext.request.contextPath}/entertainer/enter_delete.do?enter_id=' + enter_id;
+		location.href = '${pageContext.request.contextPath}/entertainer/enter_delete.do?enter_id=' + enter_id + "&act_id=${dto.act_id}" ;
 	}
 }
 </script>
@@ -131,10 +133,12 @@ function deleteAction(enter_id){
          	<tr>
          		<td>${dto.start_date} - ${dto.end_date}</td>
          		<td>${dto.action_content}</td>
+         		<c:if test="${sessionScope.member.userId == 'admin'}">
 	         	<td>
 	         		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_update.do?ac_list_num=${dto.ac_list_num}';">수정</button>
 	         		<button type="button" class="btn" onclick="deleteAction('${dto.ac_list_num}');">삭제</button>
 	         	</td>
+	         	</c:if>
          	</tr>
          	</table>
 			</c:forEach>
@@ -142,10 +146,10 @@ function deleteAction(enter_id){
 				<table class="submit-table">
 					<tr>
 						<td width="50%">
-			         		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/enter_write.do';">연예인 등록</button>
+			         		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/enter_write.do?act_id=${dto.act_id }';">연예인 등록</button>
 							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_update.do?act_id=${dto.act_id}';">그룹 수정</button>
 							<button type="button" class="btn" onclick="deleteGroup();">그룹 삭제</button>
-							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_write.do?act_id=${dto.act_id}';">활동 추가</button>
+							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_write.do?act_id=${dto.act_id}';">활동 등록</button>
 						</td>
 						<td align="right">
 							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">리스트</button>

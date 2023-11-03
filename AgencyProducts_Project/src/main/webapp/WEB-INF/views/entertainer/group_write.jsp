@@ -102,7 +102,7 @@ function sendOk() {
 						<td>활동ID</td>
 						<td>
 							<p> 
-								<input type="text" name="act_id" maxlength="100" class="form-control" value="${sessionScope.enter.act_id}" ${mode=="update" ? "readonly ":""} placeholder="활동ID">
+								<input type="text" name="act_id" maxlength="100" class="form-control" value="${dto.act_id}" ${mode=="update" ? "readonly ":""} placeholder="활동ID">
 							</p>
 							
 						</td>
