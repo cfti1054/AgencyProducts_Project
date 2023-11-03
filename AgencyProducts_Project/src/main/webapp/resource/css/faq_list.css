@@ -26,6 +26,7 @@ body {
 .container {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 212px;
 }
 
 #aside {
@@ -81,7 +82,6 @@ body {
 }
 
 #artist .acc_wrap {
-	margin-bottom: 212px;
   padding: 10px;
 }
 
@@ -144,4 +144,11 @@ body {
 
 #artist .acc_wrap .btn_wrap button:nth-child(2) {
   background-color: #fa5a5a;
+}
+
+#artist .write_btn_wrap {
+	display: flex;
+	justify-content: end;
+	margin-top: 32px;
+	padding-right: 12px;
 }

@@ -43,31 +43,20 @@
                  	<p>${ dto.faq_content }</p>
                  	<c:if test="${sessionScope.member.userId=='admin'}">
 	                 	<div class="btn_wrap">
-		            		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/faq/write.do?faq_num=${dto.faq_num}';">수정</button>
-		            		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/faq/delete.do?faq_num=${dto.faq_num}';">삭제</button>
+		            		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/faq/update.do?faq_num=${dto.faq_num}';">수정</button>
+		            		<button type="button" class="btn" onclick="deleteNotice(${dto.faq_num});">삭제</button>
 		                </div>
 		                <input type="hidden" name="faq_num" value="${dto.faq_num}">
                  	</c:if>
              	</div>
             </c:forEach>
-              
-              <button type="button" class="collapsible" onclick="collapse(this);">Q.&nbsp;제목 2</button>
-              <div class="content">
-                  <p>내용 2 입니다.</p>
-                  <div class="btn_wrap">
-                    <button>수정</button>
-                    <button>삭제</button>
-                  </div>
-              </div>
-              <button type="button" class="collapsible" onclick="collapse(this);">Q.&nbsp;제목 3</button>
-              <div class="content">
-                  <p>내용 3 입니다.</p>
-                  <div class="btn_wrap">
-                    <button>수정</button>
-                    <button>삭제</button>
-                  </div>
-              </div>
             </div>
+            
+            <c:if test="${sessionScope.member.userId=='admin'}">
+	            <div class="write_btn_wrap">
+	            	<button type="button" class="write_btn" onclick="location.href='${pageContext.request.contextPath}/faq/write.do';">글쓰기</button>
+	            </div>
+            </c:if>
           </div>
       </div>
   </div>
@@ -93,6 +82,14 @@
           content.style.maxHeight = content.scrollHeight + "px";  // 접혀있는 경우 펼치기
       }
   }
+  
+  	function deleteNotice(faq_num) {
+	    if(confirm("게시글을 삭제 하시 겠습니까 ? ")) {
+	        let query = "faq_num="+faq_num;
+	        let url = "${pageContext.request.contextPath}/faq/delete.do?" + query;
+	        location.href = url;
+	    }
+	}
   </script>
   
 </body>

@@ -152,7 +152,7 @@ public class FaqDAO {
 			pstmt.setString(3, dto.getFaq_content());
 			pstmt.setLong(4, dto.getFaq_num());
 			
-			pstmt.executeQuery();
+			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

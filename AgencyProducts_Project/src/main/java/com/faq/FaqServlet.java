@@ -139,6 +139,7 @@ public class FaqServlet extends MyServlet {
 			req.setAttribute("mode", "update");
 			
 			viewPage(req, resp, "faq/write.jsp");
+			return;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
