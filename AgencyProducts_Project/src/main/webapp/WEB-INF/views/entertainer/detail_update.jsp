@@ -9,20 +9,48 @@
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
 <style type="text/css">
-	*{
-	    margin: 0;
-	    padding: 0;
-	    text-decoration: none;
-	    color: #333;
-	    box-sizing: border-box;
-	}
-	
-	body {
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
-	  align-items: center;
-	}
+	<style type="text/css">
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #333;
+    box-sizing: content-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.write_container {
+    width: 1300px;
+    padding: 80px 0;
+}
+
+
+.form-title {
+	padding-bottom: 30px;
+}
+.table-form {
+    width: 1300px;
+	padding-bottom: 20px;
+}
+
+
+.table-form td { padding: 7px 0; }
+
+.table-form tr td:first-child{ background: #f8f8f8; text-align: center; width: 120px; font-weight: 500; }
+.table-form tr td:nth-child(2) { text-align: left; padding-left: 10px; border-bottom: 2px solid #eee}
+
+.table-form input[type=text]:focus { border: 1px solid #222; }
+.table-form textarea {
+	width: 96%;
+	height: 300px;
+}
+
 
 </style>
 
@@ -81,54 +109,74 @@ function sendOk() {
 </head>
 <body>
 
-
-	<div>
+	<div class="write_action">
 	<form name="updateForm" method="post" enctype="multipart/form-data">
-		<div class="row">
+	<table class="table-form">
+	<tbody>
+		<tr>
+			<td>
 			<p> 연예인 ID
 			<input name="enter_id" type="text" class="form-control"
 				value="${dto.enter_id }">
 			</p>	
-		</div>
-		<div class="row">
+			</td>
+		</tr>
+		<tr>
+			<td>
 			<p> 연예인 이름
 			<input name="enter_name" type="text" value="${dto.enter_name}">
-			</p>	
-		</div>
-		<div class="row">
+			</p>
+			</td>
+		</tr>		
+		<tr>
+			<td>
 			<p> 생년월일
 				<input type="text" name=enter_birth value="${dto.enter_birth}">
-			</p>	
-		</div>
-		<div class="row">
+			</p>
+			</td>
+		</tr>		
+		<tr>
+			<td>
 			<p> 데뷔일
 			   <input name="debut_date" type="text" value="${dto.debut_date}">
 			</p>	
-		</div>
-		<div class="row">
+			</td>
+		 </tr>	
+		<tr>
+			<td>
 			<p> 직업코드
 			<input name="job_num" type="text" value="${dto.job_num}">
-			</p>	
-		</div>
-		<div class="row">
+			</p>
+			</td>
+		</tr>		
+		<tr>
+			<td>
 			<p> 활동 ID
 			<input name="act_id" type="text" value="${dto.act_id}">
 			</p>	
-		</div>
-		<div class="row">
+			</td>
+		</tr>	
+		<tr>
+			<td>
 			<p> 예명
 			<input name="stage_name" type="text"value="${dto.stage_name}">
-			</p>	
-		</div>
+			</p>
+			</td>
+		</tr>	
+		</tbody>	
+		</table>
+		
+	    <c:if test="${sessionScope.member.userId == 'admin'}">
 		<div align="center">
 			<button type="button" class="btn" onclick="sendOk();">수정완료</button>
 			<button type="reset" class="btn">다시입력</button>
-			<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">수정취소</button>
+			<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/article.do?act_id=${dto.act_id }';">수정취소</button>
 			
 			<c:if test="${mode=='update'}">
 				<input type="hidden" name="num" value="${dto.enter_id}">
 			</c:if>
 		</div>
+		</c:if>
 	
 	</form>
 	</div>

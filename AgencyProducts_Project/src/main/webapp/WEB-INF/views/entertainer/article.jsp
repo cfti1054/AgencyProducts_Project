@@ -142,6 +142,7 @@ function deleteAction(enter_id){
 				<table class="submit-table">
 					<tr>
 						<td width="50%">
+			         		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/enter_write.do';">연예인 등록</button>
 							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_update.do?act_id=${dto.act_id}';">그룹 수정</button>
 							<button type="button" class="btn" onclick="deleteGroup();">그룹 삭제</button>
 							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_write.do?act_id=${dto.act_id}';">활동 추가</button>
