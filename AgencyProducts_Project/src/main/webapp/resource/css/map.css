@@ -20,7 +20,7 @@ body {
 }
 
 .wrap {
-  width: 1300px;
+  width: 1080px;
   margin: 0 auto;
   padding-bottom: 120px;
 }
@@ -52,7 +52,7 @@ body {
 }
 
 #artist {
-  width: 1080px;
+  width: 860px;
   padding-left: 20px;
   padding-right: 20px;
   overflow: hidden;
@@ -93,6 +93,11 @@ body {
   font-style: italic;
   font-weight: 600;
   color: #545454;
+  text-align: center;
 }
 
-
+#artist .content .address #map {
+	width: 450px;
+	height: 360px;
+	margin-top: 20px;
+}

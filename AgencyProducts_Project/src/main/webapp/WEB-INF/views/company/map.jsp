@@ -23,19 +23,22 @@
               <h2>ARTIST</h2>
               <ul class="list">
                   <li class="title">
-                      <a href="${pageContext.request.contextPath}/company/about.do">회사소개</a>
+                      <a href="#">회사소개</a>
                   </li>	        
                   <li class="title">
-                      <a href="${pageContext.request.contextPath}/company/greeting.do">대표인사말</a>
+                      <a href="#">대표인사말</a>
                   </li>
                   <li class="title">
-                      <a href="${pageContext.request.contextPath}/company/business.do">사업현황</a>
+                      <a href="#">연혁</a>
                   </li>
                   <li class="title">
-                      <a href="${pageContext.request.contextPath}/company/map.do">오시는길</a>
+                      <a href="#">사업현황</a>
                   </li>
                   <li class="title">
-                      <a href="${pageContext.request.contextPath}/notice/list.do">공고</a>
+                      <a href="#">오시는길</a>
+                  </li>
+                  <li class="title">
+                      <a href="#">공고</a>
                   </li>	        
               </ul>
           </div>
@@ -53,8 +56,7 @@
                   <div class="detail">
                     <p>| 서울특별시 성동구 성수동 1가 685번지 |</p>
                   </div>
-                  <div class="map">
-                    <!-- kakao map -->
+                  <div id="map">
                   </div>
                 </div>
               </div>
@@ -62,6 +64,18 @@
       </div>
     </div>
 </main>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3b8406835c2cf7876709f0a5404df440"></script>
+<script type="text/javascript">
+var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+var options = { //지도를 생성할 때 필요한 기본 옵션
+	center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+	level: 3 //지도의 레벨(확대, 축소 정도)
+};
+
+var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+</script>
+
 </body>
 <footer>
 	<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
