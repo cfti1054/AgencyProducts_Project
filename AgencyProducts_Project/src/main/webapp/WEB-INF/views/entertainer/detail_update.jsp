@@ -30,17 +30,13 @@
 function sendOk() {
 	const f = document.updateForm;
 	
-	/*let str;
-	
-    str = f.enter_id.value.trim();
-    if(!str) {
+    if(! f.enter_id.value.trim()) {
         alert("연예인 ID를 입력하세요. ");
-        f.act_id.focus();
+        f.enter_id.focus();
         return;
     }
 
-    str = f.enter_name.value.trim();
-    if(!str) {
+    if(! f.enter_name.value.trim()) {
         alert("연예인 이름을 입력하세요. ");
         f.enter_name.focus();
         return;
@@ -65,12 +61,11 @@ function sendOk() {
 	} 
     
     
-    str = f.act_id.value.trim();
-    if(!str) {
+    if(! f.act_id.value.trim() ) {
         alert("활동ID을 입력하세요. ");
         f.act_id.focus();
         return;
-    } */
+    } 
 	
     f.action = "${pageContext.request.contextPath}/entertainer/enter_${mode}_ok.do";
     f.submit();
@@ -82,7 +77,7 @@ function sendOk() {
 <body>
 
 
-	<div>
+	<div style="margin-top: 120px;">
 	<form name="updateForm" method="post" enctype="multipart/form-data">
 		<div class="row">
 			<p> 연예인 ID
@@ -97,12 +92,12 @@ function sendOk() {
 		</div>
 		<div class="row">
 			<p> 생년월일
-				<input type="text" name=enter_birth value="${dto.enter_birth}">
+				<input type="date" name=enter_birth value="${dto.enter_birth}">
 			</p>	
 		</div>
 		<div class="row">
 			<p> 데뷔일
-			   <input name="debut_date" type="text" value="${dto.debut_date}">
+			   <input name="debut_date" type="date" value="${dto.debut_date}">
 			</p>	
 		</div>
 		<div class="row">

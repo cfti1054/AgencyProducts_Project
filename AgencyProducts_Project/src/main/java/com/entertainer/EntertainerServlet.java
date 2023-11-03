@@ -433,7 +433,7 @@ public class EntertainerServlet extends MyUploadServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		resp.sendRedirect(cp + "/entertainer/artist.do?act_id=" + act_id);
+		resp.sendRedirect(cp + "/entertainer/article.do?act_id=" + act_id);
 	} 
 	
 //----------------------------------------------------------------------------------------------------------------------	

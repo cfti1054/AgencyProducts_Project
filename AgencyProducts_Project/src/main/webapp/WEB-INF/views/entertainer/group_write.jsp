@@ -49,20 +49,15 @@ body {
 
 <script type="text/javascript">
 function sendOk() {
-    const f = document.enterForm;
-	let str;
+    const f = document.groupForm;
 	
-	const act_idForm = document.forms['enterForm'];
-	
-	<%--
-    if(! act_idForm.act_id.value ) {
+    if(! f.act_id.value.trim() ) {
         alert("활동ID를 입력하세요. ");
-        act_idForm.act_id.focus();
+        f.act_id.focus();
         return;
     }
-	--%>
-    str = f.group_name.value.trim();
-    if(!str) {
+	
+    if(! f.group_name.value.trim() ) {
         alert("그룹명을 입력하세요. ");
         f.group_name.focus();
         return;
@@ -96,7 +91,7 @@ function sendOk() {
 	    </div>
 	    
 	    <div class="write_enter">
-			<form name="enterForm" method="post" enctype="multipart/form-data">
+			<form name="groupForm" method="post" enctype="multipart/form-data">
 				<table class="table-form">
 					<tr> 
 						<td>활동ID</td>

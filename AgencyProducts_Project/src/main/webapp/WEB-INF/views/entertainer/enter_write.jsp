@@ -11,37 +11,36 @@
 <script type="text/javascript">
 
 function sendOk() {
-    const f = document.detailForm;
-/*	
-    if(! f.enter_id.value.trim() ) {
+    const f = document.enterForm;
+	
+    if(! f.enter_id.value.trim()) {
         alert("연예인 ID를 입력하세요. ");
-        enter_id.focus();
+        f.enter_id.focus();
         return;
     }
     
     if(! f.enter_name.value.trim() ) {
         alert("연예인 이름을 입력하세요. ");
-        enter_name.focus();
+        f.enter_name.focus();
         return;
     }
     
     if(! f.enter_birth.value.trim() ) {
         alert("생년월일을 입력하세요. ");
-        enter_birth.focus();
+        f.enter_birth.focus();
         return;
     }
     
     
     if(! f.debut_date.value.trim() ) {
         alert("데뷔일을 입력하세요. ");
-        debut_date.focus();
+        f.debut_date.focus();
         return;
-    }*/
+    }
     
     f.action = "${pageContext.request.contextPath}/entertainer/enter_${mode}_ok.do";
     f.submit();
 }
-
 
 </script>
 
@@ -55,15 +54,14 @@ function sendOk() {
 
 	<main>
 	
-		<div class="container body-container" style="margin-top: 120px;">
-	    <div class="body-title">
-			<h2><i class="far fa-image"></i> 연예인 등록 </h2>
+		<div class="write_container" style="margin-top: 120px;">
+	    <div class="form-title">
+			<h2><i class="far fa-image"></i>&nbsp;${mode=="update" ? "그룹 수정" : "그룹 등록"} </h2>
+	    
 	    </div>
 	    
-	    		
-	    
-	    <div class="body-main mx-auto">
-			<form name="detailForm" method="post" enctype="multipart/form-data">
+	    <div class="write_enter">
+			<form name="enterForm" method="post" enctype="multipart/form-data">
 				<table class="table table-border table-form">
 					<tr> 
 						<td>연예인 ID</td>

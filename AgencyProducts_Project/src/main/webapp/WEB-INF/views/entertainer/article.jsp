@@ -60,7 +60,6 @@ function deleteAction(ac_list_num){
 }
 
 function deleteEnter(enter_id){
-     alert(enter_id);
 	if(confirm('연예인을 삭제하시겠습니까 ? ')) {
 		location.href = '${pageContext.request.contextPath}/entertainer/enter_delete.do?enter_id=' + enter_id + "&act_id=${dto.act_id}" ;
 	}
@@ -152,7 +151,7 @@ function deleteEnter(enter_id){
 							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_write.do?act_id=${dto.act_id}';">활동 등록</button>
 						</td>
 						<td align="right">
-							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">리스트</button>
+							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/artist.do';">리스트</button>
 						</td>
 					</tr>
 				</table>
