@@ -57,6 +57,14 @@ public abstract class MyServlet extends HttpServlet {
 		resp.setCharacterEncoding("utf-8");
 		resp.getWriter().write(jsonStr);
 	}
+	
+	// JSON 으로 응답
+	protected void respJson(HttpServletResponse resp, String jsonStr) throws ServletException, IOException {
+		// resp.setContentType("text/html;charset=utf-8");
+		resp.setContentType("application/json");
+		resp.setCharacterEncoding("UTF-8");
+		resp.getWriter().write(jsonStr);
+	}
 
 	protected abstract void execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
 }

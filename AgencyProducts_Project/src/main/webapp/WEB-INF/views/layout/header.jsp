@@ -50,9 +50,9 @@
                                 <li></li>
                             </ul>
                         </li>
-                        <li><a href="#">NOTICE</a>
+                        <li><a href="${pageContext.request.contextPath}/bbs/list.do">NOTICE</a>
                             <ul class="sub_menu">
-                                <li><a href="#">소식</a></li>
+                                <li><a href="${pageContext.request.contextPath}/bbs/list.do">소식</a></li>
                                 <li></li>
                                 <li></li>
                                 <li></li>
