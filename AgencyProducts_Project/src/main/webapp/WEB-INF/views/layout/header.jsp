@@ -59,10 +59,10 @@
                                 <li></li>
                             </ul>
                         </li>
-                        <li><a href="#">CUSTOMER</a>
+                        <li><a href="${pageContext.request.contextPath}/faq/list.do">CUSTOMER</a>
                             <ul class="sub_menu">
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">1:1문의</a></li>
+                                <li><a href="${pageContext.request.contextPath}/faq/list.do">FAQ</a></li>
+                                <li><a href="${pageContext.request.contextPath}/qna/list.do">1:1문의</a></li>
                                 <li></li>
                                 <li></li>
                                 <li></li>

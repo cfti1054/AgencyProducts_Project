@@ -11,6 +11,11 @@
 
 </head>
 <body>
+	
+	<header>
+    	<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
+	</header>
+	
 	<main>
     <div class="wrap">
       <div class="container">
@@ -67,6 +72,10 @@
       </div>
   </div>
   </main>
+  
+  <footer>
+		<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
+	</footer>
   
   <script type="text/javascript">
   function collapse(element) {
