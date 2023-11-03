@@ -140,9 +140,9 @@ function changeEmail() {
 			</div>
 			
 			<div class="member-png">
-                <a href="#"><img src="${pageContext.request.contextPath}/resource/img//google.png"></a>
-                <a href="#"><img src="${pageContext.request.contextPath}/resource/img//kakao.png"></a>
-             	<a href="#"><img src="${pageContext.request.contextPath}/resource/img/naver.png"></a>
+                <a href="#"><img src="${pageContext.request.contextPath}/image/google.png"></a>
+                <a href="#"><img src="${pageContext.request.contextPath}/image/kakao.png"></a>
+             	<a href="#"><img src="${pageContext.request.contextPath}/image/naver.png"></a>
             </div>
 	    </div>
 	    

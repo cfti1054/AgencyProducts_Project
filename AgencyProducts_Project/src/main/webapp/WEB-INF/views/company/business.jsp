@@ -48,7 +48,7 @@
             
             
                 <div class="img">
-                    <img src="${pageContext.request.contextPath}/resource/img/business.png" alt="business" width="950px">
+                    <img src="${pageContext.request.contextPath}/image/business.png" alt="business" width="950px">
                 </div>
             </div>
         </div>

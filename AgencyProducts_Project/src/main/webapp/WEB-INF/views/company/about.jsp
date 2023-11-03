@@ -50,7 +50,7 @@
                         <h1>ENTERTAINMENT</h1>
                     </div>
                     <div class="img">
-                        <img src="${pageContext.request.contextPath}/resource/img/stone.png" alt="stone" width="820px">
+                        <img src="${pageContext.request.contextPath}/image/stone.png" alt="stone" width="820px">
                     </div>
                     <div class="write">
                         <p>| 원석은 저마다의 색의과 개성이 존재하며 그것을 발견하고 |</p>
@@ -64,7 +64,7 @@
                             (주)AP.4는 가수 매니지먼트와 연기자 매니지먼트를 두축으로 하여<br> 
                             다양한 엔터테인먼트 사업을 펼치고 있습니다.<br>
                         </p>
-                        <img src="${pageContext.request.contextPath}/resource/img/about2.png" alt="about2" width="300px">
+                        <img src="${pageContext.request.contextPath}/image/about2.png" alt="about2" width="300px">
                     </div>
                 </div>
             </div>
