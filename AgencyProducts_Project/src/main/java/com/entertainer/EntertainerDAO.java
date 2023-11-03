@@ -1,5 +1,6 @@
 package com.entertainer;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
@@ -223,8 +224,8 @@ public class EntertainerDAO {
 		try {
 			
 			
-			sql = "select enter_id, enter_name, to_char(enter_birth, 'YYYY-MM-DD') enter_birth, "
-					+ " to_char(debut_date , 'YYYY-MM-DD') debut_date, a.img_name, job_num, a.act_id, stage_name"
+			sql = "select enter_id, enter_name, to_char(enter_birth, 'YYYY/MM/DD') enter_birth, "
+					+ " to_char(debut_date , 'YYYY/MM/DD') debut_date, a.img_name, job_num, a.act_id, stage_name"
 					+ " from entertainer a, enter_detail b"
 					+ " where a.act_id = b.act_id "
 					+ " and a.act_id = ? ";
@@ -268,8 +269,8 @@ public class EntertainerDAO {
 		
 		try {
 			sql = "update enter_detail set enter_name = ?,"
-					+ "	enter_birth = to_date( ?, 'YYYY-MM-DD'),"
-					+ " debut_date = to_date( ?, 'YYYY-MM-DD'),"
+					+ "	enter_birth = to_date( ?, 'YYYY/MM/DD'),"
+					+ " debut_date = to_date( ?, 'YYYY/MM/DD'),"
 					+ " job_num = ?, act_id =?, stage_name = ?"
 					+ " where enter_id = ?";
 			
@@ -302,8 +303,8 @@ public class EntertainerDAO {
 		
 		
 		try {
-			sql = "select enter_id, enter_name, to_char(enter_birth, 'YYYY-MM-DD') enter_birth, "
-					+ " to_char(debut_date , 'YYYY-MM-DD') debut_date, a.img_name, job_num, a.act_id, stage_name"
+			sql = "select enter_id, enter_name, to_char(enter_birth, 'YYYY/MM/DD') enter_birth, "
+					+ " to_char(debut_date , 'YYYY/MM/DD') debut_date, a.img_name, job_num, a.act_id, stage_name"
 					+ " from entertainer a, enter_detail b"
 					+ " where a.act_id = b.act_id "
 					+ " and enter_id = ? ";
@@ -384,21 +385,23 @@ public class EntertainerDAO {
 	}
 	
 	public void deleteGroup(String act_id) throws SQLException {
-		PreparedStatement pstmt = null;
+		CallableStatement cstmt = null;
 		String sql;
 		
 		try {
-			sql = "DELETE FROM entertainer WHERE act_id = ?";
-			pstmt = conn.prepareStatement(sql);
+			sql = "{CALL deleteEnter(?)}";
 			
-			pstmt.setString(1, act_id);
+			cstmt = conn.prepareCall(sql);
 			
-			pstmt.executeUpdate();
+			cstmt.setString(1, act_id);
+			
+			cstmt.executeUpdate();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
 		} finally {
-			DBUtil.close(pstmt);
+			DBUtil.close(cstmt);
 		}
 	}
 
@@ -482,7 +485,7 @@ public class EntertainerDAO {
 		
 		try {
 			sql = "SELECT ac_list_num, action_num, action_content,"
-					+ " to_char(start_date, 'YYYY-MM-DD') start_date, to_char(end_date, 'YYYY-MM-DD') end_date, act_id"
+					+ " to_char(start_date, 'YYYY/MM/DD') start_date, to_char(end_date, 'YYYY/MM/DD') end_date, act_id"
 					+ " FROM enter_action WHERE ac_list_num = ?";
 			
 			pstmt = conn.prepareStatement(sql);
@@ -520,8 +523,8 @@ public class EntertainerDAO {
 		String sql;
 		
 		try {
-			sql = "SELECT ac_list_num, action_content, TO_CHAR(start_date, 'YYYY-MM-DD') start_date , "
-					+ " TO_CHAR(end_date, 'YYYY-MM-DD') end_date, act_id "
+			sql = "SELECT ac_list_num, action_content, TO_CHAR(start_date, 'YYYY/MM/DD') start_date , "
+					+ " TO_CHAR(end_date, 'YYYY/MM/DD') end_date, act_id "
 					+ " FROM enter_action "
 					+ " WHERE act_id = ? ";
 			
