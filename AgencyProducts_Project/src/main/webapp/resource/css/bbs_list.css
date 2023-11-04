@@ -19,9 +19,9 @@ body {
 }
 
 .wrap {
-  width: 1300px;
+  width: 900px;
   margin: 0 auto;
-  padding: 120px 0;
+  padding: 50px 0;
 }
 
 .wrap .item_container .body-title {
