@@ -200,6 +200,9 @@ nav>ul>li {
   padding: 0 25px;
   position: relative;
   cursor: pointer;
+  font-size: 22px;
+  font-weight: 600;
+  color: beige;
 }
 /*
 nav>ul>li ul {

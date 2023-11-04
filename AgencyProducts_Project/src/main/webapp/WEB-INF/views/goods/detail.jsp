@@ -139,12 +139,11 @@
     	const f = document.form1;
     	const unit_price = Number(f.unit_price.value);
     	let count = Number(f.quantity.value);
-    	let total = unit_price * count;
     	
     	let plus = () => {
     		count++;
     		f.quantity.value = count;
-    		let total = 10000 * count;
+    		let total = unit_price * count;
     		console.log(total);
     		document.getElementById("tot_price").innerHTML=total + '원';
     	}
@@ -155,7 +154,7 @@
     			count = 0;
     		}
     		f.quantity.value = count;
-    		let total = 10000 * count;
+    		let total = unit_price * count;
     		console.log(total);
     		document.getElementById("tot_price").innerHTML = total.toString() + '원';
     	}
