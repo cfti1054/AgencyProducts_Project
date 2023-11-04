@@ -95,23 +95,16 @@
 				<table class="table-button">
 					<tr>
 						<td width="100%">
-							<c:choose>
-								<c:when test="${sessionScope.member.userId==dto.userId}">
-									<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/bbs/update.do?num=${dto.num}&page=${page}';">수정</button>
-								</c:when>
-								<c:otherwise>
-									<button type="button" class="btn" disabled>수정</button>
-								</c:otherwise>
-							</c:choose>
+							
+							<c:if test="${sessionScope.member.userId==dto.userId}">
+								<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/bbs/update.do?num=${dto.num}&page=${page}';">수정</button>
+							</c:if>
 					    	
-							<c:choose>
-					    		<c:when test="${sessionScope.member.userId==dto.userId || sessionScope.member.userId=='admin'}">
-					    			<button type="button" class="btn" onclick="deleteBoard();">삭제</button>
-					    		</c:when>
-					    		<c:otherwise>
-					    			<button type="button" class="btn" disabled>삭제</button>
-					    		</c:otherwise>
-					    	</c:choose>
+					    	
+					    	<c:if test="${sessionScope.member.userId==dto.userId || sessionScope.member.userId=='admin'}">
+								<button type="button" class="btn" onclick="deleteBoard();">삭제</button>
+							</c:if>
+							
 						</td>
 						<td align="right">
 							<button type="button" class="btn" style="width: 80px;" onclick="location.href='${pageContext.request.contextPath}/bbs/list.do?${query}';">리스트</button>
