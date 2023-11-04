@@ -116,7 +116,7 @@ function searchList() {
 		</div>
 
 	</div>
-</div>
+
 </main>
 
 <footer>
