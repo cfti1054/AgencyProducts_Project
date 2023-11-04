@@ -6,25 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>bbs</title>
 
 
-
-<style type="text/css">
-.body-main {
-	max-width: 700px;
-	padding-top: 15px;
-}
-
-.table-form td { padding: 7px 0; }
-.table-form p { line-height: 200%; }
-.table-form tr:first-child { border-top: 2px solid #212529; }
-.table-form tr > td:first-child { width: 110px; text-align: center; background: #f8f8f8; }
-.table-form tr > td:nth-child(2) { padding-left: 10px; }
-
-.table-form input[type=text], .table-form input[type=file], .table-form textarea {
-	width: 96%; }
-</style>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/bbs_write.css" type="text/css">
+<title>bbs_write</title>
 
 <script type="text/javascript">
 function sendOk() {
@@ -57,20 +42,26 @@ function sendOk() {
 </header>
 	
 <main>
+<div class="wrap">
+
 	<div class="item_container" style="margin-top: 120px;">
 
 		<div class="container body-container">
-		    <div class="body-title">
-				<h2><i class="fa-regular fa-square"></i> 게시판 </h2>
-		    </div>
+
+			<div class="body-title">
+				<h2><i> 연예인 소식 </i></h2>
+				<span></span>
+				<h4>Entertainer Board</h4>
+			</div>
+
 		    
 		    <div class="body-main mx-auto">
 				<form name="boardForm" method="post">
 					<table class="table table-border table-form">
-						<tr> 
+						<tr class="tr-size"> 
 							<td>제&nbsp;&nbsp;&nbsp;&nbsp;목</td>
 							<td> 
-								<input type="text" name="subject" maxlength="100" class="form-control" value="${dto.subject}">
+								<input type="text" class="subject" name="subject" maxlength="100" class="form-control" value="${dto.subject}">
 							</td>
 						</tr>
 						
@@ -81,7 +72,7 @@ function sendOk() {
 							</td>
 						</tr>
 						
-						<tr> 
+						<tr class="tr-size"> 
 							<td valign="top">내&nbsp;&nbsp;&nbsp;&nbsp;용</td>
 							<td> 
 								<textarea name="content" class="form-control">${dto.content}</textarea>
@@ -89,7 +80,7 @@ function sendOk() {
 						</tr>
 					</table>
 						
-					<table class="table">
+					<table class="table table-button">
 						<tr> 
 							<td align="center">
 								<button type="button" class="btn" onclick="sendOk();">${mode=='update'?'수정완료':'등록하기'}</button>
@@ -109,6 +100,9 @@ function sendOk() {
 		</div>
 	
 	</div>
+    
+	
+</div>
 </main>
 
 <footer>
