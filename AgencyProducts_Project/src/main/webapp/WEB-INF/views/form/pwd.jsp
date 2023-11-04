@@ -42,7 +42,7 @@ function sendOk() {
 						href="${pageContext.request.contextPath}/form/pwd.do">정보수정</a>
 					</li>
 					<li class="title"><a
-						href="${pageContext.request.contextPath}/">장바구니</a>
+						href="${pageContext.request.contextPath}/form/shopping.do">장바구니</a>
 					</li>
 					<li class="title"><a
 						href="${pageContext.request.contextPath}/">주문내역</a>

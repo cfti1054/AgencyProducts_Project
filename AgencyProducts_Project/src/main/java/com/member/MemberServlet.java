@@ -2,6 +2,7 @@ package com.member;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,6 +41,8 @@ public class MemberServlet extends MyServlet {
 			updateSubmit(req, resp);
 		} else if (uri.indexOf("userIdCheck.do") != -1) {
 			userIdCheck(req, resp);
+		} else if(uri.indexOf("shopping.do") != -1) {
+			shoopingForm(req,resp);
 		}
 	}
 
@@ -302,5 +305,42 @@ public class MemberServlet extends MyServlet {
 
 	protected void userIdCheck(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+	}
+	
+	protected void shoopingForm(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		MemberDAO dao = new MemberDAO();
+		String cp = req.getContextPath();
+		
+		HttpSession session = req.getSession();
+		
+		try {
+			SessionInfo info = (SessionInfo) session.getAttribute("member");
+			
+			if (info == null) {
+				// 로그 아웃 상태이면
+				resp.sendRedirect(cp + "/form/login.do");
+				return;
+			}
+			
+			List<MemberDTO> list = dao.listshopping(info.getUserId());
+			MemberDTO dto = dao.shopfindById(info.getUserId());
+			MemberDTO dto2 = dao.shoptotal(info.getUserId());
+			
+			if (list == null) {
+				session.invalidate();
+				resp.sendRedirect(cp + "/");
+				return;
+			} 
+			
+			req.setAttribute("dto", dto);
+			req.setAttribute("dto2", dto2);
+			req.setAttribute("list", list);
+			forward(req, resp, "/WEB-INF/views/form/shopping.jsp");
+			return;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		resp.sendRedirect(cp + "/");
 	}
 }

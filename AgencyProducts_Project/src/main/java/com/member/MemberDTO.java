@@ -18,6 +18,15 @@ public class MemberDTO {
 	private String addr2;
 	private int enabled;
 	
+	// 장바구니
+	private long shop_num;
+	private String goods_id;
+	private long order_count;
+	private String goods_name;
+	private String total_price;
+	private String total;
+	
+	
 	public String getUser_id() {
 		return user_id;
 	}
@@ -114,6 +123,43 @@ public class MemberDTO {
 	public void setEnabled(int enabled) {
 		this.enabled = enabled;
 	}
+	public long getShop_num() {
+		return shop_num;
+	}
+	public void setShop_num(long shop_num) {
+		this.shop_num = shop_num;
+	}
+	public String getGoods_id() {
+		return goods_id;
+	}
+	public void setGoods_id(String goods_id) {
+		this.goods_id = goods_id;
+	}
+	public long getOrder_count() {
+		return order_count;
+	}
+	public void setOrder_count(long order_count) {
+		this.order_count = order_count;
+	}
+	public String getGoods_name() {
+		return goods_name;
+	}
+	public void setGoods_name(String goods_name) {
+		this.goods_name = goods_name;
+	}
+	public String getTotal_price() {
+		return total_price;
+	}
+	public void setTotal_price(String total_price) {
+		this.total_price = total_price;
+	}
+	public String getTotal() {
+		return total;
+	}
+	public void setTotal(String total) {
+		this.total = total;
+	}
+	
 	
 	
 }

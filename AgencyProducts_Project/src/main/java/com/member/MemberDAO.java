@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.util.DBConn;
 import com.util.DBUtil;
@@ -229,6 +231,111 @@ public class MemberDAO {
 			DBUtil.close(pstmt);
 		}
 
+	}
+	
+	public MemberDTO shopfindById (String user_id) {
+		// 장바구니 조회
+		MemberDTO dto = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql;
+		
+		try {
+			sql = "select goods_name, order_count,"
+					+ " to_char(goods_price* order_count, '999,999,999,999,999,999,999') total_price"
+					+ " from shopping a, goods b"
+					+ " where a.goods_id = b.goods_id and a.user_id = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto = new MemberDTO();
+				
+				dto.setGoods_name(rs.getString("goods_name"));
+				dto.setOrder_count(rs.getLong("order_count"));
+				dto.setTotal_price(rs.getString("total_price"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(rs);
+			DBUtil.close(pstmt);
+		}
+		return dto;
+	}
+	
+	public List<MemberDTO> listshopping(String user_id) {
+		List<MemberDTO> list = new ArrayList<MemberDTO>();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql;
+		
+		try {
+			sql = "select goods_name, order_count,"
+					+ " to_char(goods_price* order_count, '999,999,999,999,999,999,999') total_price"
+					+ " from shopping a, goods b"
+					+ " where a.goods_id = b.goods_id and a.user_id = ?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MemberDTO dto = new MemberDTO();
+				
+				dto.setGoods_name(rs.getString("goods_name"));
+				dto.setOrder_count(rs.getLong("order_count"));
+				dto.setTotal_price(rs.getString("total_price"));
+				
+				list.add(dto);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(rs);
+			DBUtil.close(pstmt);
+		}
+		return list;
+	}	
+	
+	public MemberDTO shoptotal(String user_id) {
+		MemberDTO dto = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql;
+		
+		try {
+			sql = "select to_char(sum(total_price) + 2500, '999,999,999,999,999,999,999') total from"
+					+ " (select goods_name, order_count,"
+					+ "	goods_price* order_count total_price"
+					+ "	from shopping a, goods b"
+					+ "	where a.goods_id = b.goods_id and a.user_id = ?)";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto = new MemberDTO();
+				
+				dto.setTotal(rs.getString("total"));
+				
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(rs);
+			DBUtil.close(pstmt);
+		}
+		return dto;
 	}
 	
 }
