@@ -114,7 +114,7 @@
 					    	</c:choose>
 						</td>
 						<td align="right">
-							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/bbs/list.do?${query}';">리스트</button>
+							<button type="button" class="btn" style="width: 80px;" onclick="location.href='${pageContext.request.contextPath}/bbs/list.do?${query}';">리스트</button>
 						</td>
 					</tr>
 				</table>

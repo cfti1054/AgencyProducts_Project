@@ -169,19 +169,6 @@ body {
 
 
 
-.wrap .item_container .container .body-main .table-button tr td button {
-	width: 100px;
-	height: 32px;
-	margin-right: 6px;
-	cursor: pointer;
-	border: none;
-	border-radius: 4px;
-	background-color: #bdbdbd;
-	color: #fff;
-
-  margin-top: 10px;
-  margin-bottom: 50px;
-}
 
 #date-align {
   text-align: right;
