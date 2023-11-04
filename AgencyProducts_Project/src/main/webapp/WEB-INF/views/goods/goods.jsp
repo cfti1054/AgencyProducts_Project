@@ -19,7 +19,7 @@
 	</header>
 
 	<main>
-		<div class="item_container" style="margin-top: 120px;">
+		<div class="item_container">
 			<div class="layout_grid">
 				<ul class="item_list" style="border-radius: 8px;">
 					<c:forEach var="dto" items="${ list }" varStatus="status">

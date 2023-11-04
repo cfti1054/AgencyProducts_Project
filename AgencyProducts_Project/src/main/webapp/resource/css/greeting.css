@@ -20,8 +20,8 @@ body {
 
 .wrap {
   width: 1300px;
-  margin: 0 auto;
-  padding-top: 120px;
+  margin: 240px auto;
+  margin-bottom: 0;
 }
 
 .container {
