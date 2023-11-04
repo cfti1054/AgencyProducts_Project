@@ -504,7 +504,7 @@ public class BoardDAO {
 		
 		try {
 			sql = "SELECT NVL(COUNT(*), 0) "
-					+ " FROM sbbsReply "
+					+ " FROM newsReply "
 					+ " WHERE num = ? AND answer = 0";
 			pstmt = conn.prepareStatement(sql);
 			
