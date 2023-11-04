@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #333;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+body {
+  width: 100%;
+  margin-top: 120px;
+  margin-bottom: 100px;
+}
+
+.wrap {
+  width: 1300px;
+  margin: 0 auto;
+  
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 120px 0;
+}
+
+
+#aside {
+  width: 180px;
+}
+
+#aside h2 {
+  padding: 0 0 10px 10px;
+  border-bottom: 1px solid black;
+}
+
+#aside .list .title {
+  padding: 10px;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+#aside .list .title a {
+  display: block;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#pwd-confirm {
+  width: 1080px;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: hidden;
+}
+
+#pwd-confirm .members-title {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+#pwd-confirm .members-title h2 {
+    position: relative;
+    padding: 0 0 10px 20px;
+}
+
+#pwd-confirm .members-title span {
+    display: inline-block;
+    width: 3px;
+    height: 24px;
+    margin: 0 10px 6px 10px;
+    background: #000;
+}
+
+#pwd-confirm .members-title h4 {
+    margin-bottom: 6px;
+    color: #777;
+}
+
+.body-container {
+  width: 50%;
+  height: 100%;
+  padding: 90px 70px 50px 70px;
+  border-radius: 40px 80px;
+  background: rgba(25, 25, 27, 0.9);
+}
+
+.info-box {
+    width: 500%;
+    margin: auto;
+    max-width: 525px;
+    min-height: 340px;
+    position: relative;
+    border-radius: 40px 80px;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 400px 0 rgba(0, 0, 0, 0.439);
+}
+
+.info-box form .text-center,
+.info-box form .text-center h4 i {
+  color: #ccc;
+}
+
+.members-form input[type="text"],
+.members-form input[type="password"],
+.btnConfirm {
+    width:100%;
+    color: #fff;
+    display: block;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.members-form input[type="text"] {
+  margin-top: 20px;
+}
+
+
+.btnConfirm {
+  margin-top: 20px;
+  background-color: #ccc;
+  color: rgba(0, 0, 0, 0.657);
+}
+
+.members-message {
+  margin-top: 10px;
+}

@@ -5,6 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/pwd.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
 <title>정보수정</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <script type="text/javascript">
@@ -29,13 +33,13 @@ function sendOk() {
     <jsp:include page="/WEB-INF/views/layout/header.jsp"/>
 </header>
 <main>
-
-	<div class="container body-container">
+	<div class="wrap">
+		<div class="container">
 			<div id="aside" class="aside">
 				<h2>MYPAGE</h2>
 				<ul class="list">
 					<li class="title"><a
-						href="${pageContext.request.contextPath}/">정보수정</a>
+						href="${pageContext.request.contextPath}/form/pwd.do">정보수정</a>
 					</li>
 					<li class="title"><a
 						href="${pageContext.request.contextPath}/">장바구니</a>
@@ -45,35 +49,43 @@ function sendOk() {
 					</li>
 				</ul>
 			</div>
+	
 			<div class="inner-page">
-			<div class="members-form">
-				<div class="members-title">
-					<h3><i class="fa-solid fa-lock"></i> 패스워드 재확인</h3>
-				</div>
-				<div class="info-box">
-					<form name="pwdForm" method="post">
-						<div class="row text-center">
-							정보보호를 위해 패스워드를 다시 한 번 입력해주세요.
-						</div>
-						<div class="row">
-							<input name="userId" type="text" class="form-control"
-								readonly
-								value="${sessionScope.member.userId}">
-						</div>
-						<div class="row">
-							<input name="user_pwd" type="password" class="form-control" autocomplete="off" placeholder="패스워드">
-						</div>
-						<div>
-							<button type="button" class="btnConfirm" onclick="sendOk();">확인</button>
-							<input type="hidden" name="mode" value="${mode}">
-						</div>
-					</form>
+				<div class="members-form" id="pwd-confirm">
+					<div class="members-title">
+						<h2>패스워드 재확인</h2>
+						<span></span>
+						<h4>Confirm Your Password</h4>
+					</div>
+	
+	
+					<div class="info-box body-container">
+						<form name="pwdForm" method="post">
+							<div class="text-center text-margin">
+								<h4><i>정보보호를 위해 패스워드를 다시 한 번 입력해주세요.</i></h4>
+								<hr>
+							</div>
+							<div class="row">
+								<input name="userId" type="text" class="form-control"
+									readonly
+									value="${sessionScope.member.userId}">
+							</div>
+							<div class="row">
+								<input name="user_pwd" type="password" class="form-control" autocomplete="off" placeholder="패스워드">
+							</div>
+							<div>
+								<button type="button" class="btnConfirm" onclick="sendOk();">확인</button>
+								<input type="hidden" name="mode" value="${mode}">
+							</div>
+	
+							<div class="members-message" >
+								<p class="text-center">${message}</p>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
-			<div class="members-message">
-				<p class="text-center">${message}</p>
-			</div>
-	    </div>
+		</div>
 	</div>
 
 </main>
