@@ -8,51 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>bbs</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/bbs_article.css" type="text/css">
 
 
-<style type="text/css">
-.body-main {
-	max-width: 700px;
-	padding-top: 15px;
-}
-
-.table-article tr>td { padding-left: 5px; padding-right: 5px; }
-.file-item { padding: 7px; margin-bottom: 3px; border: 1px solid #ced4da; color: #777777; }
-
-.reply { padding: 20px 0 10px; }
-.reply .bold { font-weight: 600; }
-.reply .form-header { padding-bottom: 7px; }
-
-.reply-form  tr>td { padding: 2px 0 2px; }
-.reply-form textarea { width: 100%; height: 75px; }
-.reply-form button { padding: 8px 25px; }
-
-.reply .reply-info { padding-top: 25px; padding-bottom: 7px; }
-.reply .reply-info  .reply-count { color: #3EA9CD; font-weight: 700; }
-
-.reply .reply-list tr>td { padding: 7px 5px; }
-.reply .reply-list .bold { font-weight: 600; }
-
-.reply .deleteReply, .reply .deleteReplyAnswer { cursor: pointer; }
-.reply .notifyReply { cursor: pointer; }
-
-.reply-list .list-header { border: 1px solid #cccccc; background: #f8f8f8; }
-.reply-list tr>td { padding-left: 7px; padding-right: 7px; }
-
-.reply-answer { display: none; }
-.reply-answer .answer-list { border-top: 1px solid #cccccc; padding: 0 10px 7px; }
-.reply-answer .answer-form { display: flex; padding: 3px 10px 5px; }
-.reply-answer .answer-left { display: flex; width: 5%; }
-.reply-answer .answer-right { display: flex; width: 95%; align-items: center; }
-.reply-answer .answer-form textarea { width: 100%; height: 75px; }
-.reply-answer .answer-footer { padding: 0 13px 10px 10px; text-align: right; }
-
-.answer-article .answer-article-header { padding-top: 5px; display: flex; align-items: center; }
-.answer-article .answer-left { align-items: center; }
-.answer-article .answer-right { justify-content: space-between; align-items: center; }
-.answer-article .answer-article-body { padding: 5px 5px 7px; border-bottom: 1px solid #cccccc; word-break: break-all; } 
-
-</style>
 
 <c:if test="${sessionScope.member.userId==dto.userId || sessionScope.member.userId=='admin'}">
 	<script type="text/javascript">
@@ -74,12 +32,18 @@
 </header>
 	
 <main>
-	<div class="item_container" style="margin-top: 120px;">
+<div class="wrap">
+
+
+    <div class="item_container" style="margin-top: 120px;">
 
 		<div class="container body-container">
 		    <div class="body-title">
-				<h2><i class="fa-regular fa-square"></i> 게시판 </h2>
-		    </div>
+				<h2><i> 연예인 소식 </i></h2>
+				<span></span>
+				<h4>Entertainer Board</h4>
+			</div>
+
 		    
 		    <div class="body-main mx-auto">
 				<table class="table table-border table-article">
@@ -96,7 +60,7 @@
 							<td width="50%">
 								이름 : ${dto.userName}
 							</td>
-							<td align="right">
+							<td id="date-align">
 								${dto.reg_date} | 조회 ${dto.hitCount}
 							</td>
 						</tr>
@@ -128,9 +92,9 @@
 					</tbody>
 				</table>
 				
-				<table class="table">
+				<table class="table-button">
 					<tr>
-						<td width="50%">
+						<td width="100%">
 							<c:choose>
 								<c:when test="${sessionScope.member.userId==dto.userId}">
 									<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/bbs/update.do?num=${dto.num}&page=${page}';">수정</button>
@@ -182,6 +146,7 @@
 		</div>
 		
 	</div>
+</div>
 </main>
 
 <script type="text/javascript">

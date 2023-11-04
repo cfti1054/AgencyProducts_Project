@@ -13,7 +13,7 @@
 			<td width='50%'>
 				<span class='bold'>${vo.userName}</span>
 			</td>
-			<td width='50%' align='right'>
+			<td id="date-align" width='50%' align='right'>
 				<span>${vo.reg_date}</span> |
 				<c:choose>
 					<c:when test="${sessionScope.member.userId==vo.userId || sessionScope.member.userId=='admin'}">

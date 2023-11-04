@@ -9,7 +9,7 @@
 			<div class='answer-right'>
 				<div><span class='bold'>${vo.userName}</span></div>
 				<div>
-					<span>${vo.reg_date}</span> |
+					<span id="date-align">${vo.reg_date}</span> |
 					<c:choose>
 						<c:when test="${sessionScope.member.userId==vo.userId || sessionScope.member.userId=='admin'}">
 							<span class='deleteReplyAnswer' data-replyNum='${vo.replyNum}' data-answer='${vo.answer}'>삭제</span>
