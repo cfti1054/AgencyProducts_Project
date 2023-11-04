@@ -88,8 +88,8 @@ body {
 /* 아코디언 */
 
 .collapsible {
-    background-color: rebeccapurple;
-    color: white;
+    background-color: beige;
+    color: tan;
     cursor: pointer;
     padding: 24px;
     width: 100%;
@@ -100,7 +100,7 @@ body {
 }
 .active,
 .collapsible:hover {
-    background-color: midnightblue;
+    background-color: bisque;
 }
 .content {
     padding: 0 18px;
