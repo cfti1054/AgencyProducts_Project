@@ -121,23 +121,14 @@
 					<table class="table table-button">
 						<tr>
 							<td width="50%">
-								<c:choose>
-									<c:when test="${sessionScope.member.userId=='admin'}">
-										<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/notice/update.do?num=${dto.num}&page=${page}&size=${size}';">수정</button>
-									</c:when>
-									<c:otherwise>
-										<button type="button" class="btn" disabled>수정</button>
-									</c:otherwise>
-								</c:choose>
-						    	
-								<c:choose>
-						    		<c:when test="${sessionScope.member.userId=='admin'}">
-						    			<button type="button" class="btn" onclick="deleteNotice();">삭제</button>
-						    		</c:when>
-						    		<c:otherwise>
-						    			<button type="button" class="btn" disabled>삭제</button>
-						    		</c:otherwise>
-						    	</c:choose>
+								<c:if test="${sessionScope.member.userId==dto.userId}">
+								<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/bbs/update.do?num=${dto.num}&page=${page}';">수정</button>
+							</c:if>
+					    	
+					    	
+					    	<c:if test="${sessionScope.member.userId==dto.userId || sessionScope.member.userId=='admin'}">
+								<button type="button" class="btn" onclick="deleteBoard();">삭제</button>
+							</c:if>
 							</td>
 							<td align="right">
 								<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/notice/list.do?${query}';">리스트</button>
