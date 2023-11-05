@@ -107,17 +107,20 @@
     <script>
     $(function () {
       var $firstmenu = $('.navi'),
-        $header = $('header');
-        $sub_menu = $('.sub_menu_wrap')
+        $header = $('header'),
+        $sub_header = $('.header'),
+        $sub_menu = $('.sub_menu_wrap');
       $firstmenu.mouseenter(function () {
         $sub_menu.stop().animate({
           height: '400px'
         }, 200);
+        $sub_header.css("background-color", "rgb(31, 31, 52)");
       });
       $header.mouseleave(function () {
         $sub_menu.stop().animate({
           height: '0'
         }, 200);
+        $sub_header.css("background-color", "transparent");
       });
 
     });
