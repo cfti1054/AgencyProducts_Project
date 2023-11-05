@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: #333;
+    box-sizing: border-box;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+.enter-container {
+	width: 1300px;
+	margin: 240px auto;
+}
+
+.enter-container .form-title {
+	width: 1080px;
+	margin: 50px auto;
+}
+
+.enter-container .form-title h2 {
+	text-align: center;
+}
+
+.enter-container .info {
+	width: 1080px;
+	display: flex;
+	justify-content: space-evenly;
+	margin: 0 auto;
+}
+
+.enter-container .info .article_img {
+	position: relative;
+	width: 400px;
+	overflow: hidden;
+}
+
+.enter-container .info .article_img img {
+	width: 400px;
+}
+
