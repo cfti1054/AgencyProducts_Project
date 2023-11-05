@@ -130,7 +130,7 @@ body {
 
 .paginate a {
   border: 1px solid #ccc;
-  background-color: #ccc; /* Green background color */
+  background-color: #ccc; 
   color: white;
   text-decoration: none;
   padding: 8px 16px;
@@ -148,7 +148,7 @@ body {
 
 .paginate span {
   border: 1px solid #777;
-  background-color: #777; /* Red background color */
+  background-color: #777; 
   color: white;
   padding: 8px 16px;
   margin: 0 4px;
