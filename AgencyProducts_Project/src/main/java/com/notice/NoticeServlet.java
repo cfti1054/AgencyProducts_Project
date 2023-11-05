@@ -34,15 +34,9 @@ public class NoticeServlet extends MyUploadServlet {
 		req.setCharacterEncoding("utf-8");
 
 		String uri = req.getRequestURI();
-		String cp = req.getContextPath();
 
 		HttpSession session = req.getSession();
-		SessionInfo info = (SessionInfo) session.getAttribute("member");
-
-		if (uri.indexOf("list.do") == -1 && info == null) {
-			resp.sendRedirect(cp + "/form/login.do");
-			return;
-		}
+		
 
 		// 파일을 저장할 경로(pathname)
 		String root = session.getServletContext().getRealPath("/");
