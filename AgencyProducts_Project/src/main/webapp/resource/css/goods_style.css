@@ -67,3 +67,45 @@ ol, ul {
     font-size: 14px;
     font-weight: 600;
 }
+
+
+/* 페이징 처리 CSS */
+.page-navigation {
+  clear: both;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.paginate {
+  clear: both;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 14px;  
+}
+
+.paginate a {
+  border: 1px solid #ccc;
+  background-color: #ccc; /* Green background color */
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border-radius: 5px;
+}
+
+.paginate a:hover {
+  background-color: #ccc;
+}
+
+.paginate a:active {
+  background-color: #ccc;
+}
+
+.paginate span {
+  border: 1px solid #777;
+  background-color: #777; /* Red background color */
+  color: white;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border-radius: 5px;
+}
