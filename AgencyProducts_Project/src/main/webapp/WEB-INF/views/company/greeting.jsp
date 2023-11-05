@@ -67,7 +67,7 @@
                 </div>
                 <div class="greeting2">
                     <h3>AP.4 엔터테인먼트 항상 도전합니다.</h3>
-                    <div class="wrap">
+                    <div class="wrap2">
                     <p>
                         저희는 소속 아티스트들의 매니지먼트와 에이전트,<br>
                         기본적인 엔터테인먼트 비즈니스 모델에 기초해<br>

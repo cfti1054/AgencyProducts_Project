@@ -100,7 +100,8 @@ body {
 }
 .active,
 .collapsible:hover {
-    background-color: bisque;
+    background-color: burlywood;
+    color: #fff;
 }
 .content {
     padding: 0 18px;

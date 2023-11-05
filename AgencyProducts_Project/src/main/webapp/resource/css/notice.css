@@ -207,5 +207,9 @@ body {
 	width:85%;
 }
 
+.item-delete {
+	cursor: pointer;
+}
+
 
 

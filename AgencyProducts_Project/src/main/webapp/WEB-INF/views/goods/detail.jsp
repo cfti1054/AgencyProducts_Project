@@ -96,11 +96,6 @@
 		                </div>
 	                </c:forEach>                	
                 </div>
-                <c:forEach var="vo" items="${ listFile }" varStatus="status">
-	                <div class="scale detail_photo${ status.index }">
-	                    <img src="${pageContext.request.contextPath}/uploads/photo/${vo.img_name}" alt="photo" width="700">
-	                </div>
-                </c:forEach>
             </div>
         </div>
     </div>

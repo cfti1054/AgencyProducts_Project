@@ -43,6 +43,7 @@ ol, ul {
 
 .detail_wrap .detail_img .img_cover img {
 	width: 450px;
+	height: 450px;
 	border-radius: 20px;
 }
 
@@ -183,14 +184,15 @@ ol, ul {
 
 .goods_content .photo img {
     border-radius: 10px;
+    width: 200px;
+    height: 200px;
 }
 
 .goods_content .photo img:hover {
 	border: 3px solid darkblue;
+	scale: 1.1;
 }
 
-.goods_content .scale {
-	text-align: center;
-}
+
 
 
