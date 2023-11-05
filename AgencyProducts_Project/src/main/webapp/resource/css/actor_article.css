@@ -23,6 +23,8 @@ ol, ul {
 }
 
 .enter-container .form-title h2 {
+	font-size: 32px;
+	font-weight: 700;
 	text-align: center;
 }
 
@@ -41,5 +43,18 @@ ol, ul {
 
 .enter-container .info .article_img img {
 	width: 400px;
+}
+
+.article_content {
+	width: 500px;
+}
+
+.article_content table {
+	border-collapse: separate;
+	border-spacing: 0 20px;
+}
+
+.article_content table tr td:first-child {
+	width: 200px;
 }
 

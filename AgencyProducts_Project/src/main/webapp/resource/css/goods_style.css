@@ -24,7 +24,11 @@ ol, ul {
     width: 1300px;
     max-width: 1300px;
     margin: 0 auto !important;
+}
 
+.goods-write {
+	padding: 10px;
+	margin-bottom: 20px;
 }
 
 .item_list {
@@ -41,7 +45,7 @@ ol, ul {
 .item_list .item a img {
     border-radius: 8px;
     width: 240px;
-    height: 150px;
+    height: 240px;
 }
 
 .item_list .item .item_detail {

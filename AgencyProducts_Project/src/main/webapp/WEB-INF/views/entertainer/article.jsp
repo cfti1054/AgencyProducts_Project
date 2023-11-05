@@ -75,7 +75,7 @@ function deleteEnter(enter_id){
 	
 	<div class="enter-container">
 	    <div class="form-title">
-			<h2><i class="far fa-image"></i> ${dto.group_name} </h2>
+			<h2>${dto.group_name}</h2>
 	    </div>
 	    
 	    <div class = "info">
