@@ -171,21 +171,18 @@ ol, ul {
 }
 
 .goods_content .img_list {
-	display: flex;
-	flex-wrap: wrap;
 	margin: 100px 0;
 	padding: 40px;
 }
 
 .goods_content .photo {
-    margin: auto;
+    margin: 30px auto;
     text-align: center;
 }
 
 .goods_content .photo img {
     border-radius: 10px;
-    width: 200px;
-    height: 200px;
+    width: 400px;
 }
 
 .goods_content .photo img:hover {

@@ -10,7 +10,6 @@
 	href="${pageContext.request.contextPath}/resource/css/goods_style.css"
 	type="text/css">
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-<link rel="stylesheet" href="goods_style.css">
 </head>
 <body>
 
@@ -21,6 +20,13 @@
 	<main>
 		<div class="item_container">
 			<div class="layout_grid">
+			
+				<div class="goods-write">
+					<c:if test="${sessionScope.member.userId == 'admin'}">
+						<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/goods/write.do';">글올리기</button>
+					</c:if>  
+				</div>
+			
 				<ul class="item_list" style="border-radius: 8px;">
 					<c:forEach var="dto" items="${ list }" varStatus="status">
 						<li class="item"><a
