@@ -349,13 +349,14 @@ public class QnaDAO {
 			String sql;
 
 			try {
-				sql = "UPDATE question SET q_subject=?, q_content=? WHERE question_num=? AND user_id=?";
+				sql = "UPDATE question SET q_subject=?, q_content=?, category_name = ? WHERE question_num=? AND user_id=?";
 				pstmt = conn.prepareStatement(sql);
 				
 				pstmt.setString(1, dto.getQ_subject());
 				pstmt.setString(2, dto.getQ_content());
-				pstmt.setLong(3, dto.getQuestion_num());
-				pstmt.setString(4, dto.getUser_id());
+				pstmt.setString(3, dto.getCategory_name());
+				pstmt.setLong(4, dto.getQuestion_num());
+				pstmt.setString(5, dto.getUser_id());
 				
 				pstmt.executeUpdate();
 
