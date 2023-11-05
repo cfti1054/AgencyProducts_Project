@@ -80,7 +80,7 @@ function deleteEnter(enter_id){
 	    
 	    <div class = "info">
 		    <div class="article_img">
-		    	<img src="<c:url value='/resource/img/kwill.jpg'/>" class="img">
+		    	<img src="<c:url value='/uploads/photo/${dto.img_name}'/>">
 			</div>
 			
 		    <div class="article_content">
