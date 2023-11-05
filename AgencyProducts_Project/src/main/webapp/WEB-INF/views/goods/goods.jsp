@@ -30,13 +30,13 @@
 				<ul class="item_list" style="border-radius: 8px;">
 					<c:forEach var="dto" items="${ list }" varStatus="status">
 						<li class="item"><a
-							href="${detailUrl}&goods_id=${dto.goods_id}"> <img
+							href="${detailUrl}&goods_id=${dto.goods_id}&act_id=${dto.act_id}"> <img
 								src="${ pageContext.request.contextPath }/uploads/photo/${ dto.img_name }"
 								alt="item${ status.index }" title="item${ status.index }">
 						</a>
 							<ul class="item_detail">
 								<li class="item_name"><a
-									href="${detailUrl}&goods_id=${dto.goods_id}">${ dto.goods_name }</a>
+									href="${detailUrl}&goods_id=${dto.goods_id}&act_id=${dto.act_id}">${ dto.goods_name }</a>
 								</li>
 								<li class="item_price"><span>${ dto.goods_price }원</span></li>
 							</ul></li>

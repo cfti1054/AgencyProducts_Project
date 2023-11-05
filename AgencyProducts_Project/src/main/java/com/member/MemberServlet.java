@@ -82,13 +82,12 @@ public class MemberServlet extends MyServlet {
 			// 세션에 member이라는 이름으로 저장
 			session.setAttribute("member", info);
 
-			String preLoginURI = 
-					(String)session.getAttribute("preLoginURI");
-			session.removeAttribute("preLoginURI");
-			
+			String preLoginURI = (String)session.getAttribute("preLoginURI");
+			session.removeAttribute(preLoginURI);
+			System.out.println(preLoginURI);
 			if(preLoginURI != null) {
 				// 로그인 전페이지로
-				resp.sendRedirect(preLoginURI);
+				resp.sendRedirect(cp + preLoginURI);
 			} else {
 				// 메인화면으로 리다이렉트
 				resp.sendRedirect(cp + "/");

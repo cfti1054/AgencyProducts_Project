@@ -178,7 +178,7 @@ public class GoodsDAO {
 		try {
 			sql = " SELECT g.goods_id, g.goods_name, goods_price, " 
 					+ " TO_CHAR(reg_date, 'YYYY-MM-DD') reg_date, "
-					+ " goods_acc, img_name, photo_num " 
+					+ " goods_acc, img_name, photo_num, act_id " 
 					+ " FROM goods g "
 					+ " LEFT OUTER JOIN ( "
 					+ " 	SELECT photo_num, goods_id, img_name FROM ( "
@@ -206,6 +206,7 @@ public class GoodsDAO {
 				dto.setGoods_acc(rs.getString("goods_acc"));
 				dto.setImg_name(rs.getString("img_name"));
 				dto.setPhoto_num(rs.getLong("photo_num"));
+				dto.setAct_id("act_id");
 
 				list.add(dto);
 			}
@@ -228,7 +229,7 @@ public class GoodsDAO {
 		try {
 			sb.append(" SELECT g.goods_id, goods_name, goods_price, ");
 			sb.append(" TO_CHAR(reg_date, 'YYYY-MM-DD') reg_date, ");
-			sb.append(" goods_acc, img_name ");
+			sb.append(" goods_acc, img_name, photo_num, act_id ");
 			sb.append(" FROM goods g ");
 			sb.append(" JOIN goods_photo p ON g.goods_id = p.goods_id ");
 			if (schType.equals("all")) {
@@ -264,6 +265,8 @@ public class GoodsDAO {
 				dto.setReg_date(rs.getString("reg_date"));
 				dto.setGoods_acc(rs.getString("goods_acc"));
 				dto.setImg_name(rs.getString("img_name"));
+				dto.setPhoto_num(rs.getLong("photo_num"));
+				dto.setAct_id("act_id");
 
 				list.add(dto);
 			}
@@ -342,7 +345,7 @@ public class GoodsDAO {
 			
 			if (dto.getImg_names() != null) {
 				sql = "INSERT INTO goods_photo(photo_num, goods_id, img_name) VALUES "
-						+ " (sphotoFile_seq.NEXTVAL, ?, ?)";
+						+ " (goods_photo_seq.NEXTVAL, ?, ?)";
 				pstmt = conn.prepareStatement(sql);
 				
 				for (int i = 0; i < dto.getImg_names().length; i++) {

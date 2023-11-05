@@ -10,6 +10,25 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/goods_detail.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
+
+<script type="text/javascript">
+function update_goods(goods_id) {
+    if(confirm("게시글을 수정 하시겠습니까 ? ")) {
+        let query = "goods_id="+goods_id;
+        let url = "${pageContext.request.contextPath}/goods/update.do?" + query;
+        location.href = url;
+    }
+}
+
+function delete_goods(goods_id) {
+    if(confirm("게시글을 삭제 하시겠습니까 ? ")) {
+        let query = "goods_id="+goods_id;
+        let url = "${pageContext.request.contextPath}/goods/delete.do?" + query;
+        location.href = url;
+    }
+}
+</script>
+
 <body>
 	
 	<header>
@@ -60,6 +79,7 @@
                                                 <button type="button" class="add" onclick="plus();"><i class="fa-solid fa-plus"></i></button>
                                                 <button type="button" class="minus" onclick="minus();"><i class="fa-solid fa-minus"></i></button>
                                                 <input name="unit_price" type="hidden" value="${ dto.goods_price }">
+                                                <input name="act_id" type="hidden" value="${ act_id }">
                                             </div>
                                         </li>
                                     </ul>
@@ -71,6 +91,13 @@
                                         
                                     </div>
                                 </div>
+                                <c:if test="${sessionScope.member.userId=='admin'}">
+	                                <div class="admin_btn">
+	                                	<button type="button" class="update_btn" onclick="update_goods(${dto.goods_id})">수정</button>
+	                                	<button type="button" class="delete_btn" onclick="delete_goods(${dto.goods_id})">삭제</button>
+	                                </div>
+                                </c:if>
+                                
                                 <div class="deter" style="padding-top: 47px">
                                     <div class="sell">
                                         <a href="#">바로 구매하기</a>
