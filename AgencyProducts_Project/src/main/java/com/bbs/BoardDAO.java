@@ -171,7 +171,7 @@ public class BoardDAO {
 			sb.append("      TO_CHAR(reg_date, 'YYYY-MM-DD') reg_date, ");
 			sb.append("      NVL(replyCount, 0) replyCount ");
 			sb.append(" FROM news n ");
-			sb.append(" JOIN user1 u ON u.user_id = u.user_id ");
+			sb.append(" JOIN user1 u ON u.user_id = n.user_id ");
 			sb.append(" LEFT OUTER JOIN ( ");
 			sb.append("     SELECT num, COUNT(*) replyCount ");
 			sb.append("     FROM newsReply ");
