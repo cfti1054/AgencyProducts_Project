@@ -71,12 +71,13 @@ function sendLogin() {
 					<a href="${pageContext.request.contextPath}/">Find a ID</a> <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
 					<a href="${pageContext.request.contextPath}/">Find a Password</a>
 				</p>
-
+				
                 <div class="login-png">
-                    <a href="#"><img src="${pageContext.request.contextPath}/image/google.png"></a>
+                	<a href="#"><img src="${pageContext.request.contextPath}/image/google.png"></a>
                     <a href="#"><img src="${pageContext.request.contextPath}/image/kakao.png"></a>
                     <a href="#"><img src="${pageContext.request.contextPath}/image/naver.png"></a>
                 </div>
+               
 			</form>
 			<div class="members-message">
 				<p class="text-center">
