@@ -79,7 +79,7 @@ function sendOk() {
 										<input type="text" name="faq_subject" maxlength="200" class="form-control subject_input" value="${dto.faq_subject}">
 									</td>
 								</tr>
-								<hr>
+								
 								
 				
 								<tr> 
