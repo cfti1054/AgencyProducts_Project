@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/qna_article.css" type="text/css">
 <title>1:1 문의</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
@@ -69,10 +70,14 @@
 </header>
 
 <main>
-	<div class="container body-container"  style="margin-top: 120px;">
+	<div class="wrap">
+
+	<div class="container item_container"  style="margin-top: 120px;">
 	    <div class="body-title">
-			<h2><i class="fa-solid fa-person-circle-question"></i> 질문과 답변 </h2>
-	    </div>
+			<h2><i> 1 : 1 문의 </i></h2>
+			<span></span>
+			<h4>One-on-one inquiry</h4>
+		</div>
 	    
 	    <div class="body-main mx-auto">
 			<table class="table table-border table-article">
@@ -132,7 +137,7 @@
 				
 			<table class="table table-border table-article">
 				<tr>
-					<td colspan="2">
+					<td class="td-text" colspan="2">
 						이전글 :
 						<c:if test="${not empty prevDto}">
 							
@@ -163,7 +168,7 @@
 				</tr>
 			</table>
 			
-			<table class="table">
+			<table class="table-bottom">
 				<tr>
 					<td width="50%">
 						<c:if test="${sessionScope.member.userId==dto.user_id && empty dto.ans_content}">
@@ -210,6 +215,9 @@
 
 	    </div>
 	</div>
+    
+	
+</div>
 </main>
 
 <footer>
