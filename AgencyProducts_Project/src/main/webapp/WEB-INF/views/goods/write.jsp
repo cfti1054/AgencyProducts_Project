@@ -13,12 +13,15 @@
 	function sendOk() {
 		const f = document.goodsForm;
 		let str;
+		let mode_name = f.mode_name.value;
 		
-		str = f.goods_id.value.trim();
-		if(!str) {
-			alert("굿즈아이디를 입력하세요");
-			f.goods_id.focus();
-			return;
+		if(mode_name !== 'update') {
+			str = f.goods_id.value.trim();
+			if(!str) {
+				alert("굿즈아이디를 입력하세요");
+				f.goods_id.focus();
+				return;
+			}			
 		}
 		
 		str = f.goods_name.value.trim();
@@ -35,12 +38,13 @@
 			return;
 		}
 		
-		
-		str = f.act_id.value.trim();
-		if(!str) {
-			alert("활동명을 선택해주세요");
-			f.act_id.focus();
-			return;
+		if(mode_name !== 'update') {
+			str = f.act_id.value.trim();
+			if(!str) {
+				alert("활동명을 선택해주세요");
+				f.act_id.focus();
+				return;
+			}
 		}
 		
 		
@@ -102,17 +106,28 @@
             <input type="text" name="price" maxlength="100" class="form_value" value="${ dto.goods_price }">
           </td>
         </tr>
-
-        <tr>
-          <td>활동아이디</td>
-          <td>
-            <select name="act_id" class="form_value">
-              <c:forEach var="vo" items="${listEntertainer}">
-              	<option value="${vo.act_id}">${vo.group_name}</option>
-              </c:forEach>
-            </select>
-          </td>
-        </tr>
+	        <c:choose>
+	        	<c:when test="${ mode == 'write' }">
+	        <tr>
+	          <td>활동아이디</td>
+	          <td>
+	            <select name="act_id" class="form_value">
+	              <c:forEach var="vo" items="${listEntertainer}">
+	              	<option value="${vo.act_id}">${vo.group_name}</option>
+	              </c:forEach>
+	            </select>
+	          </td>
+	        </tr>
+	        	</c:when>
+	        	<c:otherwise>
+	        		<tr>
+	          <td>
+	          <input type="hidden" name="act_id" value="${ dto.act_id }">
+	            
+	          </td>
+	        </tr>
+	        	</c:otherwise>
+	        </c:choose>
 
         <tr>
           <td>총 개수</td>
@@ -150,12 +165,14 @@
       <table class="table">
         <tr> 
           <td align="center">
+          	<input type="hidden" name="mode_name" value="${ mode }">
             <button type="button" class="btn" onclick="sendOk();">${mode=='update'?'수정완료':'등록하기'}</button>
             <button type="reset" class="btn">다시입력</button>
             <button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/goods/goods.do';">${mode=='update'?'수정취소':'등록취소'}</button>
             
             <c:if test="${ mode=='update' }">
 				<input type="hidden" name="photo_num" value="${ dto.photo_num }">
+				<input type="hidden" name="goods_id" value="${ dto.goods_id }">
 				<input type="hidden" name="imageFilename" value="${ dto.img_name }">
 			</c:if>
             

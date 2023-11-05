@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.member.SessionInfo;
 import com.util.FileManager;
 import com.util.MyUploadServlet;
 import com.util.MyUtil;
@@ -160,6 +161,7 @@ public class GoodsServlet extends MyUploadServlet {
 			String goods_id = req.getParameter("goods_id");
 			String schType = req.getParameter("schType");
 			String kwd = req.getParameter("kwd");
+			String act_id = req.getParameter("act_id");
 			if(schType == null) {
 				schType = "all";
 				kwd = "";
@@ -185,6 +187,7 @@ public class GoodsServlet extends MyUploadServlet {
 			req.setAttribute("page", page);
 			req.setAttribute("query", query);
 			req.setAttribute("listFile", listFile);
+			req.setAttribute("act_id", act_id);
 			
 			// 포워딩
 			forward(req, resp, "/WEB-INF/views/goods/detail.jsp");
@@ -201,6 +204,14 @@ public class GoodsServlet extends MyUploadServlet {
 		// 굿즈 작성 폼
 		GoodsDAO dao = new GoodsDAO();
 		List<GoodsDTO> listEntertainer = dao.listEntertainer();
+		String cp = req.getContextPath();
+		HttpSession session = req.getSession();
+		SessionInfo info = (SessionInfo)session.getAttribute("member");
+		
+		if(!info.getUserId().equals("admin")) {
+			resp.sendRedirect(cp + "/goods/goods.do");
+			return;
+		}
 		
 		req.setAttribute("mode", "write");
 		req.setAttribute("listEntertainer", listEntertainer);
@@ -248,6 +259,13 @@ public class GoodsServlet extends MyUploadServlet {
 		GoodsDAO dao = new GoodsDAO();
 		
 		String cp = req.getContextPath();
+		HttpSession session = req.getSession();
+		SessionInfo info = (SessionInfo)session.getAttribute("member");
+		
+		if(!info.getUserId().equals("admin")) {
+			resp.sendRedirect(cp + "/goods/goods.do");
+			return;
+		}
 		
 		try {
 			String goods_id = req.getParameter("goods_id");
@@ -291,7 +309,7 @@ public class GoodsServlet extends MyUploadServlet {
 			dto.setGoods_count(Integer.parseInt(req.getParameter("quantity")));
 			dto.setGoods_acc(req.getParameter("content"));
 			
-			String img_name = req.getParameter("img_name");
+			String img_name = req.getParameter("imageFilename");
 			dto.setImg_name(img_name);
 			
 			Map<String, String[]> map = doFileUpload(req.getParts(), pathname);
@@ -319,10 +337,16 @@ public class GoodsServlet extends MyUploadServlet {
 		
 		String cp = req.getContextPath();
 		
+		HttpSession session = req.getSession();
+		SessionInfo info = (SessionInfo)session.getAttribute("member");
+		
+		if(!info.getUserId().equals("admin")) {
+			resp.sendRedirect(cp + "/goods/goods.do");
+			return;
+		}
+		
 		try {
 			String goods_id = req.getParameter("goods_id");
-			
-			String goodsId = req.getParameter("goods_id");
 			
 			GoodsDTO dto = dao.findById(goods_id);
 			
@@ -335,7 +359,7 @@ public class GoodsServlet extends MyUploadServlet {
 			FileManager.doFiledelete(pathname, dto.getImg_name());
 			
 			// 테이블 데이터 지우기
-			dao.deleteGoods(goodsId);
+			dao.deleteGoods(goods_id);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
