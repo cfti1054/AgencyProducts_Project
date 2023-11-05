@@ -103,7 +103,7 @@ public class FaqServlet extends MyServlet {
 			// 파라미터
 			dto.setFaq_case(req.getParameter("faq_case"));
 			dto.setFaq_subject(req.getParameter("faq_subject"));
-			dto.setFaq_content(req.getParameter("faq_content"));
+			dto.setFaq_content(req.getParameter("faq_content").replaceAll("\n", "<br>"));
 			
 			dao.insertFaq(dto);
 			
