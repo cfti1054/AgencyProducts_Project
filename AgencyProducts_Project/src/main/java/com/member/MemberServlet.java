@@ -92,7 +92,7 @@ public class MemberServlet extends MyServlet {
 			} else {
 				// 메인화면으로 리다이렉트
 				resp.sendRedirect(cp + "/");
-			}
+			}  
 			
 			return;
 		}
