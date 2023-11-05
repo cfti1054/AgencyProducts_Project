@@ -84,7 +84,7 @@ public class MemberServlet extends MyServlet {
 
 			String preLoginURI = (String)session.getAttribute("preLoginURI");
 			session.removeAttribute(preLoginURI);
-			System.out.println(preLoginURI);
+			
 			if(preLoginURI != null) {
 				// 로그인 전페이지로
 				resp.sendRedirect(cp + preLoginURI);

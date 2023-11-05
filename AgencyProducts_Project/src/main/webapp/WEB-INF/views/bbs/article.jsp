@@ -125,9 +125,11 @@
 								</td>
 							</tr>
 							<tr>
+							<c:if test="${not empty sessionScope.member.userId}">
 							   <td align='right'>
 							        <button type='button' class='btn btnSendReply'>댓글 등록</button>
 							    </td>
+							</c:if>    
 							 </tr>
 						</table>
 					</form>
