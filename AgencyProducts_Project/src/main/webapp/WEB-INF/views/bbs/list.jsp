@@ -61,9 +61,11 @@ function searchList() {
 										<button type="button" class="btn" onclick="searchList();">검색</button>
 									</form>
 								</td>
+								<c:if test="${sessionScope.member.userId == 'admin'}">
 								<td align="right" width="100">
 									<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/bbs/write.do';">글올리기</button>
 								</td>
+								</c:if>
 							</tr>
 						</table>
 
