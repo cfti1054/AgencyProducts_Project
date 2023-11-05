@@ -48,10 +48,11 @@ function searchList() {
 						</form>
 					</td>
 
-					
+					<c:if test="${not empty sessionScope.member.userId && sessionScope.member.userId != 'admin' }">
 					<td align="right" width="100">
 						<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/qna/write.do';">질문등록</button>
 					</td>
+					</c:if>
 				</tr>
 			</table>
 

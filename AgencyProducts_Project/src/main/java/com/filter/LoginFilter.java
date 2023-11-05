@@ -76,8 +76,8 @@ public class LoginFilter implements Filter {
 			"/form/userIdCheck.do", 
 			"/notice/list.do", "/notice/article.do",
 			"/company/**", "/goods/**", "/entertainer/**",
-			"/bbs/**", 
-			"/faq/**", "/qna/list.do",
+			"/bbs/**", "/qna/**",
+			"/faq/**",
 			"/image/**",
 			"/resource/**"
 		};
