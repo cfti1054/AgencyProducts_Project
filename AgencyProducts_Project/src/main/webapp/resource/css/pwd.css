@@ -100,7 +100,6 @@ body {
     border-radius: 40px 80px;
     margin-top: 100px;
     margin-bottom: 200px;
-    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 400px 0 rgba(0, 0, 0, 0.439);
 }
 
 .info-box form .text-center,

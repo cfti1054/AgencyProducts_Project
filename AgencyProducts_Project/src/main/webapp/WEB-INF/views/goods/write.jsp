@@ -85,6 +85,8 @@
 			location.href = url;
 		}
 	</c:if>
+	
+	
 </script>
 
 </head>
