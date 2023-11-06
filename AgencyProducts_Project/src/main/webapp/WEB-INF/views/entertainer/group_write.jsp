@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>${mode=="update" ? "그룹 수정" : "그룹 등록 "} </title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/group_write.css" type="text/css">
 <style type="text/css">
 
 *{
@@ -84,9 +85,9 @@ function sendOk() {
 
 	<main>
 	
-		<div class="write_container" style="margin-top: 120px;">
+		<div class="write_container">
 	    <div class="form-title">
-			<h2><i class="far fa-image"></i>&nbsp;${mode=="update" ? "그룹 수정" : "그룹 등록"} </h2>
+			<h2>${mode=="update" ? "그룹 수정" : "그룹 등록"}</h2>
 	    
 	    </div>
 	    
