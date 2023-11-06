@@ -36,7 +36,7 @@ function deleteEnter(enter_id){
     	<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
 	</header>
 	
-	<div class="item_container" style="margin-top: 120px;">
+	<div class="item_container" style="margin-top: 130px;">
 	
 	
 	<div class="enter-container">
