@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+
+<!-- 아니 올렸다니까??? -->
 	<header>
     <div class="header">
       <div class="header_wrap">
