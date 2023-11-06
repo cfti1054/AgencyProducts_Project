@@ -49,6 +49,37 @@ function deleteEnter(enter_id){
 	    <div class = "info">
 		    <div class="article_img">
 		    	<img style="border-radius: 20px;" src="<c:url value='/resource/uploads/photo/${dto.img_name}'/>">
+		    	<div class="perform">
+           <c:forEach var="dto" items="${list2}" varStatus="status">
+        	<table>
+        	<tr>
+        		<td>${dto.start_date} - ${dto.end_date}</td>
+        		<td>${dto.action_content}</td>
+        		<c:if test="${sessionScope.member.userId == 'admin'}">
+         	<td>
+         		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_update.do?ac_list_num=${dto.ac_list_num}';">수정</button>
+         		<button type="button" class="btn" onclick="deleteAction('${dto.ac_list_num}');">삭제</button>
+         	</td>
+         	</c:if>
+        	</tr>
+        	</table>
+		</c:forEach>
+		<c:if test="${sessionScope.member.userId == 'admin'}">
+			<table class="submit-table">
+				<tr>
+					<td width="50%">
+		         		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/enter_write.do?act_id=${dto.act_id }';">연예인 등록</button>
+						<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_update.do?act_id=${dto.act_id}';">그룹 수정</button>
+						<button type="button" class="btn" onclick="deleteGroup();">그룹 삭제</button>
+						<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_write.do?act_id=${dto.act_id}';">활동 등록</button>
+					</td>
+					<td align="right">
+						<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/artist.do';">리스트</button>
+					</td>
+				</tr>
+			</table>
+		</c:if>
+          </div>
 			</div>
 			
 		    <div class="article_content">
@@ -97,38 +128,10 @@ function deleteEnter(enter_id){
 	               </c:if>
 	         </table>
 	            </c:forEach>
-	            <c:forEach var="dto" items="${list2}" varStatus="status">
-	         	<table>
-	         	<tr>
-	         		<td>${dto.start_date} - ${dto.end_date}</td>
-	         		<td>${dto.action_content}</td>
-	         		<c:if test="${sessionScope.member.userId == 'admin'}">
-		         	<td>
-		         		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_update.do?ac_list_num=${dto.ac_list_num}';">수정</button>
-		         		<button type="button" class="btn" onclick="deleteAction('${dto.ac_list_num}');">삭제</button>
-		         	</td>
-		         	</c:if>
-	         	</tr>
-	         	</table>
-				</c:forEach>
-				<c:if test="${sessionScope.member.userId == 'admin'}">
-					<table class="submit-table">
-						<tr>
-							<td width="50%">
-				         		<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/enter_write.do?act_id=${dto.act_id }';">연예인 등록</button>
-								<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/group_update.do?act_id=${dto.act_id}';">그룹 수정</button>
-								<button type="button" class="btn" onclick="deleteGroup();">그룹 삭제</button>
-								<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/action_write.do?act_id=${dto.act_id}';">활동 등록</button>
-							</td>
-							<td align="right">
-								<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/artist.do';">리스트</button>
-							</td>
-						</tr>
-					</table>
-				</c:if>
 	
 			</div>
 	    </div>
+          
 	</div>
 </div>
     <footer>

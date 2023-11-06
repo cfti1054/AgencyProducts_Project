@@ -40,6 +40,10 @@ ol, ul {
 	border-radius: 8px;
 }
 
+.enter-container .info .article_img .perform {
+	margin-top: 48px;
+}
+
 .article_content {
 	width: 500px;
 }
