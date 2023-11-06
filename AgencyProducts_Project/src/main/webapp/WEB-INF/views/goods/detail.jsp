@@ -51,7 +51,7 @@
                             </div>
                             <div class="info_list">
                                 <div class="info_price">
-                                    <span class="price">${ dto.goods_price }원</span>
+                                    <span class="price">${ dto.goods_price2 }원</span>
                                 </div>
                                 <div class="info_option">
                                     <div class="option_list_wrap">
@@ -73,7 +73,7 @@
                                             <h4>상품명</h4>
                                         </li>
                                         <li class="goods_option">
-                                            <p class="option_price">${ dto.goods_price } </p>
+                                            <p class="option_price">${ dto.goods_price2 } </p>
                                             <div class="quantity">
                                                 <input name="quantity" type="text" class="quantity_num" readonly value="0">
                                                 <button type="button" class="add" onclick="plus();"><i class="fa-solid fa-plus"></i></button>
@@ -167,7 +167,7 @@
     		f.quantity.value = count;
     		let total = unit_price * count;
     		console.log(total);
-    		document.getElementById("tot_price").innerHTML=total + '원';
+    		document.getElementById("tot_price").innerHTML = total.toLocaleString('en-US') + '원';
     	}
     	
     	let minus = () => {
@@ -178,7 +178,7 @@
     		f.quantity.value = count;
     		let total = unit_price * count;
     		console.log(total);
-    		document.getElementById("tot_price").innerHTML = total.toString() + '원';
+    		document.getElementById("tot_price").innerHTML = total.toLocaleString('en-US') + '원';
     	}
     	
     	

@@ -38,7 +38,7 @@
 								<li class="item_name"><a
 									href="${detailUrl}&goods_id=${dto.goods_id}&act_id=${dto.act_id}">${ dto.goods_name }</a>
 								</li>
-								<li class="item_price"><span>${ dto.goods_price }원</span></li>
+								<li class="item_price"><span>${ dto.goods_price2 }원</span></li>
 							</ul></li>
 					</c:forEach>
 				</ul>
