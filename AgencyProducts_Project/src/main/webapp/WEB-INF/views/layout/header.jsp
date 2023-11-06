@@ -27,7 +27,7 @@
               <li class="main_menu1" onclick="location.href='${pageContext.request.contextPath}/company/about.do';">COMPANY</li>
               <li class="main_menu2" onclick="location.href='${pageContext.request.contextPath}/goods/goods.do';">GOODS</li>
               <li class="main_menu3" onclick="location.href='${pageContext.request.contextPath}/entertainer/artist.do';">ARTIST</li>
-              <li class="main_menu4" onclick="location.href='${pageContext.request.contextPath}/bbs/list.do';">NOTICE</li>
+              <li class="main_menu4" onclick="location.href='${pageContext.request.contextPath}/bbs/list.do';">BOARD</li>
               <li class="main_menu5" onclick="location.href='${pageContext.request.contextPath}/faq/list.do';">CUSTOMER</li>
             </ul>
           </nav>
