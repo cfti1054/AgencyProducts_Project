@@ -119,7 +119,7 @@
                 <div class="img_list">
 	                <c:forEach var="vo" items="${ listFile }" varStatus="status">
 		                <div class="photo photo${ status.index }">
-		                    <img src="${pageContext.request.contextPath}/uploads/photo/${vo.img_name}" alt="photo" width="120">
+		                    <img src="${pageContext.request.contextPath}/resource/uploads/photo/${vo.img_name}" alt="photo" width="120">
 		                </div>
 	                </c:forEach>                	
                 </div>
