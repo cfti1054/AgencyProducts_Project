@@ -9,7 +9,7 @@
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/group_write.css" type="text/css">
 <style type="text/css">
-
+/*
 *{
     margin: 0;
     padding: 0;
@@ -46,6 +46,7 @@ body {
 	font-size: 12px;
 	font: #888;
 }
+*/
 </style>
 
 <script type="text/javascript">

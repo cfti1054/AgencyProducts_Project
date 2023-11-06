@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>그룹 등록</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/enter_write.css" type="text/css">
 
 <script type="text/javascript">
 
@@ -54,9 +55,9 @@ function sendOk() {
 
 	<main>
 	
-		<div class="write_container" style="margin-top: 120px;">
+		<div class="write_container">
 	    <div class="form-title">
-			<h2><i class="far fa-image"></i>&nbsp;${mode=="update" ? "그룹 수정" : "그룹 등록"} </h2>
+			<h2>&nbsp;${mode=="update" ? "그룹 수정" : "그룹 등록"} </h2>
 	    
 	    </div>
 	    
@@ -89,30 +90,29 @@ function sendOk() {
 					</tr>
 					<tr> 
 						<td>직업코드</td>
-						<td> 
-							<input type="radio" name="job_num " maxlength="100" class="form-control" value="1" checked>가수
-							<input type="radio" name="job_num " maxlength="100" class="form-control" value="2">배우
-							<input type="radio" name="job_num " maxlength="100" class="form-control" value="3">모델
+						<td class="radio_list">
+							<input id="radio_button" class="radio_button" type="radio" name="job_num " maxlength="100" class="form-control" value="1" checked>가수
+							<input id="radio_button" class="radio_button" type="radio" name="job_num " maxlength="100" class="form-control" value="2">배우
+							<input id="radio_button" class="radio_button" type="radio" name="job_num " maxlength="100" class="form-control" value="3">모델
 						</td>
 					</tr>
-					</table>
-					<div class="row">
-							<p>활동ID
+					<tr>
+						<td>활동ID</td>
+						<td>
 							<input name="act_id" type="text" value="${act_id}" readonly>
-							</p>		
-				</div>
-					<table>
+						</td>
+					</tr>
 					<tr> 
 						<td>예명</td>
 						<td> 
 							<input type="text" name="stage_name " maxlength="100" class="form-control" value="${dto.stage_name }">
 						</td>
 					</tr>
-				</table>
-				
-				<table class="table">
+					</table>
+					
+				<table class="table table-button">
 					<tr> 
-						<td align="center">
+						<td>
 							<button type="button" class="btn" onclick="sendOk();">${mode=="update" ? "수정완료" : "등록완료"}</button>
 							<button type="reset" class="btn">다시입력</button>
 							<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">${mode=="update" ? "수정취소" : "등록취소" }</button>

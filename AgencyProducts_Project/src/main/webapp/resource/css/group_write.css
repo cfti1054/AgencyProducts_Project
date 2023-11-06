@@ -24,6 +24,41 @@ body {
 }
 
 .write_container .form-title {
+	margin-bottom: 32px;
+}
+
+.write_container .form-title h2 {
+	width: 600px;
+	text-align: center;
 	margin: 0 auto;
 }
 
+.table-form {
+	width: 600px;
+	margin: 0 auto;
+	margin-bottom: 28px;
+}
+
+.table-form tr {
+	height: 48px;
+}
+
+.table-form tr td:first-child {
+	width: 15%;
+	text-align: center;
+}
+
+.table-form tr td:nth-child(2) {
+	width: 85%;
+	padding-left: 15px;
+}
+
+.table-form tr td:nth-child(2) input {
+	width: 100%;
+	height: 24px;
+}
+
+.table {
+	width: 600px;
+	margin: 0 auto;
+}

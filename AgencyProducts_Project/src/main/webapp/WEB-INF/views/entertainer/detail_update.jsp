@@ -7,8 +7,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/detail_update.css" type="text/css">
 <style type="text/css">
+/*
 	*{
 	    margin: 0;
 	    padding: 0;
@@ -23,7 +24,7 @@
 	  justify-content: center;
 	  align-items: center;
 	}
-
+*/
 </style>
 
 <script type="text/javascript">
@@ -75,58 +76,67 @@ function sendOk() {
 
 </head>
 <body>
-
-
-	<div style="margin-top: 120px;">
-	<form name="updateForm" method="post" enctype="multipart/form-data">
-		<div class="row">
-			<p> 연예인 ID
-			<input name="enter_id" type="text" class="form-control"
-				value="${dto.enter_id }">
-			</p>	
-		</div>
-		<div class="row">
-			<p> 연예인 이름
-			<input name="enter_name" type="text" value="${dto.enter_name}">
-			</p>	
-		</div>
-		<div class="row">
-			<p> 생년월일
-				<input type="date" name=enter_birth value="${dto.enter_birth}">
-			</p>	
-		</div>
-		<div class="row">
-			<p> 데뷔일
-			   <input name="debut_date" type="date" value="${dto.debut_date}">
-			</p>	
-		</div>
-		<div class="row">
-			<p> 직업코드
-			<input name="job_num" type="text" value="${dto.job_num}">
-			</p>	
-		</div>
-		<div class="row">
-			<p> 활동 ID
-			<input name="act_id" type="text" value="${dto.act_id}">
-			</p>	
-		</div>
-		<div class="row">
-			<p> 예명
-			<input name="stage_name" type="text"value="${dto.stage_name}">
-			</p>	
-		</div>
-		<div align="center">
-			<button type="button" class="btn" onclick="sendOk();">수정완료</button>
-			<button type="reset" class="btn">다시입력</button>
-			<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">수정취소</button>
-			
-			<c:if test="${mode=='update'}">
-				<input type="hidden" name="num" value="${dto.enter_id}">
-			</c:if>
-		</div>
 	
-	</form>
-	</div>
+	<header>
+    	<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
+	</header>
+
+	<main>
+		<div class="write_container">
+			<form name="updateForm" method="post" enctype="multipart/form-data">
+				<div class="row">
+					<p> 연예인 ID
+					</p>	
+					<input name="enter_id" type="text" class="form-control"
+						value="${dto.enter_id }">
+				</div>
+				<div class="row">
+					<p> 연예인 이름
+					</p>	
+					<input name="enter_name" type="text" value="${dto.enter_name}">
+				</div>
+				<div class="row">
+					<p> 생년월일
+					</p>	
+						<input type="date" name=enter_birth value="${dto.enter_birth}">
+				</div>
+				<div class="row">
+					<p> 데뷔일
+					</p>	
+					   <input name="debut_date" type="date" value="${dto.debut_date}">
+				</div>
+				<div class="row">
+					<p> 직업코드
+					</p>	
+					<input name="job_num" type="text" value="${dto.job_num}">
+				</div>
+				<div class="row">
+					<p> 활동 ID
+					</p>	
+					<input name="act_id" type="text" value="${dto.act_id}">
+				</div>
+				<div class="row">
+					<p> 예명
+					</p>	
+					<input name="stage_name" type="text"value="${dto.stage_name}">
+				</div>
+				<div class="btn">
+					<button type="button" class="btn" onclick="sendOk();">수정완료</button>
+					<button type="reset" class="btn">다시입력</button>
+					<button type="button" class="btn" onclick="location.href='${pageContext.request.contextPath}/entertainer/actor.do';">수정취소</button>
+					
+					<c:if test="${mode=='update'}">
+						<input type="hidden" name="num" value="${dto.enter_id}">
+					</c:if>
+				</div>
+			
+			</form>
+		</div>
+	</main>
+	
+	<footer>
+		<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
+	</footer>
 
 
 </body>
