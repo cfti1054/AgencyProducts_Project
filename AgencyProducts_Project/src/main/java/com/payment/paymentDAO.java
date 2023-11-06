@@ -22,7 +22,7 @@ public class paymentDAO {
 			sql = " SELECT a.payment_id, order_count,"
 					+ " goods_name, "
 					+ " to_char(pd.goods_price, '999,999,999,999,999,999,999') goods_price, "
-					+ " to_char(b.goods_price*order_count, '999,999,999,999,999,999,999') total_price, "
+					+ " to_char(pd.goods_price*order_count, '999,999,999,999,999,999,999') total_price, "
 					+ " to_char(payment_date, 'YYYY-MM-DD') payment_date"
 					+ " from payment a "
 					+ " join payment_detail pd on a.payment_id = pd.payment_id "
@@ -40,7 +40,7 @@ public class paymentDAO {
 				dto.setPayment_id(rs.getString("payment_id"));
 				dto.setOrder_count(rs.getLong("order_count"));
 				dto.setGoods_name(rs.getString("goods_name"));
-				dto.setTotal_price(rs.getString("goods_price"));
+				dto.setGoods_price(rs.getString("goods_price"));
 				dto.setPayment_date(rs.getString("payment_date"));
 				dto.setTotal_price(rs.getString("total_price"));
 				
