@@ -67,7 +67,7 @@ function sendLogin() {
 					<button type="submit" class="button" value="Sign In" onclick="sendLogin();">Sign In</button>
 				</div>
 				<p class="text-center">
-					<a href="${pageContext.request.contextPath}//form/member.do">Sign Up</a> <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+					<a href="${pageContext.request.contextPath}/form/member.do">Sign Up</a> <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
 					<a href="${pageContext.request.contextPath}/">Find a ID</a> <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
 					<a href="${pageContext.request.contextPath}/">Find a Password</a>
 				</p>
