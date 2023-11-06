@@ -380,10 +380,13 @@ public class GoodsServlet extends MyUploadServlet {
 		HttpSession session = req.getSession();
 		SessionInfo info = (SessionInfo) session.getAttribute("member");
 		String cp = req.getContextPath();
+		
+		String goods_id = req.getParameter("goods_id");
+		
+		String query = "?goods_id=" + goods_id;
 
 
 		try {
-			String goods_id = req.getParameter("goods_id");
 
 			GoodsDTO dto = dao.findById(goods_id);
 			if (dto == null) {
@@ -409,7 +412,7 @@ public class GoodsServlet extends MyUploadServlet {
 			e.printStackTrace();
 		}
 
-		resp.sendRedirect(cp + "/goods/detail.do");
+		resp.sendRedirect(cp + "/goods/detail.do" + query);
 	}
 	
 }
