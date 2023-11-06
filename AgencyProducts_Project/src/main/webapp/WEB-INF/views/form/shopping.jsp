@@ -57,6 +57,30 @@
   	float: right;
   }
   
+ .deter {
+    text-align: right;
+}
+
+.deter .sell {
+    margin-bottom: 10px;
+}
+
+.deter .sell a {
+    display: inline-block;
+    padding: 10px 100px;
+    background: #444;
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 120px;
+  padding-bottom: 20px;
+}
+  
+  
 
 </style>
 
@@ -149,10 +173,19 @@
 						</tr>
 					</table>
 				</div>
-				
-					</div>
-				</div>
-			</div>
+			 </div>
+		 </div>
+		 
+			<div class="deter" style="padding-top: 25px">
+            	 <div class="sell">
+            		  <a href="#">주문하기</a>
+            	 </div>
+		    </div>
+		    
+		    <div style="padding-bottom: 300px">
+		    	
+		    </div>
+		  </div>  
 
 </main>
 
