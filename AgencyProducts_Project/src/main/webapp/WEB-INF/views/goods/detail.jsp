@@ -93,8 +93,8 @@
                                 </div>
                                 <c:if test="${sessionScope.member.userId=='admin'}">
 	                                <div class="admin_btn">
-	                                	<button type="button" class="update_btn" onclick="update_goods(${dto.goods_id})">수정</button>
-	                                	<button type="button" class="delete_btn" onclick="delete_goods(${dto.goods_id})">삭제</button>
+	                                	<button type="button" class="update_btn" onclick="update_goods('${dto.goods_id}')">수정</button>
+	                                	<button type="button" class="delete_btn" onclick="delete_goods('${dto.goods_id}')">삭제</button>
 	                                </div>
                                 </c:if>
                                 
