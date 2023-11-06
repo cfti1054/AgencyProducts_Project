@@ -37,6 +37,7 @@ ol, ul {
 
 .enter-container .info .article_img img {
 	width: 520px;
+	border-radius: 8px;
 }
 
 .article_content {
