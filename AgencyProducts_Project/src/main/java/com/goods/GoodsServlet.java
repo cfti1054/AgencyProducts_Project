@@ -165,7 +165,7 @@ public class GoodsServlet extends MyUploadServlet {
 			String goods_id = req.getParameter("goods_id");
 			String schType = req.getParameter("schType");
 			String kwd = req.getParameter("kwd");
-			String act_id = req.getParameter("act_id");
+//			String act_id = req.getParameter("act_id");
 			if(schType == null) {
 				schType = "all";
 				kwd = "";
@@ -191,7 +191,7 @@ public class GoodsServlet extends MyUploadServlet {
 			req.setAttribute("page", page);
 			req.setAttribute("query", query);
 			req.setAttribute("listFile", listFile);
-			req.setAttribute("act_id", act_id);
+//			req.setAttribute("act_id", act_id);
 			
 			// 포워딩
 			forward(req, resp, "/WEB-INF/views/goods/detail.jsp");
