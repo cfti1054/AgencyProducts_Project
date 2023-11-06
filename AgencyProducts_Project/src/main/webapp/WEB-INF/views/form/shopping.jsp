@@ -132,18 +132,20 @@
 				</table>
 				
 					<div>
-					<table class="table2">
-						<tr>
+					<table class="table2" style="width: 20%; border-collapse: collapse; height: 100px;">
+						<tr style="background-color: #f2f2f2; border-top: 1px solid #111; border-bottom: 1px solid #ddd;">
+							<td></td>
 							<th>총 금액</th>
 						</tr>
 						<tr>
-							<td>배송비</td>
-							<td>2,500원</td>
+							<td style="text-align: right;">배송비 : </td>
+							<td style="text-align: right;">2,500원</td>
 						</tr>
-						<tr>
-							<td>
-							${dto2.total }원
-							</td>
+						<tr style="border-bottom: 1px solid #111;">
+							<td></td>
+							<th style="text-align: right;">
+							${dto2.total}원
+							</th>
 						</tr>
 					</table>
 				</div>
