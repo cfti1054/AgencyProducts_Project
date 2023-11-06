@@ -17,10 +17,10 @@
                 <div class="footer_top">
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/company/about.do">회사소개</a></li>
-                        <li><a href="#">상품</a></li>
+                        <li><a href="location.href='${pageContext.request.contextPath}/goods/goods.do';">상품</a></li>
                         <li><a href="#">카테고리</a></li>
                         <li><a href="${pageContext.request.contextPath}/notice/list.do">공지사항</a></li>
-                        <li><a href="#">고객센터</a></li>
+                        <li><a href="location.href='${pageContext.request.contextPath}/qna/list.do';">고객센터</a></li>
                         <li><a href="#">FAMILY SITE&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-chevron-up" style="color: #ffffff;"></i></a></li>
                     </ul>
                 </div>

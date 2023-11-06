@@ -44,7 +44,7 @@
 		            <c:forEach var="dto" items="${list}">
 		                <li class="item">
 		     				<a href="${pageContext.request.contextPath}/entertainer/article.do?act_id=${dto.act_id}">
-		                        <img src="${pageContext.request.contextPath}/uploads/photo/${dto.img_name}" alt="${dto.group_name}" title="${dto.group_name}">
+		                        <img src="${pageContext.request.contextPath}/resource/uploads/photo/${dto.img_name}" alt="${dto.group_name}" title="${dto.group_name}">
 		                    </a>
 		                    <ul class="item_detail">
 		                        <li class="item_name">
