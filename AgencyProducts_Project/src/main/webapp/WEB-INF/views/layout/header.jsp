@@ -13,7 +13,6 @@
 </head>
 <body>
 
-<!-- 아니 올렸다니까??? -->
 	<header>
     <div class="header">
       <div class="header_wrap">

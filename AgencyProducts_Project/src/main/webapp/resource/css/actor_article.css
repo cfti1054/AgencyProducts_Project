@@ -29,7 +29,7 @@ ol, ul {
 }
 
 .enter-container .info {
-	width: 1080px;
+	
 	display: flex;
 	justify-content: space-evenly;
 	margin: 0 auto;
@@ -45,7 +45,6 @@ ol, ul {
 }
 
 .article_content table {
-	border-collapse: separate;
 	border-spacing: 0 20px;
 }
 
@@ -53,3 +52,61 @@ ol, ul {
 	width: 200px;
 }
 
+
+.enter-container {
+        width: 70%;
+        margin: 0 auto;
+        padding: 20px;
+        
+        border-radius: 10px;
+    }
+
+    .form-title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .article_img img {
+        max-width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .article_content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .article_content table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 8px 12px;
+        margin-right: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #45a049;
+    }
+
+    .submit-table {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .submit-table td {
+        padding: 10px;
+        text-align: center;
+    }
+    
+    
+    

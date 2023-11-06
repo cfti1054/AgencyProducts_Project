@@ -8,44 +8,7 @@
 <title>article</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/actor_article.css" type="text/css">
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-<style type="text/css">
 
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    color: #333;
-    box-sizing: border-box;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.enter_container {
-    width: 1300px;
-    padding: 80px 0;
-}
-.form-title {
-	padding-bottom: 30px;
-}
-
-.table-form td {
- 	width: 1300px;
-    padding: 80px 0;
-}
-.table-form td { padding: 7px 0; }
-
-.table-form tr td:first-child{ background: #f8f8f8; text-align: center; width: 120px; font-weight: 500; }
-.table-form tr td:nth-child(2) { text-align: left; padding-left: 10px; border-bottom: 2px solid #eee}
-
-.table-form input[type=text]:focus { border: 1px solid #222; }
-
-
-</style>
 <script type="text/javascript">
 function deleteGroup(){
 	if(confirm('그룹을 삭제하시겠습니까 ? ')) {
@@ -73,7 +36,12 @@ function deleteEnter(enter_id){
     	<jsp:include page="/WEB-INF/views/layout/header.jsp"/>
 	</header>
 	
+	<div class="item_container" style="margin-top: 120px;">
+	
+	
 	<div class="enter-container">
+	
+	
 	    <div class="form-title">
 			<h2>${dto.group_name}</h2>
 	    </div>
@@ -162,6 +130,7 @@ function deleteEnter(enter_id){
 			</div>
 	    </div>
 	</div>
+</div>
     <footer>
 		<jsp:include page="/WEB-INF/views/layout/footer.jsp"/>
 	</footer>
