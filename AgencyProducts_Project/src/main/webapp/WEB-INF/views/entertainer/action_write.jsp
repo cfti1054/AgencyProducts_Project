@@ -138,7 +138,7 @@ function sendOk() {
 						</td>
 						<td>
 							<p> 
-								<input type="date" name="start_date" class="form-control" value="${dto.start_date}">
+								<input type="text" name="start_date" class="form-control" value="${dto.start_date}">
 							</p>
 						</td>
 					</tr>
@@ -148,7 +148,7 @@ function sendOk() {
 						</td>
 						<td>
 							<p> 
-								<input type="date" name="end_date" class="form-control" value="${dto.end_date}">
+								<input type="text" name="end_date" class="form-control" value="${dto.end_date}">
 							</p>
 						</td>
 					</tr>

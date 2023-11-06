@@ -98,12 +98,12 @@ function sendOk() {
 				<div class="row">
 					<p> 생년월일
 					</p>	
-						<input type="date" name=enter_birth value="${dto.enter_birth}">
+						<input type="text" name=enter_birth value="${dto.enter_birth}">
 				</div>
 				<div class="row">
 					<p> 데뷔일
 					</p>	
-					   <input name="debut_date" type="date" value="${dto.debut_date}">
+					   <input name="debut_date" type="text" value="${dto.debut_date}">
 				</div>
 				<div class="row">
 					<p> 직업코드
