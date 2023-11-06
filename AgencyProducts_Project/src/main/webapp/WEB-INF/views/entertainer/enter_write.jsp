@@ -14,11 +14,11 @@
 function sendOk() {
     const f = document.enterForm;
 	
-    if(! f.enter_id.value.trim()) {
+  /*  if(! f.enter_id.value.trim()) {
         alert("연예인 ID를 입력하세요. ");
         f.enter_id.focus();
         return;
-    }
+    } */
     
     if(! f.enter_name.value.trim() ) {
         alert("연예인 이름을 입력하세요. ");
