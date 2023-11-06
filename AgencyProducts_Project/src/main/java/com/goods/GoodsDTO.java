@@ -10,6 +10,8 @@ public class GoodsDTO {
    private String reg_date;
    private String goods_acc;
    private int goods_price;
+   private String goods_price2;
+   
    // 굿즈 사진첩 테이블
    private long photo_num;
    private String img_name;
@@ -102,5 +104,14 @@ public String[] getImg_names() {
 public void setImg_names(String[] img_names) {
 	this.img_names = img_names;
 }
+
+public String getGoods_price2() {
+	return goods_price2;
+}
+
+public void setGoods_price2(String goods_price2) {
+	this.goods_price2 = goods_price2;
+}
+
 
 }

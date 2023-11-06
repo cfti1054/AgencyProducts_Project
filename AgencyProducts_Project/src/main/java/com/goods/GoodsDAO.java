@@ -176,7 +176,7 @@ public class GoodsDAO {
 		String sql = null;
 
 		try {
-			sql = " SELECT g.goods_id, g.goods_name, goods_price, " 
+			sql = " SELECT g.goods_id, g.goods_name, to_char(goods_price, '999,999,999,999,999,999,999') goods_price2, " 
 					+ " TO_CHAR(reg_date, 'YYYY-MM-DD') reg_date, "
 					+ " goods_acc, img_name, photo_num, act_id " 
 					+ " FROM goods g "
@@ -201,7 +201,7 @@ public class GoodsDAO {
 
 				dto.setGoods_id(rs.getString("goods_id"));
 				dto.setGoods_name(rs.getString("goods_name"));
-				dto.setGoods_price(rs.getInt("goods_price"));
+				dto.setGoods_price2(rs.getString("goods_price2"));
 				dto.setReg_date(rs.getString("reg_date"));
 				dto.setGoods_acc(rs.getString("goods_acc"));
 				dto.setImg_name(rs.getString("img_name"));
@@ -289,7 +289,8 @@ public class GoodsDAO {
 		String sql;
 
 		try {
-			sql = "SELECT goods_id, goods_name, goods_price, act_id, goods_count, reg_date, goods_acc "
+			sql = "SELECT goods_id, goods_name, to_char(goods_price, '999,999,999,999,999,999,999') goods_price2, goods_price,"
+					+ " act_id, goods_count, reg_date, goods_acc "
 					+ " FROM goods "
 					+ " WHERE goods_id = ? ";
 
@@ -304,6 +305,7 @@ public class GoodsDAO {
 
 				dto.setGoods_id(rs.getString("goods_id"));
 				dto.setGoods_name(rs.getString("goods_name"));
+				dto.setGoods_price2(rs.getString("goods_price2"));
 				dto.setGoods_price(rs.getInt("goods_price"));
 				dto.setAct_id(rs.getString("act_id"));
 				dto.setGoods_count(rs.getInt("goods_count"));
