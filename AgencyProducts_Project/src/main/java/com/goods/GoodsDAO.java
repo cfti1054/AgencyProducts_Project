@@ -69,36 +69,36 @@ public class GoodsDAO {
 	}
 
 	// 연애인 목록
-	public List<GoodsDTO> listEntertainer() {
-		List<GoodsDTO> list = new ArrayList<GoodsDTO>();
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = null;
+    public List<GoodsDTO> listEntertainer() {
+        List<GoodsDTO> list = new ArrayList<GoodsDTO>();
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String sql = null;
 
-		try {
-			sql = " SELECT act_id, group_name " + " FROM entertainer ";
+        try {
+            sql = " SELECT act_id, group_name " + " FROM entertainer ";
 
-			pstmt = conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(sql);
 
-			rs = pstmt.executeQuery();
+            rs = pstmt.executeQuery();
 
-			while (rs.next()) {
-				GoodsDTO dto = new GoodsDTO();
+            while (rs.next()) {
+                GoodsDTO dto = new GoodsDTO();
 
-				dto.setAct_id(rs.getString("act_id"));
-				dto.setGroup_name(rs.getString("group_name"));
+                dto.setAct_id(rs.getString("act_id"));
+                dto.setGroup_name(rs.getString("group_name"));
 
-				list.add(dto);
-			}
+                list.add(dto);
+            }
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBUtil.close(rs);
-			DBUtil.close(pstmt);
-		}
-		return list;
-	}
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.close(rs);
+            DBUtil.close(pstmt);
+        }
+        return list;
+    }
 
 	// 데이터 개수
 	public int dataCount() {
