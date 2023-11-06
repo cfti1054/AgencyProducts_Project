@@ -12,21 +12,21 @@
 </head>
 
 <script type="text/javascript">
-function update_goods(goods_id) {
-    if(confirm("게시글을 수정 하시겠습니까 ? ")) {
-        let query = "goods_id="+goods_id;
-        let url = "${pageContext.request.contextPath}/goods/update.do?" + query;
-        location.href = url;
-    }
-}
-
-function delete_goods(goods_id) {
-    if(confirm("게시글을 삭제 하시겠습니까 ? ")) {
-        let query = "goods_id="+goods_id;
-        let url = "${pageContext.request.contextPath}/goods/delete.do?" + query;
-        location.href = url;
-    }
-}
+	function update_goods(goods_id) {
+	    if(confirm("게시글을 수정 하시겠습니까 ? ")) {
+	        let query = "goods_id="+goods_id;
+	        let url = "${pageContext.request.contextPath}/goods/update.do?" + query;
+	        location.href = url;
+	    }
+	}
+	
+	function delete_goods(goods_id) {
+	    if(confirm("게시글을 삭제 하시겠습니까 ? ")) {
+	        let query = "goods_id="+goods_id;
+	        let url = "${pageContext.request.contextPath}/goods/delete.do?" + query;
+	        location.href = url;
+	    }
+	}
 </script>
 
 <body>

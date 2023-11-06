@@ -445,4 +445,45 @@ public class GoodsDAO {
 		return list;
 	}
 	
+	public void deletePhotoFile(String goods_id) throws SQLException {
+		PreparedStatement pstmt = null;
+		String sql;
+
+		try {
+				sql = "DELETE FROM goods_photo WHERE goods_id = ?";
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, goods_id);
+				
+				pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			DBUtil.close(pstmt);
+		}
+	}
+	
+	/*
+	public void deletePhoto(String goods_id) throws SQLException {
+		PreparedStatement pstmt = null;
+		String sql;
+
+		try {
+			sql = "DELETE FROM goods_photo WHERE goods_id=?";
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, goods_id);
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			DBUtil.close(pstmt);
+		}
+	}
+	*/
+	
 }

@@ -53,7 +53,9 @@ public class GoodsServlet extends MyUploadServlet {
 			goodsupdateSubmit(req, resp);
 		} else if (uri.indexOf("delete.do") != -1) {
 			delete(req, resp);
-		}	
+		} else if (uri.indexOf("deleteFile.do") != -1) {
+			deleteFile(req, resp);
+		}
 		
 	}
 	
@@ -276,8 +278,11 @@ public class GoodsServlet extends MyUploadServlet {
 				return;
 			}
 			
+			List<GoodsDTO> listPhotoFile = dao.listPhotoFile(goods_id);
+			
 			req.setAttribute("mode", "update");
 			req.setAttribute("dto", dto);
+			req.setAttribute("listPhotoFile", listPhotoFile);
 			
 			forward(req, resp, "/WEB-INF/views/goods/write.jsp");
 			return;
@@ -309,15 +314,15 @@ public class GoodsServlet extends MyUploadServlet {
 			dto.setGoods_count(Integer.parseInt(req.getParameter("quantity")));
 			dto.setGoods_acc(req.getParameter("content"));
 			
-			String img_name = req.getParameter("imageFilename");
-			dto.setImg_name(img_name);
+			//String img_name = req.getParameter("selectFile");
+			//dto.setImg_name(img_name);
 			
 			Map<String, String[]> map = doFileUpload(req.getParts(), pathname);
 			if(map != null) {
 				String[] saveFiles = map.get("saveFilenames");
 				
 				// 기존 파일제거. 새로운 파일을 올리면 기존파일을 삭제시켜야 한다.
-				FileManager.doFiledelete(pathname, img_name);
+				//FileManager.doFiledelete(pathname, img_name);
 				
 				dto.setImg_names(saveFiles);
 			}
@@ -367,6 +372,44 @@ public class GoodsServlet extends MyUploadServlet {
 		
 		resp.sendRedirect(cp + "/goods/goods.do");
 		
+	}
+	
+	protected void deleteFile(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 삭제 완료
+		GoodsDAO dao = new GoodsDAO();
+		HttpSession session = req.getSession();
+		SessionInfo info = (SessionInfo) session.getAttribute("member");
+		String cp = req.getContextPath();
+
+
+		try {
+			String goods_id = req.getParameter("goods_id");
+
+			GoodsDTO dto = dao.findById(goods_id);
+			if (dto == null) {
+				resp.sendRedirect(cp + "/goods/goods.do");
+				return;
+			}
+
+			// 게시물을 올린 사용자가 아니면
+			if (!info.getUserId().equals("admin")) {
+				resp.sendRedirect(cp + "/goods/goods.do");
+				return;
+			}
+
+			// 이미지 파일 지우기
+			List<GoodsDTO> listFile = dao.listPhotoFile(goods_id);
+			for (GoodsDTO vo : listFile) {
+				FileManager.doFiledelete(pathname, vo.getImg_name());
+			}
+
+			// 테이블 데이터 삭제
+			dao.deletePhotoFile(goods_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		resp.sendRedirect(cp + "/goods/detail.do");
 	}
 	
 }

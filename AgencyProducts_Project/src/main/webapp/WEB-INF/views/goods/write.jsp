@@ -73,6 +73,18 @@
 	    f.submit();
 		
 	}
+	
+	<c:if test="${mode=='update'}">
+		function deleteFile(goods_id) {
+			if(! confirm("이미지를 삭제 하시겠습니까 ?")) {
+				return;
+			}
+			
+			let query = "goods_id=" + goods_id;
+			let url = "${pageContext.request.contextPath}/goods/deleteFile.do?" + query;
+			location.href = url;
+		}
+	</c:if>
 </script>
 
 </head>
@@ -154,8 +166,13 @@
 			<tr>
 				<td>등록이미지</td>
 				<td>
-					<img src="<c:url value='/uploads/photo/${ dto.img_name }'/>" class="img">
-					<span class="info">(새로운 이미지를 등록하면 기존 이미지는 삭제됩니다.)</span>
+					<div>
+						<c:forEach var="vo" items="${ listPhotoFile }">
+							<img src="<c:url value='/uploads/photo/${ vo.img_name }'/>" class="img"
+							 onclick="deleteFile('${vo.goods_id}');">
+							<span class="info">(새로운 이미지를 등록하면 기존 이미지는 삭제됩니다.)</span>
+						</c:forEach>
+					</div>
 				</td>
 			</tr>
 		</c:if>
