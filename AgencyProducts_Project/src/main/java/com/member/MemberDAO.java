@@ -341,4 +341,63 @@ public class MemberDAO {
 		return dto;
 	}
 	
+	public MemberDTO userdata(String user_id) {
+		MemberDTO dto = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		StringBuilder sb = new StringBuilder();
+		
+		try {
+			sb.append("SELECT u1.user_id, user_name,");
+			sb.append("      TO_CHAR(reg_date, 'YYYY-MM-DD') reg_date, ");
+			sb.append("      TO_CHAR(birth, 'YYYY-MM-DD') birth, ");
+			sb.append("      email, tel,");
+			sb.append("      zip, addr1, addr2");
+			sb.append("  FROM user1 u1");
+			sb.append("  LEFT OUTER JOIN user2 u2 ON u1.user_id=u2.user_id ");
+			sb.append("  WHERE u1.user_id = ? and enabled = 1");
+			
+			pstmt = conn.prepareStatement(sb.toString());
+			
+			pstmt.setString(1, user_id);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto = new MemberDTO();
+				
+				dto.setUser_id(rs.getString("user_id"));
+				dto.setUser_name(rs.getString("user_name"));
+				dto.setReg_date(rs.getString("reg_date"));
+				dto.setBirth(rs.getString("birth"));
+				dto.setTel(rs.getString("tel"));
+				if(dto.getTel() != null) {
+					String[] ss = dto.getTel().split("-");
+					if(ss.length == 3) {
+						dto.setTel1(ss[0]);
+						dto.setTel2(ss[1]);
+						dto.setTel3(ss[2]);
+					}
+				}
+				dto.setEmail(rs.getString("email"));
+				if(dto.getEmail() != null) {
+					String[] ss = dto.getEmail().split("@");
+					if(ss.length == 2) {
+						dto.setEmail1(ss[0]);
+						dto.setEmail2(ss[1]);
+					}
+				}
+				dto.setZip(rs.getString("zip"));
+				dto.setAddr1(rs.getString("addr1"));
+				dto.setAddr2(rs.getString("addr2"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(rs);
+			DBUtil.close(pstmt);
+		}
+		
+		return dto;
+	}	
 }

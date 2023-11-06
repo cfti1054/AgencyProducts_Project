@@ -70,7 +70,7 @@ public class LoginFilter implements Filter {
 		uri = uri.substring(cp.length());
 		
 		String[] uris = {
-			"/index.jsp", "/main.do", 
+			"/index.jsp", "/main.do", "/form/shopping.do", "/form/userinfo.do",
 			"/form/login.do", "/form/login_ok.do",
 			"/form/member.do", "/form/member_ok.do",
 			"/form/userIdCheck.do", 

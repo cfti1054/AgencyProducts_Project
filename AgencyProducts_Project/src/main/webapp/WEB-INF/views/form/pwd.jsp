@@ -39,6 +39,9 @@ function sendOk() {
 				<h2>MYPAGE</h2>
 				<ul class="list">
 					<li class="title"><a
+						href="${pageContext.request.contextPath}/form/userinfo.do">회원정보</a>
+					</li>
+					<li class="title"><a
 						href="${pageContext.request.contextPath}/form/pwd.do">정보수정</a>
 					</li>
 					<li class="title"><a

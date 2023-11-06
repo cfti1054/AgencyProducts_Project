@@ -92,66 +92,67 @@
 	
 				<div class="members-form" id="pwd-confirm">
 					<div class="members-title">
-						<h2>장바구니</h2>
+						<h2>회원정보</h2>
 						<span></span>
-						<h4>SHOPPING BASKET</h4>
+						<h4>INFORMATION</h4>
 			       </div>	
-						
-			  			
-				<table class="table table-list">
-					<thead> 
-						<tr>
-							<th class="subject">
-						 	  상품명
-							</th>
-							<th class="num">
-							   상품금액
-							</th>
-							<th class="num">
-							   갯수
-							</th>
-							<th class="num">
-								총금액
-							</th>
-							<th class="num">
-								배송비
-							</th>
-						</tr>
-					</thead>
-				<c:forEach var="dto" items="${list }">		
-					<tbody>
-						<tr>
-							<td class="subject">${dto.goods_name }</td>
-							<td class="num">${dto.goods_price }원</td>
-							<td class="num">${dto.order_count }</td>
-							<td class="num">${dto.total_price }원</td>
-							<td class="num">2,500원</td>
-						</tr>
-					</tbody>
-			</c:forEach>	
-				</table>
+				</div>
+				</div>
 				
-					<div>
-					<table class="table2" style="width: 20%; border-collapse: collapse; height: 100px;">
-						<tr style="background-color: #f2f2f2; border-top: 1px solid #111; border-bottom: 1px solid #ddd;">
-							<td></td>
-							<th>총 금액</th>
+				<div>
+					<table>
+						<tr>
+							<th>
+								이름
+							</th>
+							<td>${dto.user_name}</td>
 						</tr>
 						<tr>
-							<td style="text-align: right;">배송비 : </td>
-							<td style="text-align: right;">2,500원</td>
-						</tr>
-						<tr style="border-bottom: 1px solid #111;">
-							<td></td>
-							<th style="text-align: right;">
-							${dto2.total}원
+							<th>
+								생년월일
 							</th>
+							<td>${dto.birth}</td>
+						</tr>
+						<tr>
+							<th>
+								전화번호
+							</th>
+							<td>${dto.tel}</td>
+						</tr>
+						<tr>
+							<th>
+								이메일
+							</th>
+							<td>${dto.email}</td>
+						</tr>
+						<tr>
+							<th>
+								우편번호
+							</th>
+							<td>${dto.zip}</td>
+						</tr>
+						<tr>
+							<th>
+								기본주소
+							</th>
+							<td>${dto.addr1}</td>
+						</tr>
+						<tr>
+							<th>
+								상세주소
+							</th>
+							<td>${dto.addr2}</td>
+						</tr>
+						<tr>
+							<th>
+								가입일
+							</th>
+							<td>${dto.reg_date}</td>
 						</tr>
 					</table>
 				</div>
+						
 				
-					</div>
-				</div>
 			</div>
 
 </main>
