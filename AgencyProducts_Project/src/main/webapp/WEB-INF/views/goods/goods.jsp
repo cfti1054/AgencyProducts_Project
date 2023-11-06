@@ -31,7 +31,7 @@
 					<c:forEach var="dto" items="${ list }" varStatus="status">
 						<li class="item"><a
 							href="${detailUrl}&goods_id=${dto.goods_id}&act_id=${dto.act_id}"> <img
-								src="${ pageContext.request.contextPath }/uploads/photo/${ dto.img_name }"
+								src="${ pageContext.request.contextPath }/resource/uploads/photo/${ dto.img_name }"
 								alt="item${ status.index }" title="item${ status.index }">
 						</a>
 							<ul class="item_detail">

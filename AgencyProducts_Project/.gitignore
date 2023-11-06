@@ -7,6 +7,6 @@ DBConn.java
 
 /src/main/webapp/image/*
 
-/src/main/webapp/uploads/*
+/src/main/webapp/resource/uploads/*
 
 /src/main/webapp/resource/main_img/*
