@@ -53,11 +53,13 @@ body {
 function sendOk() {
     const f = document.groupForm;
 	
+    /*
     if(! f.act_id.value.trim() ) {
         alert("활동ID를 입력하세요. ");
         f.act_id.focus();
         return;
     }
+    */
 	
     if(! f.group_name.value.trim() ) {
         alert("그룹명을 입력하세요. ");
