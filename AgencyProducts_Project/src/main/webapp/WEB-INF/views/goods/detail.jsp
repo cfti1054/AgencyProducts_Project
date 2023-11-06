@@ -40,7 +40,7 @@
             <div class="detail_wrap">
                 <div class="detail_img">
                     <div class="img_cover">
-                        <img src="${pageContext.request.contextPath}/uploads/photo/${listFile[1].img_name}" alt="detail_img">
+                        <img src="${pageContext.request.contextPath}/uploads/photo/${listFile[0].img_name}" alt="detail_img">
                     </div>
                 </div>
                 <div class="detail_info_wrap">

@@ -128,6 +128,7 @@ public class GoodsServlet extends MyUploadServlet {
 			
 			String paging = util.paging(current_page, total_page, goodsUrl);
 			
+			
 			// 포워딩할 JSP에 전달할 속성
 			req.setAttribute("list", list);
 			req.setAttribute("page", current_page);
@@ -138,6 +139,7 @@ public class GoodsServlet extends MyUploadServlet {
 			req.setAttribute("paging", paging);
 			req.setAttribute("schType", schType);
 			req.setAttribute("kwd", kwd);
+			
 			
 			
 			
