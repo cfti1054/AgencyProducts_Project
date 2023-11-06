@@ -36,7 +36,7 @@
         </div>
 
         <div class="right_header">
-          <ul class="icons">
+          <ul class="icons i">
           <c:choose>
 			<c:when test="${empty sessionScope.member}">
 				<!--로그인 전-->
