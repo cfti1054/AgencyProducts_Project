@@ -43,7 +43,7 @@
   }
   
   .subject {
-    width: 30%;
+    width: 25%;
   }
   
     .table-list th, .table-list td {
@@ -56,6 +56,7 @@
   	margin-top: 30px;
   	float: right;
   }
+  
   
 
 </style>
@@ -114,9 +115,9 @@
 				<c:forEach var="dto" items="${list }">		
 					<tbody>
 						<tr>
-							<td class="subject">${dto.goods_name }<td>
-							<td class="num">${dto.order_count }<td>
-							<td class="num">${dto.total_price }원<td>
+							<td class="subject">${dto.goods_name }</td>
+							<td class="num">${dto.order_count}</td>
+							<td class="num">${dto.total_price}원</td>
 							<td class="num">2,500원</td>
 						</tr>
 					</tbody>
@@ -124,18 +125,22 @@
 				</table>
 				
 					<div>
-					<table class="table2">
-						<tr>
+					<table class="table2" style="width: 16%; border-collapse: collapse; padding: 8px;
+    						text-align: center;">
+						<tr style="height: 40px; border-top: 1px solid #111;
+						border-bottom: 1px solid #ccc; background-color: #f2f2f2;">
+							<td></td>
 							<th>총 금액</th>
 						</tr>
-						<tr>
+						<tr style="height: 40px;">
 							<td>배송비</td>
-							<td>2,500원</td>
+							<td style="text-align: right;">2,500원</td>
 						</tr>
-						<tr>
-							<td>
+						<tr style="height: 40px; border-bottom: 1px solid #ccc;">
+							<td></td>
+							<th style="text-align: right;">
 							${dto2.total }원
-							</td>
+							</th>
 						</tr>
 					</table>
 				</div>
