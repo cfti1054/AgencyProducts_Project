@@ -241,7 +241,7 @@ public class MemberDAO {
 		String sql;
 		
 		try {
-			sql = "select goods_name, order_count,"
+			sql = "select goods_name, order_count, to_char(goods_price, '999,999,999,999,999,999,999') goods_price,"
 					+ " to_char(goods_price* order_count, '999,999,999,999,999,999,999') total_price"
 					+ " from shopping a, goods b"
 					+ " where a.goods_id = b.goods_id and a.user_id = ?";
@@ -256,7 +256,9 @@ public class MemberDAO {
 				
 				dto.setGoods_name(rs.getString("goods_name"));
 				dto.setOrder_count(rs.getLong("order_count"));
+				dto.setGoods_price(rs.getString("goods_price"));
 				dto.setTotal_price(rs.getString("total_price"));
+				
 			}
 
 		} catch (Exception e) {
@@ -275,7 +277,7 @@ public class MemberDAO {
 		String sql;
 		
 		try {
-			sql = "select goods_name, order_count,"
+			sql = "select goods_name, order_count, to_char(goods_price, '999,999,999,999,999,999,999') goods_price,"
 					+ " to_char(goods_price* order_count, '999,999,999,999,999,999,999') total_price"
 					+ " from shopping a, goods b"
 					+ " where a.goods_id = b.goods_id and a.user_id = ?";
@@ -290,6 +292,7 @@ public class MemberDAO {
 				
 				dto.setGoods_name(rs.getString("goods_name"));
 				dto.setOrder_count(rs.getLong("order_count"));
+				dto.setGoods_price(rs.getString("goods_price"));
 				dto.setTotal_price(rs.getString("total_price"));
 				
 				list.add(dto);

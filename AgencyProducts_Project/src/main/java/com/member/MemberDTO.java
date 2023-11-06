@@ -25,6 +25,7 @@ public class MemberDTO {
 	private String goods_name;
 	private String total_price;
 	private String total;
+	private String goods_price;
 	
 	
 	public String getUser_id() {
@@ -159,7 +160,11 @@ public class MemberDTO {
 	public void setTotal(String total) {
 		this.total = total;
 	}
-	
-	
+	public String getGoods_price() {
+		return goods_price;
+	}
+	public void setGoods_price(String goods_price) {
+		this.goods_price = goods_price;
+	}
 	
 }

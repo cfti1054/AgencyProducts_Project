@@ -43,7 +43,7 @@
   }
   
   .subject {
-    width: 25%;
+    width: 30%;
   }
   
     .table-list th, .table-list td {
@@ -56,7 +56,6 @@
   	margin-top: 30px;
   	float: right;
   }
-  
   
 
 </style>
@@ -77,6 +76,9 @@
 				<h2>MYPAGE</h2>
 				<ul class="list">
 					<li class="title"><a
+						href="${pageContext.request.contextPath}/form/userdata.do">회원정보</a>
+					</li>
+					<li class="title"><a
 						href="${pageContext.request.contextPath}/form/pwd.do">정보수정</a>
 					</li>
 					<li class="title"><a
@@ -95,11 +97,15 @@
 						<h4>SHOPPING BASKET</h4>
 			       </div>	
 						
+			  			
 				<table class="table table-list">
 					<thead> 
 						<tr>
 							<th class="subject">
 						 	  상품명
+							</th>
+							<th class="num">
+							   상품금액
 							</th>
 							<th class="num">
 							   갯수
@@ -116,8 +122,9 @@
 					<tbody>
 						<tr>
 							<td class="subject">${dto.goods_name }</td>
-							<td class="num">${dto.order_count}</td>
-							<td class="num">${dto.total_price}원</td>
+							<td class="num">${dto.goods_price }원</td>
+							<td class="num">${dto.order_count }</td>
+							<td class="num">${dto.total_price }원</td>
 							<td class="num">2,500원</td>
 						</tr>
 					</tbody>
@@ -125,22 +132,18 @@
 				</table>
 				
 					<div>
-					<table class="table2" style="width: 16%; border-collapse: collapse; padding: 8px;
-    						text-align: center;">
-						<tr style="height: 40px; border-top: 1px solid #111;
-						border-bottom: 1px solid #ccc; background-color: #f2f2f2;">
-							<td></td>
+					<table class="table2">
+						<tr>
 							<th>총 금액</th>
 						</tr>
-						<tr style="height: 40px;">
+						<tr>
 							<td>배송비</td>
-							<td style="text-align: right;">2,500원</td>
+							<td>2,500원</td>
 						</tr>
-						<tr style="height: 40px; border-bottom: 1px solid #ccc;">
-							<td></td>
-							<th style="text-align: right;">
+						<tr>
+							<td>
 							${dto2.total }원
-							</th>
+							</td>
 						</tr>
 					</table>
 				</div>
