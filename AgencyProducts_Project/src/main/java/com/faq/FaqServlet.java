@@ -170,7 +170,7 @@ public class FaqServlet extends MyServlet {
 			dto.setFaq_num(Long.parseLong(req.getParameter("faq_num")));
 			dto.setFaq_case(req.getParameter("faq_case"));
 			dto.setFaq_subject(req.getParameter("faq_subject"));
-			dto.setFaq_content(req.getParameter("faq_content"));
+			dto.setFaq_content(req.getParameter("faq_content").replaceAll("\n", "<br>"));
 			
 			dao.updateFaq(dto);
 			

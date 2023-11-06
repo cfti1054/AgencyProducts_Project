@@ -35,14 +35,8 @@ ol, ul {
 	margin: 0 auto;
 }
 
-.enter-container .info .article_img {
-	position: relative;
-	width: 400px;
-	overflow: hidden;
-}
-
 .enter-container .info .article_img img {
-	width: 400px;
+	width: 520px;
 }
 
 .article_content {
