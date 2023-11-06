@@ -42,7 +42,7 @@
 }
 
 .num {
-	width: 7%;
+	width: 11%;
 }
 
 .subject {
@@ -94,48 +94,29 @@
 					<table class="table table-list">
 						<thead>
 							<tr>
-								<th class="num">상품 이름</th>
-								<th class="num">주문 일자</th>
-								<th class="subject">주문번호</th>
+								<th class="num">주문번호</th>
+								<th class="subject">상품 이름</th>
 								<th class="num">구매개수</th>
 								<th class="num">상품가격</th>
 								<th class="num">총 가격</th>
 								<th class="num">배송비</th>
+								<th class="num">주문 일자</th>
 							</tr>
 						</thead>
 						<c:forEach var="dto" items="${list }">
 							<tbody>
 								<tr>
-									<td class="num">${dto.goods_name }</td>
-									<td class="num">${dto.payment_date }</td>
-									<td class="subject">${dto.payment_id }</td>
+									<td class="num">${dto.payment_id }</td>
+									<td class="subject">${dto.goods_name }</td>
 									<td class="num">${dto.order_count }</td>
 									<td class="num">${dto.goods_price }</td>
 									<td class="num">${dto.total_price }</td>
 									<td class="num">2,500원</td>
+									<td class="num">${dto.payment_date }</td>
 								</tr>
 							</tbody>
 						</c:forEach>
 					</table>
-
-					<div>
-						<table class="table2"
-							style="width: 20%; border-collapse: collapse; height: 100px;">
-							<tr
-								style="background-color: #f2f2f2; border-top: 1px solid #111; border-bottom: 1px solid #ddd;">
-								<th>총 금액</th>
-							</tr>
-							<tr>
-								<td style="text-align: right;">배송비 :</td>
-								<td style="text-align: right;">2,500원</td>
-							</tr>
-							<tr style="border-bottom: 1px solid #111;">
-								<td></td>
-								<th style="text-align: right;">${dto2.total }원</th>
-							</tr>
-						</table>
-					</div>
-
 				</div>
 			</div>
 		</div>
