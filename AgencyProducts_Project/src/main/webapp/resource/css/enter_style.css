@@ -64,6 +64,8 @@ body {
 
 .item_list .item a img {
     border-radius: 8px;
+   width: 240px;
+   height: 240px;
 }
 
 

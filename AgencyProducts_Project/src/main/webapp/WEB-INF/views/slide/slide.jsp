@@ -15,35 +15,27 @@
 	<!-- Swiper -->
     <div class="swiper mySwiper">
     <div class="swiper-wrapper">
+    
     <div class="swiper-slide">
-    	<img alt="slide01" src="${pageContext.request.contextPath}/resource/img/slide01.jpg">
+    	<img alt="slide01" src="${pageContext.request.contextPath}/resource/main_img/main01.jpg">
     </div>
    	<div class="swiper-slide">
-    	<img alt="slide02" src="${pageContext.request.contextPath}/resource/img/slide02.jpg">
+    	<img alt="slide02" src="${pageContext.request.contextPath}/resource/main_img/main02.jpg">
     </div>
    	<div class="swiper-slide">
-    	<img alt="slide03" src="${pageContext.request.contextPath}/resource/img/slide03.jpg">
+    	<img alt="slide03" src="${pageContext.request.contextPath}/resource/main_img/main03.jpg">
     </div>
    	<div class="swiper-slide">
-    	<img alt="slide04" src="${pageContext.request.contextPath}/resource/img/slide04.jpg">
+    	<img alt="slide04" src="${pageContext.request.contextPath}/resource/main_img/main04.jpg">
     </div>
    	<div class="swiper-slide">
-    	<img alt="slide05" src="${pageContext.request.contextPath}/resource/img/slide05.jpg">
+    	<img alt="slide05" src="${pageContext.request.contextPath}/resource/main_img/main05.jpg">
     </div>
    	<div class="swiper-slide">
-    	<img alt="slide06" src="${pageContext.request.contextPath}/resource/img/slide06.jpg">
+    	<img alt="slide06" src="${pageContext.request.contextPath}/resource/main_img/main06.jpg">
     </div>
    	<div class="swiper-slide">
-    	<img alt="slide07" src="${pageContext.request.contextPath}/resource/img/slide07.jpg">
-    </div>
-   	<div class="swiper-slide">
-    	<img alt="slide08" src="${pageContext.request.contextPath}/resource/img/slide08.jpg">
-    </div>
-   	<div class="swiper-slide">
-    	<img alt="slide09" src="${pageContext.request.contextPath}/resource/img/slide09.jpg">
-    </div>
-   	<div class="swiper-slide">
-    	<img alt="slide10" src="${pageContext.request.contextPath}/resource/img/slide10.jpg">
+    	<img alt="slide07" src="${pageContext.request.contextPath}/resource/main_img/main07.jpg">
     </div>
    	
     </div>
