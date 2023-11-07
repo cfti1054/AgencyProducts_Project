@@ -15,7 +15,7 @@
 
 </style>
 
-<title>장바구니</title>
+<title>회원정보</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
 </head>

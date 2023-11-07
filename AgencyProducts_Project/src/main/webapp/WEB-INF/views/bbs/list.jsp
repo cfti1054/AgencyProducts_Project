@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/bbs_list.css" type="text/css">
 
-<title>bbs</title>
+<title>news</title>
 
 
 

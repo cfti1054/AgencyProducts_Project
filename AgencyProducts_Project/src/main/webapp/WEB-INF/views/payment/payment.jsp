@@ -109,8 +109,8 @@
 									<td class="num">${dto.payment_id }</td>
 									<td class="subject">${dto.goods_name }</td>
 									<td class="num">${dto.order_count }</td>
-									<td class="num">${dto.goods_price }</td>
-									<td class="num">${dto.total_price }</td>
+									<td class="num">${dto.goods_price }원</td>
+									<td class="num">${dto.total_price }원</td>
 									<td class="num">2,500원</td>
 									<td class="num">${dto.payment_date }</td>
 								</tr>
