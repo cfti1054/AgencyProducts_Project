@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/qna_article.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <title>1:1 문의</title>
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
@@ -24,11 +26,16 @@
 		}
 	</script>
 </c:if>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
 <c:if test="${sessionScope.member.userId=='admin'}">
 	<script type="text/javascript">
 		$(function(){
 			let answer = "${dto.ans_content}";
+			
+			let aaa = "안녕 "
+				 + "<br> dsf";
+				
 			if(! answer) {
 				$(".reply").show();
 			}
