@@ -212,7 +212,7 @@ public class QnaServlet extends MyServlet{
 				}
 			
 			
-			dto.setQ_content(dto.getQ_content().replaceAll("\n", "<br>"));
+			dto.setQ_content(dto.getQ_content().replaceAll("\r\n", "<br>"));
 			if(dto.getAns_content() != null) {
 				dto.setAns_content(dto.getAns_content().replaceAll("\r\n", "<br>"));
 				
