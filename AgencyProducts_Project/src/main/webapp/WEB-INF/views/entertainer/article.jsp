@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>article</title>
+<title>entertainer</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/css/actor_article.css" type="text/css">
 <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
